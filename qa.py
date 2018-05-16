@@ -1,7 +1,7 @@
 
 from qa_engine.base import QABase
 from qa_engine.score_answers import main as score_answers
-
+import re ###
 
 
 def get_answer(question, story):
@@ -38,6 +38,32 @@ def get_answer(question, story):
 
     """
     ###     Your Code Goes Here         ###
+    
+    question_text = question.get("text")  # gets the raw text of the question
+    question_difficulty = question.get("difficulty")
+
+    # for easy questions, match with regex
+    if question_difficulty == "Easy":
+
+        # Get question type (who, what, where, when, or why)
+        question_type_who   = re.match(r'Who (.*)',   question_text)
+        question_type_what  = re.match(r'What (.*)',  question_text)
+        question_type_where = re.match(r'Where (.*)', question_text)
+        question_type_when  = re.match(r'When (.*)',  question_text)
+        question_type_why   = re.match(r'Why (.*)',   question_text)
+
+        if question_type_who:
+            print(question_type_who.group())
+        if question_type_what:
+            print(question_type_what.group())
+        if question_type_where:
+            print(question_type_where.group())
+        if question_type_when:
+            print(question_type_when.group())
+        if question_type_why:
+            print(question_type_why.group())
+        
+
 
     answer = "whatever you think the answer is"
 
