@@ -40,20 +40,21 @@ def get_answer(question, story):
     text_q = question["text"]
     dep_q = question["dep"]
     print(text_q)
-    for node in dep_q.nodes:
-        print(dep_q.nodes[node]["rel"])
+    #print(dep_q)
+    #for node in dep_q.nodes:
+    #    print(dep_q.nodes[node]["rel"])
     
     keyword = ""
     for node in dep_q.nodes:
         if dep_q.nodes[node]["rel"]=="nsubj":
-            print(dep_q.nodes[node]["lemma"])
+            #print(dep_q.nodes[node]["lemma"])
             keyword = dep_q.nodes[node]["lemma"].lower()
     numwords = len(text_q.split(" "))
     if keyword=="":
         print("try: "+str(dep_q.nodes[numwords]["lemma"]))
         keyword = dep_q.nodes[numwords]["lemma"]
-    matches = re.findall(keyword+"[^\.]*",story["text"])
-    print(matches)
+    #matches = re.findall(keyword+"[^\.]*",story["text"])
+    #print(matches)
 
 ###############################################
     
@@ -72,15 +73,31 @@ def get_answer(question, story):
 
         if question_type_who:
             print(question_type_who.group())
+            keyword = question_type_who.group()[2:]
         if question_type_what:
             print(question_type_what.group())
         if question_type_where:
             print(question_type_where.group())
+            print("WHERE")
+            print(' '.join(question_type_where.group().split()[3:]))
+            
+            keywords = question_type_where.group().split()
+            #need to remove verb
+            for node in dep_q.nodes:
+                if "VB" in dep_q.nodes[node]["tag"]:
+                    if node-1 in range(len(keywords)):
+                        keywords[node-1] = "[^\.]*"
+            keyword = " ".join(keywords[2:])
+            keyword = re.sub("\?","",keyword)
+            print(keyword)
         if question_type_when:
             print(question_type_when.group())
         if question_type_why:
             print(question_type_why.group())
-        
+            
+        matches = re.findall(keyword+"[^\.]*",story["text"])
+        print(matches)
+                
 
 
     answer = "whatever you think the answer is"
