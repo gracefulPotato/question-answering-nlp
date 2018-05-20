@@ -4,8 +4,8 @@ from qa_engine.score_answers import main as score_answers
 import re
 
 def get_keyword(question,dep_q):
-    print(question)
-    print("WHERE")
+    # print(question)
+    # print("WHERE")
     print(' '.join(question.split()[3:]))
     
     keywords = question.split()
@@ -16,6 +16,21 @@ def get_keyword(question,dep_q):
                 keywords[node-1] = "[^\.]*"
                 keyword = " ".join(keywords[2:])
                 keyword = re.sub("\?","",keyword)
+    return keyword
+
+def get_noun(question,dep_q):  ###
+    keywords = question.split()
+
+    for node in dep_q.nodes:
+        if node-1 in range(len(keywords)):
+            if "NNP" or "NN" or "NNS" in dep_q.nodes[node]["tag"]:   # only gets last NN* in question
+                keyword = keywords[node-1]
+            else:
+                keyword = "none"
+
+    keyword = re.sub('[?,.!]', '', keyword)
+    # print("keyword! ", end = "")
+    # print(keyword)
     return keyword
                 
 def get_answer(question, story):
@@ -53,10 +68,13 @@ def get_answer(question, story):
     """
     text_q = question["text"]
     dep_q = question["dep"]
+
+    print("\n")
     print(question["qid"])
     print(text_q)
     print(story["text"])
-    print(dep_q)
+    
+    # print(dep_q)
     
     keyword = ""
     for node in dep_q.nodes:
@@ -105,14 +123,29 @@ def get_answer(question, story):
             #keyword = get_keyword(question_type_when.group(),dep_q)
         if question_type_why:
             print(question_type_why.group())
+            keyword = get_noun(question_type_why.group(), dep_q)
             #keyword = get_keyword(question_type_why.group(),dep_q)
+            
         print("matching keyword: "+keyword)
         matches = re.findall("[^\.]*"+keyword+"[^\.]*",story["text"])
+        print("matches: ", end="")
         print(matches)
+
+                    
+
 
     answer = "whatever you think the answer is"
 
     if len(matches)!=0:
+        if question_type_why:   ###
+            for match in matches:
+                print("MATCH")
+                print(match)
+                sentence = re.findall("to|because", match)
+                if sentence:
+                    return match
+                else:
+                    continue
         return matches[0]
     else:
         return answer
