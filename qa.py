@@ -71,8 +71,8 @@ def get_answer(question, story):
 
     print("\n")
     print(question["qid"])
-    print(text_q)
-    print(story["text"])
+    # print(text_q)
+    # print(story["text"])
     
     # print(dep_q)
     
