@@ -3,6 +3,7 @@ from qa_engine.base import QABase
 from qa_engine.score_answers import main as score_answers
 import re
 from nltk.corpus import stopwords
+import itertools
 
 def normalize_verb(keywords,dep_q):
     #need to normalize verb (unless it's a stopword like be)
@@ -34,7 +35,18 @@ def remove_stopwords(words):
             words[i] = "[^\.]*"
     print("removed stopwords: "+str(words))
     return words
-    
+
+def permute_and_join(keywords):
+    keyword_combos = list(itertools.permutations(keywords))
+    print(keyword_combos)
+    print(len(keyword_combos))
+    all_keywords = "(?:"+re.sub("\?",""," ".join(keywords[1:]))+")"
+    for keywords in keyword_combos:
+        keyword = " ".join(keywords[1:])
+        keyword = re.sub("\?","",keyword)
+        all_keywords = all_keywords+"|(?:"+keyword+"[^\.]*)"
+    return all_keywords
+
 def get_keyword(question,dep_q):
     # print(question)
     # print("WHERE")
@@ -46,8 +58,9 @@ def get_keyword(question,dep_q):
     #move auxiliaries like "might" to be before the verb
     keywords = move_auxiliaries(keywords,dep_q)
     keywords = remove_stopwords(keywords)
-    keyword = " ".join(keywords[1:])
-    keyword = re.sub("\?","",keyword)
+    #permute keywords to account for different orderings
+    keyword = permute_and_join(keywords)
+        
     return keyword
 
 def get_noun(question,dep_q):  ###
