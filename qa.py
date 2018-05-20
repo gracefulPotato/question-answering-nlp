@@ -2,20 +2,52 @@
 from qa_engine.base import QABase
 from qa_engine.score_answers import main as score_answers
 import re
+from nltk.corpus import stopwords
 
+def normalize_verb(keywords,dep_q):
+    #need to normalize verb (unless it's a stopword like be)
+    for node in dep_q.nodes:
+        if "VB" in dep_q.nodes[node]["tag"]:
+            if node-1 in range(len(keywords)):
+                keywords[node-1] = "[^\.]*"+dep_q.nodes[node]["lemma"]+"[^\ ]*"
+    return keywords
+
+def move_auxiliaries(keywords,dep_q):
+    #find the verb's index
+    verb_index = 0
+    for node in dep_q.nodes:
+        if "VB" in dep_q.nodes[node]["tag"]:
+            verb_index = node
+    #look for auxes and put them right before verb
+    for node in dep_q.nodes:
+        if dep_q.nodes[node]["rel"] == "aux":
+            auxiliary = keywords[node-1]
+            keywords.remove(auxiliary)
+            keywords.insert(verb_index,auxiliary)
+            #increment the verb's index since it's pushed one later            
+            verb_index = verb_index + 1
+    return keywords
+
+def remove_stopwords(words):
+    for i in range(len(words)):
+        if re.sub("[^\w]","",words[i]) in stopwords.words('english'):
+            words[i] = "[^\.]*"
+    print("removed stopwords: "+str(words))
+    return words
+    
 def get_keyword(question,dep_q):
     # print(question)
     # print("WHERE")
     print(' '.join(question.split()[3:]))
     
     keywords = question.split()
-    #need to remove verb
-    for node in dep_q.nodes:
-        if "VB" in dep_q.nodes[node]["tag"]:
-            if node-1 in range(len(keywords)):
-                keywords[node-1] = "[^\.]*"
-                keyword = " ".join(keywords[2:])
-                keyword = re.sub("\?","",keyword)
+    #need to normalize verb (unless it's a stopword like be)
+    keywords = normalize_verb(keywords,dep_q)
+    #move auxiliaries like "might" to be before the verb
+    keywords = move_auxiliaries(keywords,dep_q)
+    keywords = remove_stopwords(keywords)
+    keyword = " ".join(keywords[1:])
+    keyword = re.sub("\?","",keyword)
     return keyword
 
 def get_noun(question,dep_q):  ###
@@ -127,13 +159,11 @@ def get_answer(question, story):
             #keyword = get_keyword(question_type_why.group(),dep_q)
             
         print("matching keyword: "+keyword)
-        matches = re.findall("[^\.]*"+keyword+"[^\.]*",story["text"])
+        matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
         print("matches: ", end="")
         print(matches)
 
                     
-
-
     answer = "whatever you think the answer is"
 
     if len(matches)!=0:
