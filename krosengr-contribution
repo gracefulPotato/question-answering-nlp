@@ -2,4 +2,5 @@ Kathryn Rosengrant (krosengr)
 Contribution:
 Categorizing questions by initial WH-word
 Searching for words with the rel "nsubj" in the dependency parse to use as keywords
-Added rule for why-questions
+Added rules for why-questions (find noun and match with sentence that contains "to" or "because"
+Added similarity counting for questions that did not produce any matches
