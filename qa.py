@@ -6,6 +6,8 @@ from nltk.corpus import stopwords
 import itertools
 from nltk.stem.wordnet import WordNetLemmatizer
 
+should_normalize = True   ###
+
 def normalize_verb(keywords,dep_q):
     #need to normalize verb (unless it's a stopword like be)
     for node in dep_q.nodes:
@@ -34,12 +36,12 @@ def remove_stopwords(words):
     for i in range(len(words)):
         if re.sub("[^\w]","",words[i]) in stopwords.words('english'):
             words[i] = "[^\.]*"
-    print("removed stopwords: "+str(words))
+    # print("removed stopwords: "+str(words))
     return words
 
 def permute_and_join(keywords):
     keyword_combos = list(itertools.permutations(keywords))
-    print(keyword_combos)
+    # print(keyword_combos)
     print(len(keyword_combos))
     all_keywords = "(?:"+re.sub("\?",""," ".join(keywords[1:]))+")"
     for keywords in keyword_combos:
@@ -51,11 +53,13 @@ def permute_and_join(keywords):
 def get_keyword(question,dep_q):
     # print(question)
     # print("WHERE")
-    print(' '.join(question.split()[3:]))
+    # print(' '.join(question.split()[3:]))
     
     keywords = question.split()
     #need to normalize verb (unless it's a stopword like be)
-    keywords = normalize_verb(keywords,dep_q)
+
+    if should_normalize:
+        keywords = normalize_verb(keywords,dep_q)
     #move auxiliaries like "might" to be before the verb
     keywords = move_auxiliaries(keywords,dep_q)
     keywords = remove_stopwords(keywords)
@@ -117,8 +121,8 @@ def get_answer(question, story):
 
     print("\n")
     print(question["qid"])
-    print(text_q)
-    print(story["text"])
+    # print(text_q)
+    # print(story["text"])
     
     # print(dep_q)
     
@@ -160,26 +164,29 @@ def get_answer(question, story):
             #keyword = get_keyword(question_type_what.group(),dep_q)
         if question_type_where:
             print(question_type_where.group())
-            print("WHERE")
-            print(' '.join(question_type_where.group().split()[3:]))
+            # print("WHERE")
+            # print(' '.join(question_type_where.group().split()[3:]))
             keyword = get_keyword(question_type_where.group(),dep_q)
-            print(keyword)
+            # print(keyword)
         if question_type_when:
             print(question_type_when.group())
-            #keyword = get_keyword(question_type_when.group(),dep_q)
+            # keyword = get_keyword(question_type_when.group(),dep_q)
         if question_type_why:
             print(question_type_why.group())
             keyword = get_noun(question_type_why.group(), dep_q)
             #keyword = get_keyword(question_type_why.group(),dep_q)
-            
-        print("matching keyword: "+keyword)
+
+        global should_normalize
+        should_normalize = True
+
+        # print("matching keyword: "+keyword)
         lmtzr = WordNetLemmatizer()
         story_words = nltk.word_tokenize(story["text"].lower())
-        print(story_words)
+        # print(story_words)
         lemmad_words = []
         for word in story_words:
             lemmad_words.append(lmtzr.lemmatize(word))
-        print(lemmad_words)
+        # print(lemmad_words)
         #print(lmtzr.lemmatize(story_words))
         matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
         #if len(matches)==0:
@@ -193,16 +200,61 @@ def get_answer(question, story):
     if len(matches)!=0:
         if question_type_why:   ###
             for match in matches:
-                print("MATCH")
-                print(match)
+                # print("MATCH")
+                # print(match)
                 sentence = re.findall("to|because", match)
                 if sentence:
                     return match
                 else:
                     continue
         return matches[0]
+    # elif len(matches) == 0:
+    #     should_normalize = False
+    #     print("DONT NORMALIZE")
+    #     if question_type_where:
+    #         new_keyword = get_keyword(question_type_where.group(),dep_q)
+    #         print("new WHERE keyword: ", end="")
+    #         print(new_keyword)
+    #     elif question_type_what:
+    #         print("new WHAT keyword: ", end="")
+    #         new_keyword = get_keyword(question_type_what.group(), dep_q)
+    #         print(new_keyword)
+    #     elif question_type_who:
+    #         print("new WHO keyword: ", end="")
+    #         new_keyword = get_keyword(question_type_who.group(), dep_q)
+    #         print(new_keyword)
+    #     else:
+    #         return answer
+
+
+    #     new_matches = re.findall(
+    #         ("[^\.]*"+new_keyword+"[^\.]*").lower(), story["text"].lower())
+    #     print("NEW")
+    #     print(new_matches)
+    #     if len(new_matches) != 0:
+    #         print("New Matches: ", end="")
+    #         print(new_matches)
+    #         return new_matches[0]
+    #     else:
+    #         return answer
     else:
 #        matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower()," ".join(lemmad_words))
+        # If no matches found, match the question with the sentence with the most similar words
+        question_words = nltk.word_tokenize(question_text)
+        text_sentences = nltk.sent_tokenize(story["text"])
+        text_freq = {}
+        for sentence in text_sentences:
+            text_words = nltk.word_tokenize(sentence)
+            # print("TEXT WORDS: ", end="")
+            # print(text_words)
+            text_freq[sentence] = 0
+            for word in question_words:
+                if word in text_words:
+                    text_freq[sentence] += 1
+        
+        # Citation: https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
+        answer = max(text_freq, key=text_freq.get)
+    
         return answer
 
 
