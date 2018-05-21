@@ -4,6 +4,8 @@ from qa_engine.score_answers import main as score_answers
 import re
 from nltk.corpus import stopwords
 
+should_normalize = True   ###
+
 def normalize_verb(keywords,dep_q):
     #need to normalize verb (unless it's a stopword like be)
     for node in dep_q.nodes:
@@ -32,17 +34,19 @@ def remove_stopwords(words):
     for i in range(len(words)):
         if re.sub("[^\w]","",words[i]) in stopwords.words('english'):
             words[i] = "[^\.]*"
-    print("removed stopwords: "+str(words))
+    # print("removed stopwords: "+str(words))
     return words
     
 def get_keyword(question,dep_q):
     # print(question)
     # print("WHERE")
-    print(' '.join(question.split()[3:]))
+    # print(' '.join(question.split()[3:]))
     
     keywords = question.split()
     #need to normalize verb (unless it's a stopword like be)
-    keywords = normalize_verb(keywords,dep_q)
+
+    if should_normalize:
+        keywords = normalize_verb(keywords,dep_q)
     #move auxiliaries like "might" to be before the verb
     keywords = move_auxiliaries(keywords,dep_q)
     keywords = remove_stopwords(keywords)
@@ -146,18 +150,20 @@ def get_answer(question, story):
             #keyword = get_keyword(question_type_what.group(),dep_q)
         if question_type_where:
             print(question_type_where.group())
-            print("WHERE")
-            print(' '.join(question_type_where.group().split()[3:]))
+            # print("WHERE")
+            # print(' '.join(question_type_where.group().split()[3:]))
             keyword = get_keyword(question_type_where.group(),dep_q)
             print(keyword)
         if question_type_when:
             print(question_type_when.group())
-            #keyword = get_keyword(question_type_when.group(),dep_q)
+            # keyword = get_keyword(question_type_when.group(),dep_q)
         if question_type_why:
             print(question_type_why.group())
             keyword = get_noun(question_type_why.group(), dep_q)
             #keyword = get_keyword(question_type_why.group(),dep_q)
-            
+        global should_normalize
+        should_normalize = True
+
         print("matching keyword: "+keyword)
         matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
         print("matches: ", end="")
@@ -169,14 +175,43 @@ def get_answer(question, story):
     if len(matches)!=0:
         if question_type_why:   ###
             for match in matches:
-                print("MATCH")
-                print(match)
+                # print("MATCH")
+                # print(match)
                 sentence = re.findall("to|because", match)
                 if sentence:
                     return match
                 else:
                     continue
         return matches[0]
+    # elif len(matches) == 0:
+    #     should_normalize = False
+    #     print("DONT NORMALIZE")
+    #     if question_type_where:
+    #         new_keyword = get_keyword(question_type_where.group(),dep_q)
+    #         print("new WHERE keyword: ", end="")
+    #         print(new_keyword)
+    #     elif question_type_what:
+    #         print("new WHAT keyword: ", end="")
+    #         new_keyword = get_keyword(question_type_what.group(), dep_q)
+    #         print(new_keyword)
+    #     elif question_type_who:
+    #         print("new WHO keyword: ", end="")
+    #         new_keyword = get_keyword(question_type_who.group(), dep_q)
+    #         print(new_keyword)
+    #     else:
+    #         return answer
+
+
+    #     new_matches = re.findall(
+    #         ("[^\.]*"+new_keyword+"[^\.]*").lower(), story["text"].lower())
+    #     print("NEW")
+    #     print(new_matches)
+    #     if len(new_matches) != 0:
+    #         print("New Matches: ", end="")
+    #         print(new_matches)
+    #         return new_matches[0]
+    #     else:
+    #         return answer
     else:
         return answer
 
