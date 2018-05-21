@@ -1,9 +1,10 @@
 
 from qa_engine.base import QABase
 from qa_engine.score_answers import main as score_answers
-import re
+import re, nltk
 from nltk.corpus import stopwords
 import itertools
+from nltk.stem.wordnet import WordNetLemmatizer
 
 def normalize_verb(keywords,dep_q):
     #need to normalize verb (unless it's a stopword like be)
@@ -172,7 +173,17 @@ def get_answer(question, story):
             #keyword = get_keyword(question_type_why.group(),dep_q)
             
         print("matching keyword: "+keyword)
+        lmtzr = WordNetLemmatizer()
+        story_words = nltk.word_tokenize(story["text"].lower())
+        print(story_words)
+        lemmad_words = []
+        for word in story_words:
+            lemmad_words.append(lmtzr.lemmatize(word))
+        print(lemmad_words)
+        #print(lmtzr.lemmatize(story_words))
         matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
+        #if len(matches)==0:
+        #    matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower()," ".join(lemmad_words))
         print("matches: ", end="")
         print(matches)
 
@@ -191,6 +202,7 @@ def get_answer(question, story):
                     continue
         return matches[0]
     else:
+#        matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower()," ".join(lemmad_words))
         return answer
 
 
