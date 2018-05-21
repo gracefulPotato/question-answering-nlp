@@ -1,8 +1,10 @@
 
 from qa_engine.base import QABase
 from qa_engine.score_answers import main as score_answers
-import re
+import re, nltk
 from nltk.corpus import stopwords
+import itertools
+from nltk.stem.wordnet import WordNetLemmatizer
 
 should_normalize = True   ###
 
@@ -36,7 +38,18 @@ def remove_stopwords(words):
             words[i] = "[^\.]*"
     # print("removed stopwords: "+str(words))
     return words
-    
+
+def permute_and_join(keywords):
+    keyword_combos = list(itertools.permutations(keywords))
+    print(keyword_combos)
+    print(len(keyword_combos))
+    all_keywords = "(?:"+re.sub("\?",""," ".join(keywords[1:]))+")"
+    for keywords in keyword_combos:
+        keyword = " ".join(keywords[1:])
+        keyword = re.sub("\?","",keyword)
+        all_keywords = all_keywords+"|(?:"+keyword+"[^\.]*)"
+    return all_keywords
+
 def get_keyword(question,dep_q):
     # print(question)
     # print("WHERE")
@@ -50,8 +63,9 @@ def get_keyword(question,dep_q):
     #move auxiliaries like "might" to be before the verb
     keywords = move_auxiliaries(keywords,dep_q)
     keywords = remove_stopwords(keywords)
-    keyword = " ".join(keywords[1:])
-    keyword = re.sub("\?","",keyword)
+    #permute keywords to account for different orderings
+    keyword = permute_and_join(keywords)
+        
     return keyword
 
 def get_noun(question,dep_q):  ###
@@ -165,7 +179,17 @@ def get_answer(question, story):
         should_normalize = True
 
         print("matching keyword: "+keyword)
+        lmtzr = WordNetLemmatizer()
+        story_words = nltk.word_tokenize(story["text"].lower())
+        print(story_words)
+        lemmad_words = []
+        for word in story_words:
+            lemmad_words.append(lmtzr.lemmatize(word))
+        print(lemmad_words)
+        #print(lmtzr.lemmatize(story_words))
         matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
+        #if len(matches)==0:
+        #    matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower()," ".join(lemmad_words))
         print("matches: ", end="")
         print(matches)
 
@@ -213,6 +237,7 @@ def get_answer(question, story):
     #     else:
     #         return answer
     else:
+#        matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower()," ".join(lemmad_words))
         return answer
 
 
