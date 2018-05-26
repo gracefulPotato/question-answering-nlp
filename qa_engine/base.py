@@ -5,11 +5,12 @@ from nltk.tree import Tree
 from collections import defaultdict
 
 DATA_DIR = "data/"
-QUESTION_FILE = "hw6-questions.csv"
-ANSWER_FILE = "hw6-answers.csv"
-STORIES_FILE = "hw6-stories.csv"
+DATASET = "hw7"
+QUESTION_FILE = "{}-questions.csv".format(DATASET)
+ANSWER_FILE = "{}-answers.csv".format(DATASET)
+STORIES_FILE = "{}-stories.csv".format(DATASET)
 
-RESPONSE_FILE = "hw6-responses.csv"
+RESPONSE_FILE = "{}-responses.csv".format(DATASET)
 
 import math
 
@@ -28,7 +29,7 @@ def prepare_pars(raw_pars):
     if type(raw_pars) == float and math.isnan(raw_pars):
         return []
 
-    return [Tree.fromstring("(ROOT "+line.strip().rstrip(" \n\t"))
+    return [Tree.fromstring(line.strip().rstrip(" \n\t"))
             for line in raw_pars.split("\n") if len(line) > 2]
 
 

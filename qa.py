@@ -21,9 +21,10 @@ def normalize_verb(keywords,dep_q):
 def move_auxiliaries(keywords,dep_q):
     #find the verb's index
     verb_index = 0
-    for node in dep_q.nodes:
+    for node in range(len(dep_q.nodes)-1,0,-1):
         if "VB" in dep_q.nodes[node]["tag"]:
-            verb_index = node
+            verb_index = node-2
+            break
     #look for auxes and put them right before verb
     for node in dep_q.nodes:
         if dep_q.nodes[node]["rel"] == "aux":
@@ -34,12 +35,30 @@ def move_auxiliaries(keywords,dep_q):
             verb_index = verb_index + 1
     return keywords
 
+def rec_check_for_pos(par_q,posses):
+    pos_instances = []
+    for child in par_q:
+        if child in par_q.leaves():
+            return []
+        elif any(pos in child.label() for pos in posses):
+            pos_instances = pos_instances + child.leaves()
+        else: 
+            pos_instances = pos_instances + rec_check_for_pos(child,posses)
+    return pos_instances
+
+def remove_aux(question_text,dep_q):
+    question_words = question_text.split()
+    dep_q_index = 1
+    for word in question_words:
+        if dep_q.nodes[dep_q_index]["rel"]=="aux":
+            question_words.remove(word)
+        dep_q_index = dep_q_index+1
+    return " ".join(question_words)
 
 def remove_stopwords(words):
     for i in range(len(words)):
         if re.sub("[^\w]","",words[i]) in stopwords.words('english'):
             words[i] = "[^\.]*"
-    # print("removed stopwords: "+str(words))
     return words
 
 
@@ -77,7 +96,7 @@ def get_noun(question,dep_q):
     for node in dep_q.nodes:
         if node-1 in range(len(keywords)):
             if "NNP" or "NN" or "NNS" in dep_q.nodes[node]["tag"]:   # only gets last NN* in question
-                keyword = keywords[node-1]
+                keyword = dep_q.nodes[node]["lemma"]
             else:
                 keyword = "none"
     keyword = re.sub('[?,.!]', '', keyword)
@@ -100,7 +119,9 @@ def question_answer_similarity(question_text, story):
 
 
 # Make question into declarative statement
-def normalize_question(question_text):   
+def normalize_question(question_text,dep_q,constituency_parse):   
+    # Remove the auxiliary
+    question_text = remove_aux(question_text,dep_q)
     # Remove initial question word
     who = re.match(r'[Ww]ho (.*)',   question_text)
     what = re.match(r'[Ww]hat (.*)',  question_text)
@@ -108,9 +129,9 @@ def normalize_question(question_text):
     when = re.match(r'[Ww]hen (.*)',  question_text)
     why = re.match(r'[Ww]hy (.*)',   question_text)
     how = re.match(r'[Hh]ow (.*)', question_text)
-
     if who:
         question_text = who.group(1)
+        print("normalizing WHO: "+question_text)
     elif what:
         question_text = what.group(1)
     elif where:
@@ -123,7 +144,6 @@ def normalize_question(question_text):
         question_text = how.group(1)
     else:
         print(question_text)
-
     # Remove question mark
     question_text = re.match(r'(.*)\?', question_text)
     question_text = question_text.group(1)
@@ -165,6 +185,7 @@ def get_answer(question, story):
     """
     text_q = question["text"]
     dep_q = question["dep"]
+    par_q = question["par"]
 
     print("\n")
     print(question["qid"])
@@ -172,19 +193,22 @@ def get_answer(question, story):
     keyword = ""
     for node in dep_q.nodes:
         if dep_q.nodes[node]["rel"]=="nsubj":
-            #print(dep_q.nodes[node]["lemma"])
-            keyword = dep_q.nodes[node]["lemma"] #.lower()
+            keyword = dep_q.nodes[node]["lemma"]
     numwords = len(text_q.split(" "))
     if keyword=="":
         for node in dep_q.nodes:
             if dep_q.nodes[node]["rel"]=="nobj":
-                keyword = dep_q.nodes[node]["lemma"] #.lower()
+                keyword = dep_q.nodes[node]["lemma"]
     if keyword=="":
-        print("try: "+str(dep_q.nodes[numwords]["lemma"]))
         keyword = dep_q.nodes[numwords]["lemma"]
 
-    ###############################################
-    
+    poss_adj = rec_check_for_pos(par_q,["JJ","NN"]) 
+    if poss_adj != None:
+        keyword = "[^\.]*"+"[^\.]*".join(poss_adj)+"[^\.]"
+
+    verb = rec_check_for_pos(par_q,["V"])
+    #keyword = "[^\.]*"+"[^\.]*".join(verb)+"[^\.]"
+
     question_text = question.get("text")  # gets the raw text of the question
     question_difficulty = question.get("difficulty")
 
@@ -201,40 +225,28 @@ def get_answer(question, story):
         if question_type_who:
             print(question_type_who.group())
             keyword = get_keyword(question_type_who.group(),dep_q)
-            #question_type_who.group()[2:]
         if question_type_what:
             print(question_type_what.group())
-            #keyword = get_keyword(question_type_what.group(),dep_q)
         if question_type_where:
             print(question_type_where.group())
-            # print("WHERE")
-            # print(' '.join(question_type_where.group().split()[3:]))
             keyword = get_keyword(question_type_where.group(),dep_q)
-            # print(keyword)
         if question_type_when:
             print(question_type_when.group())
-            # keyword = get_keyword(question_type_when.group(),dep_q)
         if question_type_why:
             print(question_type_why.group())
             keyword = get_noun(question_type_why.group(), dep_q)
-            #keyword = get_keyword(question_type_why.group(),dep_q)
 
         global should_normalize
         should_normalize = True
 
-        # print("matching keyword: "+keyword)
         lmtzr = WordNetLemmatizer()
         story_words = nltk.word_tokenize(story["text"].lower())
-        # print(story_words)
         lemmad_words = []
         for word in story_words:
             lemmad_words.append(lmtzr.lemmatize(word))
-        # print(lemmad_words)
-        #print(lmtzr.lemmatize(story_words))
+        print(keyword)
         matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
-        
-        # print("matches: {} ".format(matches))
-
+        print(matches)
         if len(matches) != 0:
             if question_type_why:
                 for match in matches:
@@ -245,15 +257,13 @@ def get_answer(question, story):
                         continue
             return matches[0]
         
-        # answer = "whatever you think the answer is"
-        
         else:
             answer = question_answer_similarity(question_text, story)
             
 
     elif question_difficulty == "Medium":
         print(question_difficulty)
-        normalize_question(question_text)
+        normalize_question(question_text,dep_q,par_q)
         answer = question_answer_similarity(question_text, story)
 
     else:
