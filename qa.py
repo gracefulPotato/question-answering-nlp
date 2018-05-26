@@ -64,7 +64,6 @@ def remove_stopwords(words):
 
 def permute_and_join(keywords):
     keyword_combos = list(itertools.permutations(keywords))
-    print(len(keyword_combos))
     all_keywords = "(?:"+re.sub("\?",""," ".join(keywords[1:]))+")"
     for keywords in keyword_combos:
         keyword = " ".join(keywords[1:])
@@ -90,7 +89,7 @@ def get_keyword(question,dep_q):
         
     return keyword
 
-
+# Get noun from question
 def get_noun(question,dep_q):
     keywords = question.split()
     for node in dep_q.nodes:
@@ -102,21 +101,60 @@ def get_noun(question,dep_q):
     keyword = re.sub('[?,.!]', '', keyword)
     return keyword
 
+# Get all nouns from answer sentence
+def get_answer_noun(best_sent_index, dep_s):
+    nouns= []
+    for x,y in dep_s[best_sent_index].nodes.items():
+        tag = y["tag"]
+        if "NN" in str(tag):
+            nouns.append(y["word"])
+    
+    if len(nouns) > 0:
+        answer = ' '.join(nouns)
+    else:
+        answer = "it"
+
+    return answer
+
+def get_answer_nsubj(best_sent_index, dep_s):
+    nsubj = "nsubj"
+    for x, y in dep_s[best_sent_index].nodes.items():
+        tag = y["rel"]
+        if "nsubj" in str(tag):
+            nsubj = y["word"]
+    return nsubj
 
 # Match the question with the sentence with the most similar words
 def question_answer_similarity(question_text, story):
     question_words = nltk.word_tokenize(question_text)
     text_sentences = nltk.sent_tokenize(story["text"])
     text_freq = {}
+
     for sentence in text_sentences:
         text_words = nltk.word_tokenize(sentence)
         text_freq[sentence] = 0
         for word in question_words:
-            if word in text_words:
+            if word in text_words and word not in stopwords.words('english'):
                 text_freq[sentence] += 1
 
-    return max(text_freq, key=text_freq.get)
+    best_sentence = max(text_freq, key=text_freq.get)
+    best_index = text_sentences.index(best_sentence)
 
+    return best_sentence, best_index
+
+# Finds the match that is most similar to the question
+def best_match(question_text, matches):
+    question_words = nltk.word_tokenize(question_text)
+    text_freq = {}
+    for match in matches:
+        match_string = nltk.word_tokenize(match)
+        text_freq[match] = 0
+        for word in question_words:
+            if word in match_string and word not in stopwords.words('english'):
+                text_freq[match] += 1
+    
+    best_match = max(text_freq, key=text_freq.get)
+    return best_match
 
 # Make question into declarative statement
 def normalize_question(question_text,dep_q,constituency_parse):   
@@ -186,10 +224,11 @@ def get_answer(question, story):
     text_q = question["text"]
     dep_q = question["dep"]
     par_q = question["par"]
+    text_s = story["text"]
+    dep_s = story["story_dep"]
 
-    print("\n")
-    print(question["qid"])
-    
+    print("\n"+question["qid"])
+
     keyword = ""
     for node in dep_q.nodes:
         if dep_q.nodes[node]["rel"]=="nsubj":
@@ -212,28 +251,29 @@ def get_answer(question, story):
     question_text = question.get("text")  # gets the raw text of the question
     question_difficulty = question.get("difficulty")
 
-    # for easy questions, match with regex
+    # Get question type (who, what, where, when, or why)
+    question_type_who = re.match(r'Who (.*)',   question_text)
+    question_type_what = re.match(r'What (.*)',  question_text)
+    question_type_where = re.match(r'Where (.*)', question_text)
+    question_type_when = re.match(r'When (.*)',  question_text)
+    question_type_why = re.match(r'Why (.*)',   question_text)
+
+    print(question_difficulty)
+    print(question_text)
+
     if question_difficulty == "Easy":
-
-        # Get question type (who, what, where, when, or why)
-        question_type_who   = re.match(r'Who (.*)',   question_text)
-        question_type_what  = re.match(r'What (.*)',  question_text)
-        question_type_where = re.match(r'Where (.*)', question_text)
-        question_type_when  = re.match(r'When (.*)',  question_text)
-        question_type_why   = re.match(r'Why (.*)',   question_text)
-
         if question_type_who:
-            print(question_type_who.group())
             keyword = get_keyword(question_type_who.group(),dep_q)
         if question_type_what:
-            print(question_type_what.group())
+            keyword = get_noun(question_type_what.group(), dep_q)
+            #keyword = get_keyword(question_type_what.group(),dep_q)
         if question_type_where:
-            print(question_type_where.group())
+            # print(' '.join(question_type_where.group().split()[3:]))
             keyword = get_keyword(question_type_where.group(),dep_q)
         if question_type_when:
-            print(question_type_when.group())
+            keyword = get_noun(question_type_when.group(), dep_q)
+            # keyword = get_keyword(question_type_when.group(),dep_q)
         if question_type_why:
-            print(question_type_why.group())
             keyword = get_noun(question_type_why.group(), dep_q)
 
         global should_normalize
@@ -242,9 +282,9 @@ def get_answer(question, story):
         lmtzr = WordNetLemmatizer()
         story_words = nltk.word_tokenize(story["text"].lower())
         lemmad_words = []
+
         for word in story_words:
             lemmad_words.append(lmtzr.lemmatize(word))
-        print(keyword)
         matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
         print(matches)
         if len(matches) != 0:
@@ -252,24 +292,30 @@ def get_answer(question, story):
                 for match in matches:
                     sentence = re.findall("to|because", match)
                     if sentence:
-                        return match
+                        answer = match
+                        break
                     else:
                         continue
-            return matches[0]
-        
+            else:
+                answer = best_match(question_text, matches)    
         else:
-            answer = question_answer_similarity(question_text, story)
+            answer = question_answer_similarity(question_text, story)[0]
+            sentence_index = question_answer_similarity(question_text, story)[1]
+            answer = get_answer_noun(sentence_index, dep_s)
             
 
     elif question_difficulty == "Medium":
         print(question_difficulty)
         normalize_question(question_text,dep_q,par_q)
         answer = question_answer_similarity(question_text, story)
+        answer = question_answer_similarity(question_text, story)[0]
+        sentence_index = question_answer_similarity(question_text, story)[1]
+        answer = get_answer_noun(sentence_index, dep_s)   
 
     else:
-        print(question_difficulty)
-        answer = question_answer_similarity(question_text, story)
+        answer = question_answer_similarity(question_text, story)[0]
 
+    print(answer)
     return answer
 
 
