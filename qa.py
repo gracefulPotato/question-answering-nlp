@@ -296,6 +296,24 @@ def get_answer(question, story):
                         break
                     else:
                         continue
+            # elif question_type_where:
+            #     for match in matches:
+            #         sentence = re.match("to (.*)", match)
+            #         if sentence:
+            #             answer = sentence.group(1)
+            #             print(answer)
+            #             break
+            #         else:
+            #             continue
+            #     answer = "idk"
+            # elif question_type_what:
+            #     for match in matches:
+            #         sentence = re.match("(.*) did (.*)", match)
+            #         if sentence:
+            #             words = sentence.group(1)
+            #             for word in nltk.tokenize(words):
+            #                 print("past verb: {}".format(en.verb.past(word)))
+            #                 answer = word
             else:
                 answer = best_match(question_text, matches)    
         else:
