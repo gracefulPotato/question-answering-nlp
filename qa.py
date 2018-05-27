@@ -8,6 +8,26 @@ from nltk.stem.wordnet import WordNetLemmatizer
 
 should_normalize = True
 
+def diagnose_goal(question_text,dep_q,par_q):
+    print(par_q)
+    # Get question type (who, what, where, when, or why)                                                              
+    question_type_who = re.match(r'Who (.*)',   question_text)
+    question_type_what = re.match(r'What (.*)',  question_text)
+    question_type_where = re.match(r'Where (.*)', question_text)
+    question_type_when = re.match(r'When (.*)',  question_text)
+    question_type_why = re.match(r'Why (.*)',   question_text)
+    if question_type_where:
+        return ["PP"]
+    elif question_type_who:
+        return ["NP"]
+    elif question_type_what:
+        return ["NP","ADJP"]
+    elif question_type_why:
+        return ["S","SBAR"]
+    elif question_type_when:
+        return ["NP"]
+    else:
+        return ["NP","AP"]
 
 def normalize_verb(keywords,dep_q):
     #need to normalize verb (unless it's a stopword like be)
@@ -101,6 +121,21 @@ def get_noun(question,dep_q):
     keyword = re.sub('[?,.!]', '', keyword)
     return keyword
 
+# Get all words with parts of speech in the pos_list from answer sentence
+def get_answer_pos(best_sent_index, dep_s, pos_list):
+    words = []
+    for x,y in dep_s[best_sent_index].nodes.items():
+        tag = y["tag"]
+        if any(pos in str(tag) for pos in pos_list):
+            words.append(y["word"])
+
+    if len(words) > 0:
+        answer = ' '.join(words)
+    else:
+        answer = "it"
+
+    return answer
+
 # Get all nouns from answer sentence
 def get_answer_noun(best_sent_index, dep_s):
     nouns= []
@@ -125,7 +160,7 @@ def get_answer_nsubj(best_sent_index, dep_s):
     return nsubj
 
 # Match the question with the sentence with the most similar words
-def question_answer_similarity(question_text, story):
+def question_answer_similarity(question_text, story, goal_constituents):
     question_words = nltk.word_tokenize(question_text)
     text_sentences = nltk.sent_tokenize(story["text"])
     text_freq = {}
@@ -136,7 +171,10 @@ def question_answer_similarity(question_text, story):
         for word in question_words:
             if word in text_words and word not in stopwords.words('english'):
                 text_freq[sentence] += 1
-
+        #print(story["story_par"][text_sentences.index(sentence)])
+        if not any(pos in str(story["story_par"][text_sentences.index(sentence)]) for pos in goal_constituents):
+            text_freq[sentence] -= 10
+        #print(text_freq)
     best_sentence = max(text_freq, key=text_freq.get)
     best_index = text_sentences.index(best_sentence)
 
@@ -226,8 +264,14 @@ def get_answer(question, story):
     par_q = question["par"]
     text_s = story["text"]
     dep_s = story["story_dep"]
+    par_s = story["story_par"]
 
     print("\n"+question["qid"])
+
+    #diagnose what kind of constituent the question wants
+    goal_constituents = diagnose_goal(text_q,dep_q,par_q)
+    print(goal_constituents)
+    print(rec_check_for_pos(par_q,goal_constituents))
 
     keyword = ""
     for node in dep_q.nodes:
@@ -299,21 +343,27 @@ def get_answer(question, story):
             else:
                 answer = best_match(question_text, matches)    
         else:
-            answer = question_answer_similarity(question_text, story)[0]
-            sentence_index = question_answer_similarity(question_text, story)[1]
-            answer = get_answer_noun(sentence_index, dep_s)
-            
+            answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents)#[0]
+            #sentence_index = question_answer_similarity(question_text, story)[1]
+            print("REC_CHECK!!")
+            print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
+            answer = get_answer_pos(sentence_index, dep_s, ["NN","JJ"]) #noun(sentence_index, dep_s)
+            answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
 
     elif question_difficulty == "Medium":
         print(question_difficulty)
-        normalize_question(question_text,dep_q,par_q)
-        answer = question_answer_similarity(question_text, story)
-        answer = question_answer_similarity(question_text, story)[0]
-        sentence_index = question_answer_similarity(question_text, story)[1]
+        question_text = normalize_question(question_text,dep_q,par_q)
+        print(question_text)
+        #answer = question_answer_similarity(question_text, story)
+        answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents)#[0]
+        print("answer: "+answer)
+        #sentence_index = question_answer_similarity(question_text, story)[1] #what is sentence_index?
         answer = get_answer_noun(sentence_index, dep_s)   
+        print(" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)))
+        answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
 
     else:
-        answer = question_answer_similarity(question_text, story)[0]
+        answer = question_answer_similarity(question_text, story,goal_constituents)[0]
 
     print(answer)
     return answer
