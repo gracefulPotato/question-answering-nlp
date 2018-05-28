@@ -9,7 +9,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 should_normalize = True
 
 def diagnose_goal(question_text,dep_q,par_q):
-    # print(par_q)
+    print(par_q)
     # Get question type (who, what, where, when, or why)                                                              
     question_type_who = re.match(r'[wW]ho (.*)',   question_text)
     question_type_what = re.match(r'[wW]hat (.*)',  question_text)
@@ -25,7 +25,8 @@ def diagnose_goal(question_text,dep_q,par_q):
         return ["NP"]
     elif question_type_what:
         #check if it's a What do? question --> wants a verb
-        if re.findall(r'.*\(VP \(VBP do\).*',str(par_q)):
+        if re.findall(r'[\n.]*\(VP\s*\(VBP? do\).*',str(par_q)):
+            print("DO QUESTIOHN")
             return ["VP"]
         return ["NP","ADJP"]
     elif question_type_why:
