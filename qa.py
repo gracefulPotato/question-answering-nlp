@@ -480,13 +480,14 @@ def get_answer(question, story):
                 best = nltk.word_tokenize(best)
                 tags = nltk.pos_tag(best)
                 clean = []
-                adj_or_n = r'NN.?.?'
+                noun = r'NN.?.?'
 
+                question_words = nltk.word_tokenize(question_text)
                 for pair in tags:
-                    pos = re.findall(adj_or_n, pair[1])
-                    if pos:
+                    pos = re.findall(noun, pair[1])
+                    if pos and pair[0] not in question_words and pair[0] not in clean:
                         clean.append(pair[0])
-                answer = clean[0]  # returning the first noun produced the best result
+                return clean[0]  # returning the first noun produced the best result
             elif question_type_where:
                 # Only use the best match
                 best = best_match(question_text, matches)
