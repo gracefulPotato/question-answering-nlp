@@ -11,23 +11,70 @@ should_normalize = True
 def diagnose_goal(question_text,dep_q,par_q):
     # print(par_q)
     # Get question type (who, what, where, when, or why)                                                              
-    question_type_who = re.match(r'Who (.*)',   question_text)
-    question_type_what = re.match(r'What (.*)',  question_text)
-    question_type_where = re.match(r'Where (.*)', question_text)
-    question_type_when = re.match(r'When (.*)',  question_text)
-    question_type_why = re.match(r'Why (.*)',   question_text)
+    question_type_who = re.match(r'[wW]ho (.*)',   question_text)
+    question_type_what = re.match(r'[wW]hat (.*)',  question_text)
+    question_type_where = re.match(r'[wW]here (.*)', question_text)
+    question_type_when = re.match(r'[wW]hen (.*)',  question_text)
+    question_type_why = re.match(r'[wW]hy (.*)',   question_text)
+    question_type_how = re.match(r'[hH]ow (.*)', question_text)
     if question_type_where:
         return ["PP"]
     elif question_type_who:
         return ["NP"]
     elif question_type_what:
+        #check if it's a What do? question --> wants a verb
+        if re.findall(r'.*\(VP \(VBP do\).*',str(par_q)):
+            return ["VP"]
         return ["NP","ADJP"]
     elif question_type_why:
         return ["S","SBAR"]
     elif question_type_when:
         return ["NP"]
+    elif question_type_how:
+        return ["VBN"]
     else:
         return ["NP","AP"]
+
+#From https://stackoverflow.com/questions/480214/how-do-you-remove-duplicates-from-a-list-whilst-preserving-order
+def uniq(input):
+  output = []
+  for x in input:
+    if x not in output:
+      output.append(x)
+  return output
+
+def create_discourse_model(par_s):
+    discourse_model = []
+    nouns_so_far = []
+    animate_pronouns = ["he","He","she","She","her","Her","him","Him","his","His","her","Her"] #need to fix possesives
+    for sentence in par_s:
+        pronoun_map = {}
+        nouns_in_sentence = rec_check_for_pos(sentence,["NN"])
+        #print("nouns_in_sentence: "+str(nouns_in_sentence))
+        #check for pronouns in sentence
+        pronouns = rec_check_for_pos(sentence,["PRP"])
+        #print("pronouns: "+str(pronouns))
+        for pronoun in pronouns:
+            if pronoun=="it":
+                candidates = []
+                for noun in nouns_so_far:
+                    if re.match(r'[a-z\-]+',noun):
+                        candidates.append(noun)
+                pronoun_map[pronoun] = candidates
+            elif pronoun in animate_pronouns:
+                candidates = []
+                for noun in nouns_so_far:
+                    if re.match(r'[A-Z][a-z\-]+',noun):
+                        candidates.append(noun)
+                pronoun_map[pronoun] = candidates
+            else:
+                pronoun_map[pronoun] = nouns_so_far
+            if len(pronoun_map[pronoun]) == 0:
+                pronoun_map[pronoun] = nouns_in_sentence
+        nouns_so_far += nouns_in_sentence
+        nouns_so_far = uniq(nouns_so_far)
+        discourse_model.append(pronoun_map)
+    return discourse_model
 
 def normalize_verb(keywords,dep_q):
     #need to normalize verb (unless it's a stopword like be)
@@ -159,22 +206,44 @@ def get_answer_nsubj(best_sent_index, dep_s):
             nsubj = y["word"]
     return nsubj
 
+def resolve_pronouns(sentence,sent_discourse_model):
+    print(sent_discourse_model)
+    words =  nltk.word_tokenize(sentence)
+    resolved_words = []
+    for word in words:
+        if word in sent_discourse_model:
+            mapping = sent_discourse_model[word]
+            word = [mapping[0]]
+        else:
+            word = [word]
+        resolved_words += word
+    return resolved_words
+
 # Match the question with the sentence with the most similar words
-def question_answer_similarity(question_text, story, goal_constituents):
+def question_answer_similarity(question_text, story, goal_constituents,discourse_model):
     question_words = nltk.word_tokenize(question_text)
     text_sentences = nltk.sent_tokenize(story["text"])
+    sch_sentences = nltk.sent_tokenize(str(story["sch"]))
     text_freq = {}
 
+    sent_index = 0
     for sentence in text_sentences:
-        text_words = nltk.word_tokenize(sentence)
+        text_words = resolve_pronouns(sentence,discourse_model[sent_index])
+        if sent_index < len(sch_sentences):
+            sch_words = resolve_pronouns(sch_sentences[sent_index],discourse_model[sent_index])
+        #print("pros resolved: "+str(text_words))
         text_freq[sentence] = 0
         for word in question_words:
             if word in text_words and word not in stopwords.words('english'):
                 text_freq[sentence] += 1
+            #if word in sch_words and word not in stopwords.words('english'):
+            #    text_freq[sentence] += 1
+            
         #print(story["story_par"][text_sentences.index(sentence)])
         if not any(pos in str(story["story_par"][text_sentences.index(sentence)]) for pos in goal_constituents):
             text_freq[sentence] -= 10
-        #print(text_freq)
+       #print(text_freq)
+        sent_index += 1
     best_sentence = max(text_freq, key=text_freq.get)
     best_index = text_sentences.index(best_sentence)
 
@@ -270,7 +339,13 @@ def get_answer(question, story):
     dep_s = story["story_dep"]
     par_s = story["story_par"]
 
+<<<<<<< HEAD
     # print("\n"+question["qid"])
+=======
+    discourse_model = create_discourse_model(par_s)
+    print("\n"+question["qid"])
+    #print("discourse model: "+str(discourse_model))
+>>>>>>> 293c14b12e34969b32dcd13b03374f2bdbbba6e9
 
     #diagnose what kind of constituent the question wants
     goal_constituents = diagnose_goal(text_q,dep_q,par_q)
@@ -300,12 +375,20 @@ def get_answer(question, story):
     question_difficulty = question.get("difficulty")
 
     # Get question type (who, what, where, when, or why)
+<<<<<<< HEAD
     question_type_who = re.match(r'Who (.*)',   question_text)
     question_type_what = re.match(r'What (.*)',  question_text)
     question_type_where = re.match(r'Where (.*)', question_text)
     question_type_when = re.match(r'When (.*)',  question_text)
     question_type_why = re.match(r'Why (.*)',   question_text)
     question_type_did = re.match(r'Did (.*)', question_text)
+=======
+    question_type_who = re.match(r'[wW]ho (.*)',   question_text)
+    question_type_what = re.match(r'[wW]hat (.*)',  question_text)
+    question_type_where = re.match(r'[wW]here (.*)', question_text)
+    question_type_when = re.match(r'[wW]hen (.*)',  question_text)
+    question_type_why = re.match(r'[wW]hy (.*)',   question_text)
+>>>>>>> 293c14b12e34969b32dcd13b03374f2bdbbba6e9
 
     
     print("\n{} | {}".format(question["qid"], question_difficulty))
@@ -407,6 +490,7 @@ def get_answer(question, story):
                 answer = "yes"
             else:
                 answer = best_match(question_text, matches)    
+<<<<<<< HEAD
         else:
             answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents)#[0]
             #sentence_index = question_answer_similarity(question_text, story)[1]
@@ -414,18 +498,32 @@ def get_answer(question, story):
             # print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
             answer = get_answer_pos(sentence_index, dep_s, ["NN","JJ"]) #noun(sentence_index, dep_s)
             answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
+=======
+        #else:
+        answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents,discourse_model)#[0]
+        #sentence_index = question_answer_similarity(question_text, story)[1]
+        print("REC_CHECK!!")
+        print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
+        answer = get_answer_pos(sentence_index, dep_s, ["NN","JJ"]) #noun(sentence_index, dep_s)
+        answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
+>>>>>>> 293c14b12e34969b32dcd13b03374f2bdbbba6e9
 
     elif question_difficulty == "Medium":
         question_text = normalize_question(question_text,dep_q,par_q)
         #answer = question_answer_similarity(question_text, story)
+<<<<<<< HEAD
         answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents)#[0]
+=======
+        answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents,discourse_model)#[0]
+        print("answer: "+answer)
+>>>>>>> 293c14b12e34969b32dcd13b03374f2bdbbba6e9
         #sentence_index = question_answer_similarity(question_text, story)[1] #what is sentence_index?
         answer = get_answer_noun(sentence_index, dep_s)   
         # print(" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)))
         answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
 
     else:
-        answer = question_answer_similarity(question_text, story,goal_constituents)[0]
+        answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
 
     print("     ANSWER: {}".format(answer))
     return answer
