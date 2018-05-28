@@ -1,0 +1,120 @@
+
+
+fables-04-1
+Who did the Fox invite to dinner?
+
+
+fables-04-2
+What was the only fare provided?
+
+
+fables-04-3
+try: serve
+Where was some soup served?
+120
+
+
+fables-04-4
+Who is the story about?
+120
+
+
+fables-04-5
+What did the fox do to the soup?
+
+
+fables-04-6
+Why did the fox begin to be hungry and begin to be helpless?
+
+
+fables-04-7
+What did the stork easily fitted the long bill into?
+
+
+fables-04-8
+Why did the Fox sit by hungry and helpless?
+
+
+fables-04-9
+Medium
+normalizing WHAT: was savoury?
+
+
+fables-04-10
+Medium
+normalizing WHO: failed to drink some broth?
+(ROOT
+  (SBARQ
+    (WHNP (WP Who))
+    (SQ
+      (VP
+        (VBD failed)
+        (S (VP (TO to) (VP (VB drink) (NP (DT some) (NN broth)))))))
+    (. ?)))
+
+
+fables-04-11
+Medium
+normalizing WHAT: was the shape of the neck of the pitcher?
+
+
+fables-04-12
+Medium
+xcnormalizing WHAT: was clever?
+
+
+fables-04-13
+Medium
+normalizing WHAT: was the soup served in?
+
+
+fables-03-1
+Who is the story about?
+120
+
+
+fables-03-2
+Who swooped down upon a Serpant?
+720
+
+
+fables-03-3
+What did the Eagle seize it with?
+
+
+fables-03-4
+Who came to the assistance of the Eagle?
+
+
+fables-03-5
+What did the Serpent spit?
+
+
+fables-03-6
+Where did the Serpent spit some poison?
+
+
+fables-03-7
+What did the countryman decide?
+
+
+fables-03-8
+Who spilled the drinking vessel?
+120
+
+
+fables-03-9
+What did the eagle spill?
+
+
+fables-03-10
+Where where the contents of the horn spilled?
+
+
+fables-03-11
+try: heat
+What was heated?
+
+
+fables-03-12
+What did the Serpent do in revenge?
