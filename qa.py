@@ -17,8 +17,9 @@ def diagnose_goal(question_text,dep_q,par_q):
     question_type_when = re.match(r'[wW]hen (.*)',  question_text)
     question_type_why = re.match(r'[wW]hy (.*)',   question_text)
     question_type_how = re.match(r'[hH]ow [^lL](.*)', question_text)
-    question_type_how_long = re.match(r'[hHow long] (.*)', question_text)
+    question_type_how_long = re.match(r'[hH]ow long (.*)', question_text)
     question_type_had = re.match(r'[hH]ad (.*)', question_text)
+    question_type_did = re.match(r'[dD]id (.*)', question_text)
     if question_type_where:
         return ["PP"]
     elif question_type_who:
@@ -37,6 +38,8 @@ def diagnose_goal(question_text,dep_q,par_q):
     elif question_type_had:
         return ["RB"]
     elif question_type_how_long:
+        return ["NN"]
+    elif question_type_did:
         return ["NN"]
     else:
         return ["NP","AP"]
@@ -90,7 +93,6 @@ def normalize_verb(keywords,dep_q):
                 keywords[node-1] = "[^\.]*"+dep_q.nodes[node]["lemma"]+"[^\ ]*"
     return keywords
 
-
 def move_auxiliaries(keywords,dep_q):
     #find the verb's index
     verb_index = 0
@@ -137,7 +139,6 @@ def remove_stopwords(words):
             words[i] = "[^\.]*"
     return words
 
-
 def permute_and_join(keywords):
     keyword_combos = list(itertools.permutations(keywords))
     all_keywords = "(?:"+re.sub("\?",""," ".join(keywords[1:]))+")"
@@ -146,7 +147,6 @@ def permute_and_join(keywords):
         keyword = re.sub("\?","",keyword)
         all_keywords = all_keywords+"|(?:"+keyword+"[^\.]*)"
     return all_keywords
-
 
 def get_keyword(question,dep_q):
     keywords = question.split()
@@ -228,7 +228,7 @@ def get_answer_nsubj(best_sent_index, dep_s):
     return nsubj
 
 def resolve_pronouns(sentence,sent_discourse_model):
-    print(sent_discourse_model)
+    # print(sent_discourse_model)
     lmtzr = WordNetLemmatizer()
     words =  nltk.word_tokenize(sentence)
     resolved_words = []
@@ -241,9 +241,35 @@ def resolve_pronouns(sentence,sent_discourse_model):
         resolved_words += word
     return resolved_words
 
+# Look for negations in both question and answer
+def yes_no_q(question_text, story, goal_constituents, discourse_model):
+    best_sent, best_index = question_answer_similarity(question_text, story, goal_constituents, discourse_model)
+    question_words = nltk.word_tokenize(question_text)
+    answer_words = nltk.word_tokenize(best_sent)
+
+    should_negate = False
+    for word in question_words:
+        if word == ("not", "didn't", "hadn't"):
+            print(word)
+            should_negate = True
+    
+    answer = "yes"
+    for word in answer_words:
+        if word == ("not", "didn't" , "hadn't"):
+            answer = "no"
+        else:
+            answer = "yes"
+
+    if should_negate:
+        if answer == "yes":
+            answer = "no"
+        else:
+            answer == "yes"
+    return answer
+
 # Match the question with the sentence with the most similar words
 def question_answer_similarity(question_text, story, goal_constituents,discourse_model):
-    print("similarity to "+question_text)
+    # print("similarity to "+question_text)
     question_words = nltk.word_tokenize(question_text)
     text_sentences = nltk.sent_tokenize(story["text"])
     sch_sentences = nltk.sent_tokenize(str(story["sch"]))
@@ -261,7 +287,7 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
             if word in text_words and word not in stopwords.words('english'):
                 text_freq[sentence] += 1
             if lmtzr.lemmatize(word) in lemma_text_words and word not in stopwords.words('english'):
-                print("caught lemmatized word similarity")
+                # print("caught lemmatized word similarity")
                 text_freq[sentence] += 1
             #if word in sch_words and word not in stopwords.words('english'):
             #    text_freq[sentence] += 1
@@ -269,7 +295,7 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
         #print(story["story_par"][text_sentences.index(sentence)])
         if not any(pos in str(story["story_par"][text_sentences.index(sentence)]) for pos in goal_constituents):
             text_freq[sentence] -= 10
-        print(text_freq)
+        # print(text_freq)
         sent_index += 1
     best_sentence = max(text_freq, key=text_freq.get)
     best_index = text_sentences.index(best_sentence)
@@ -322,7 +348,6 @@ def normalize_question(question_text,dep_q,constituency_parse):
 
     return question_text
 
-
 def get_lemma(word):
     return WordNetLemmatizer().lemmatize(word, 'v')
                 
@@ -367,8 +392,10 @@ def get_answer(question, story):
     par_s = story["story_par"]
 
     discourse_model = create_discourse_model(par_s)
-    print("\n"+question["qid"])
-    #print("discourse model: "+str(discourse_model))
+    # print("\n"+question["qid"])
+    # print("discourse model: ")
+    # for i in discourse_model:
+    #     print(i)
 
     #diagnose what kind of constituent the question wants
     goal_constituents = diagnose_goal(text_q,dep_q,par_q)
@@ -428,8 +455,10 @@ def get_answer(question, story):
             keyword = get_noun(question_type_why.group(), dep_q)
         if question_type_had:
             yes_no_question = True
-            print(move_auxiliaries(question_type_had.group().split(),dep_q))
-
+            # print(move_auxiliaries(question_type_had.group().split(),dep_q))
+        if question_type_did:
+            yes_no_question = True
+            
         global should_normalize
         should_normalize = True
 
@@ -461,23 +490,18 @@ def get_answer(question, story):
                 for pair in tags:
                     pos = re.findall(adj_or_n, pair[1])
                     if pos:
-                        print("     pair1: {}, {}".format(pair[0], pair[1]))
                         clean.append(pair[0])
-                
-                # clean = set(clean)
-                answer = clean[0]
-                # answer = ' '.join(word for word in clean)
+                answer = clean[0]  # returning the first noun produced the best result
             elif question_type_where:
-                ######### ONLY USING THE BEST MATCH
-                best = best_match(question_text, matches)   #use the best matching sentence
-                print("     best match: {}".format(best))
+                # Only use the best match
+                best = best_match(question_text, matches)
+                # print("     best match: {}".format(best))
                 match_obj = re.match(r"[Ww]here (do|did|is|was) (.*)", question_text)
                 found = False
                 if match_obj:
                     found = True
                     decl_stmt = match_obj.group(2).replace("?", "")
-                    # decl_stmt = str(q_substr) # + r" (is|was|in|under|at|along|around|on|to|onto|out) (.*)"
-                    print("     decl_stmt ::::::::::: {}".format(decl_stmt))
+                    # print("     decl_stmt ::::::::::: {}".format(decl_stmt))
                     if found:
                         sentence = re.match(decl_stmt, best)
                         if sentence:
@@ -495,27 +519,20 @@ def get_answer(question, story):
 
                             q_stmt = ' '.join(word for word in lem_words_q)
                             a_stmt = ' '.join(word for word in lem_words_a)
-
-                            print("     Q Stmt: {}".format(q_stmt))
-                            print("     A Stmt: {}".format(a_stmt))
-
+                            # print("     Q Stmt: {}".format(q_stmt))
+                            # print("     A Stmt: {}".format(a_stmt))
                             lem_match = re.sub(q_stmt, '', a_stmt)
                             if lem_match:
                                 answer = lem_match
-                                print("     Ans????? : {}".format(answer))
                             else:
                                 answer = best
                 else:
                     answer = best
-                #########
-            elif question_type_did:
-                answer = "yes"
             else:
                 answer = best_match(question_text, matches)    
         answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents,discourse_model)#[0]
         #sentence_index = question_answer_similarity(question_text, story)[1]
-        print("REC_CHECK!!")
-        print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
+        # print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
         answer = get_answer_pos(sentence_index, dep_s, ["NN","JJ"]) #noun(sentence_index, dep_s)
         answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
 
@@ -526,18 +543,17 @@ def get_answer(question, story):
         print("answer: "+answer)
         #sentence_index = question_answer_similarity(question_text, story)[1] #what is sentence_index?
         answer = get_answer_noun(sentence_index, dep_s)   
-        # print(" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)))
         answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
+        if question_type_did:
+            answer = yes_no_q(question_text, story, goal_constituents, discourse_model)
 
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
     if yes_no_question:
-        print("YES/NO")
         if 'n' in answer:
             answer = "no"
         else:
             answer = "yes"
-    print(answer)
     print("     ANSWER: {}".format(answer))
     return answer
 
