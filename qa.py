@@ -16,7 +16,9 @@ def diagnose_goal(question_text,dep_q,par_q):
     question_type_where = re.match(r'[wW]here (.*)', question_text)
     question_type_when = re.match(r'[wW]hen (.*)',  question_text)
     question_type_why = re.match(r'[wW]hy (.*)',   question_text)
-    question_type_how = re.match(r'[hH]ow (.*)', question_text)
+    question_type_how = re.match(r'[hH]ow [^lL](.*)', question_text)
+    question_type_how_long = re.match(r'[hHow long] (.*)', question_text)
+    question_type_had = re.match(r'[hH]ad (.*)', question_text)
     if question_type_where:
         return ["PP"]
     elif question_type_who:
@@ -32,6 +34,10 @@ def diagnose_goal(question_text,dep_q,par_q):
         return ["NP"]
     elif question_type_how:
         return ["VBN"]
+    elif question_type_had:
+        return ["RB"]
+    elif question_type_how_long:
+        return ["NN"]
     else:
         return ["NP","AP"]
 
@@ -64,7 +70,7 @@ def create_discourse_model(par_s):
             elif pronoun in animate_pronouns:
                 candidates = []
                 for noun in nouns_so_far:
-                    if re.match(r'[A-Z][a-z\-]+',noun):
+                    if re.match(r'(?:[A-Z][a-z\-]+)|(?:[a-z]+man)',noun):
                         candidates.append(noun)
                 pronoun_map[pronoun] = candidates
             else:
@@ -90,14 +96,17 @@ def move_auxiliaries(keywords,dep_q):
     verb_index = 0
     for node in range(len(dep_q.nodes)-1,0,-1):
         if "VB" in dep_q.nodes[node]["tag"]:
-            verb_index = node-2
+            if dep_q.nodes[node-1]["tag"]=="RB":
+                verb_index = node-3
+            else:
+                verb_index = node-2
             break
     #look for auxes and put them right before verb
     for node in dep_q.nodes:
         if dep_q.nodes[node]["rel"] == "aux":
             auxiliary = keywords[node-1]
             keywords.remove(auxiliary)
-            keywords.insert(verb_index,auxiliary)
+            keywords.insert(verb_index,auxiliary.lower())
             #increment the verb's index since it's pushed one later            
             verb_index = verb_index + 1
     return keywords
@@ -168,6 +177,18 @@ def get_noun(question,dep_q):
     keyword = re.sub('[?,.!]', '', keyword)
     return keyword
 
+# Get verb from question                                                                                       
+def get_verb(question,dep_q):
+    keywords = question.split()
+    for node in dep_q.nodes:
+        if node-1 in range(len(keywords)):
+            if "VB" or "VBN" in dep_q.nodes[node]["tag"]:   # only gets last VB* in question 
+                keyword = dep_q.nodes[node]["lemma"]
+            else:
+                keyword = "none"
+    keyword = re.sub('[?,.!]', '', keyword)
+    return keyword
+
 # Get all words with parts of speech in the pos_list from answer sentence
 def get_answer_pos(best_sent_index, dep_s, pos_list):
     words = []
@@ -208,6 +229,7 @@ def get_answer_nsubj(best_sent_index, dep_s):
 
 def resolve_pronouns(sentence,sent_discourse_model):
     print(sent_discourse_model)
+    lmtzr = WordNetLemmatizer()
     words =  nltk.word_tokenize(sentence)
     resolved_words = []
     for word in words:
@@ -221,14 +243,16 @@ def resolve_pronouns(sentence,sent_discourse_model):
 
 # Match the question with the sentence with the most similar words
 def question_answer_similarity(question_text, story, goal_constituents,discourse_model):
+    print("similarity to "+question_text)
     question_words = nltk.word_tokenize(question_text)
     text_sentences = nltk.sent_tokenize(story["text"])
     sch_sentences = nltk.sent_tokenize(str(story["sch"]))
     text_freq = {}
-
+    lmtzr = WordNetLemmatizer()
     sent_index = 0
     for sentence in text_sentences:
         text_words = resolve_pronouns(sentence,discourse_model[sent_index])
+        lemma_text_words = [lmtzr.lemmatize(word) for word in text_words]
         if sent_index < len(sch_sentences):
             sch_words = resolve_pronouns(sch_sentences[sent_index],discourse_model[sent_index])
         #print("pros resolved: "+str(text_words))
@@ -236,13 +260,16 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
         for word in question_words:
             if word in text_words and word not in stopwords.words('english'):
                 text_freq[sentence] += 1
+            if lmtzr.lemmatize(word) in lemma_text_words and word not in stopwords.words('english'):
+                print("caught lemmatized word similarity")
+                text_freq[sentence] += 1
             #if word in sch_words and word not in stopwords.words('english'):
             #    text_freq[sentence] += 1
             
         #print(story["story_par"][text_sentences.index(sentence)])
         if not any(pos in str(story["story_par"][text_sentences.index(sentence)]) for pos in goal_constituents):
             text_freq[sentence] -= 10
-       #print(text_freq)
+        print(text_freq)
         sent_index += 1
     best_sentence = max(text_freq, key=text_freq.get)
     best_index = text_sentences.index(best_sentence)
@@ -366,12 +393,15 @@ def get_answer(question, story):
     question_text = question.get("text")  # gets the raw text of the question
     question_difficulty = question.get("difficulty")
 
+    yes_no_question = False
+
     # Get question type (who, what, where, when, or why)
     question_type_who = re.match(r'[wW]ho (.*)',   question_text)
     question_type_what = re.match(r'[wW]hat (.*)',  question_text)
     question_type_where = re.match(r'[wW]here (.*)', question_text)
     question_type_when = re.match(r'[wW]hen (.*)',  question_text)
     question_type_why = re.match(r'[wW]hy (.*)',   question_text)
+    question_type_had = re.match(r'[hH]ad (.*)', question_text)
 
     print(question_difficulty)
     print(question_text)
@@ -381,6 +411,7 @@ def get_answer(question, story):
             keyword = get_keyword(question_type_who.group(),dep_q)
         if question_type_what:
             keyword = get_noun(question_type_what.group(), dep_q)
+            keyword += get_verb(question_type_what.group(), dep_q)
             #keyword = get_keyword(question_type_what.group(),dep_q)
         if question_type_where:
             # print(' '.join(question_type_where.group().split()[3:]))
@@ -390,6 +421,9 @@ def get_answer(question, story):
             # keyword = get_keyword(question_type_when.group(),dep_q)
         if question_type_why:
             keyword = get_noun(question_type_why.group(), dep_q)
+        if question_type_had:
+            yes_no_question = True
+            print(move_auxiliaries(question_type_had.group().split(),dep_q))
 
         global should_normalize
         should_normalize = True
@@ -453,7 +487,12 @@ def get_answer(question, story):
 
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
-
+    if yes_no_question:
+        print("YES/NO")
+        if 'n' in answer:
+            answer = "no"
+        else:
+            answer = "yes"
     print(answer)
     return answer
 
