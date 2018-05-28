@@ -1,6 +1,27 @@
-Grace O'Hair-Sherman	(gohairsh)
-Contribution:
-Creating Github repository
-Verb normalization
-Reversing Subject Auxilliary Inversion (moving the auxillieries to immediately precede the verb)
-Permuting word order
+Grace O'Hair-Sherman    (gohairsh)
+
+Team name: Team Mango Persimmon
+
+Member who submitted main solution: Grace O'Hair-Sherman
+
+Team's approach:
+We took a somewhat empirical approach, trying various strategies and keeping what worked.
+We began by trying to match keywords in the story, then tried finding the sentences of the 
+story that were most similar to the question, then filtered these by the constituents
+the question was asking for.
+
+What each team member did:
+Kathryn Rosengrant (Katie) wrote the code to find the most relevant sentence in the story 
+based on the question and another function to compare the matches to find which was best. 
+She also worked on different question types.
+I worked on the discourse model and pronoun resolution, finding out what kind of constituent
+a question is asking for, and extending our solution to use Scheherazade.
+
+My contribution:
+I contributed a function to determine what kind of constituent a question wants in answer.
+I wrote the code to create the discourse model and to use that model for pronoun resolution. 
+I also extended Katie's code for determining the most relevant sentence of the story based 
+on the question so that it was used on the Scheherazade parse as well, then kept the better 
+of the two sentences (from the straight-up story and from Scheherazade), again using a helper 
+function that Katie wrote. 
+
