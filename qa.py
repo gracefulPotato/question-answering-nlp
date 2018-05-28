@@ -9,7 +9,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 should_normalize = True
 
 def diagnose_goal(question_text,dep_q,par_q):
-    print(par_q)
+    # print(par_q)
     # Get question type (who, what, where, when, or why)                                                              
     question_type_who = re.match(r'Who (.*)',   question_text)
     question_type_what = re.match(r'What (.*)',  question_text)
@@ -192,7 +192,7 @@ def best_match(question_text, matches):
                 text_freq[match] += 1
     
     best_match = max(text_freq, key=text_freq.get)
-    return best_match
+    return best_match        
 
 # Make question into declarative statement
 def normalize_question(question_text,dep_q,constituency_parse):   
@@ -207,7 +207,7 @@ def normalize_question(question_text,dep_q,constituency_parse):
     how = re.match(r'[Hh]ow (.*)', question_text)
     if who:
         question_text = who.group(1)
-        print("normalizing WHO: "+question_text)
+        # print("normalizing WHO: "+question_text)
     elif what:
         question_text = what.group(1)
     elif where:
@@ -225,6 +225,10 @@ def normalize_question(question_text,dep_q,constituency_parse):
     question_text = question_text.group(1)
 
     return question_text
+
+
+def get_lemma(word):
+    return WordNetLemmatizer().lemmatize(word, 'v')
                 
 def get_answer(question, story):
     """
@@ -266,12 +270,12 @@ def get_answer(question, story):
     dep_s = story["story_dep"]
     par_s = story["story_par"]
 
-    print("\n"+question["qid"])
+    # print("\n"+question["qid"])
 
     #diagnose what kind of constituent the question wants
     goal_constituents = diagnose_goal(text_q,dep_q,par_q)
-    print(goal_constituents)
-    print(rec_check_for_pos(par_q,goal_constituents))
+    # print(goal_constituents)
+    # print(rec_check_for_pos(par_q,goal_constituents))
 
     keyword = ""
     for node in dep_q.nodes:
@@ -301,10 +305,11 @@ def get_answer(question, story):
     question_type_where = re.match(r'Where (.*)', question_text)
     question_type_when = re.match(r'When (.*)',  question_text)
     question_type_why = re.match(r'Why (.*)',   question_text)
+    question_type_did = re.match(r'Did (.*)', question_text)
 
-    print(question_difficulty)
-    print(question_text)
-
+    
+    print("\n{} | {}".format(question["qid"], question_difficulty))
+    print("     QUESTION: {}".format(question_text))
     if question_difficulty == "Easy":
         if question_type_who:
             keyword = get_keyword(question_type_who.group(),dep_q)
@@ -330,7 +335,7 @@ def get_answer(question, story):
         for word in story_words:
             lemmad_words.append(lmtzr.lemmatize(word))
         matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
-        print(matches)
+        # print(matches)
         if len(matches) != 0:
             if question_type_why:
                 for match in matches:
@@ -340,50 +345,89 @@ def get_answer(question, story):
                         break
                     else:
                         continue
-            # elif question_type_where:
-            #     for match in matches:
-            #         sentence = re.match("to (.*)", match)
-            #         if sentence:
-            #             answer = sentence.group(1)
-            #             print(answer)
-            #             break
-            #         else:
-            #             continue
-            #     answer = "idk"
-            # elif question_type_what:
-            #     for match in matches:
-            #         sentence = re.match("(.*) did (.*)", match)
-            #         if sentence:
-            #             words = sentence.group(1)
-            #             for word in nltk.tokenize(words):
-            #                 print("past verb: {}".format(en.verb.past(word)))
-            #                 answer = word
+            elif question_type_who:  
+                best = best_match(question_text, matches)
+                best = best + '.'
+                best = nltk.word_tokenize(best)
+                tags = nltk.pos_tag(best)
+                clean = []
+                adj_or_n = r'NN.?.?'
+
+                for pair in tags:
+                    pos = re.findall(adj_or_n, pair[1])
+                    if pos:
+                        print("     pair1: {}, {}".format(pair[0], pair[1]))
+                        clean.append(pair[0])
+                
+                # clean = set(clean)
+                answer = clean[0]
+                # answer = ' '.join(word for word in clean)
+            elif question_type_where:
+                ######### ONLY USING THE BEST MATCH
+                best = best_match(question_text, matches)   #use the best matching sentence
+                print("     best match: {}".format(best))
+                match_obj = re.match(r"[Ww]here (do|did|is|was) (.*)", question_text)
+                found = False
+                if match_obj:
+                    found = True
+                    decl_stmt = match_obj.group(2).replace("?", "")
+                    # decl_stmt = str(q_substr) # + r" (is|was|in|under|at|along|around|on|to|onto|out) (.*)"
+                    print("     decl_stmt ::::::::::: {}".format(decl_stmt))
+                    if found:
+                        sentence = re.match(decl_stmt, best)
+                        if sentence:
+                            sentence.group()
+                            answer = sentence.group()
+                        else:  # if you can't find it, try getting the lemmas of each word in question and answer sentence
+                            q_words = nltk.word_tokenize(decl_stmt)
+                            a_words = nltk.word_tokenize(best)
+                            lem_words_q = []
+                            lem_words_a = []
+                            for q_word in q_words:
+                                lem_words_q.append(get_lemma(q_word))
+                            for a_word in a_words:
+                                lem_words_a.append(get_lemma(a_word))
+
+                            q_stmt = ' '.join(word for word in lem_words_q)
+                            a_stmt = ' '.join(word for word in lem_words_a)
+
+                            print("     Q Stmt: {}".format(q_stmt))
+                            print("     A Stmt: {}".format(a_stmt))
+
+                            lem_match = re.sub(q_stmt, '', a_stmt)
+                            if lem_match:
+                                answer = lem_match
+                                print("     Ans????? : {}".format(answer))
+                            else:
+                                answer = best
+                else:
+                    answer = best
+                #########
+            elif question_type_did:
+                answer = "yes"
             else:
                 answer = best_match(question_text, matches)    
         else:
             answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents)#[0]
             #sentence_index = question_answer_similarity(question_text, story)[1]
-            print("REC_CHECK!!")
-            print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
+            # print("REC_CHECK!!")
+            # print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
             answer = get_answer_pos(sentence_index, dep_s, ["NN","JJ"]) #noun(sentence_index, dep_s)
             answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
 
     elif question_difficulty == "Medium":
-        print(question_difficulty)
         question_text = normalize_question(question_text,dep_q,par_q)
-        print(question_text)
         #answer = question_answer_similarity(question_text, story)
         answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents)#[0]
-        print("answer: "+answer)
         #sentence_index = question_answer_similarity(question_text, story)[1] #what is sentence_index?
         answer = get_answer_noun(sentence_index, dep_s)   
-        print(" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)))
+        # print(" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)))
         answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
 
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents)[0]
 
-    print(answer)
+    print("     ANSWER: {}".format(answer))
     return answer
 
 
