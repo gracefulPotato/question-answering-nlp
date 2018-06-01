@@ -281,7 +281,8 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
 
     question_words = nltk.word_tokenize(question_text)
     text_sentences = nltk.sent_tokenize(story_text)
-    sch_sentences = nltk.sent_tokenize(str(sch_text))
+    sch_sentences = nltk.sent_tokenize(sch_text)
+
 
     text_freq = {}
     lmtzr = WordNetLemmatizer()
@@ -584,6 +585,10 @@ def get_answer(question, story):
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
 
+    elif question_difficulty = "Hard":
+        print(question_difficulty)
+    elif question_difficulty = "Discourse":
+        print(question_difficulty)
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
     if yes_no_question:
