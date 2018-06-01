@@ -611,7 +611,7 @@ def get_answer(question, story):
         else:
             answer = "yes"
     if answer == None:
-        answer = rec_check_for_pos(story["story_par"][0],["NP"])
+        answer = " ".join(rec_check_for_pos(story["story_par"][0],["NP"]))
     print("     ANSWER: {}".format(answer))
     return answer
 
