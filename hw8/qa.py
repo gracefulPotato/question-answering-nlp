@@ -6,6 +6,9 @@ from nltk.corpus import stopwords
 import itertools
 from nltk.stem.wordnet import WordNetLemmatizer
 import math
+import csv
+from collections import defaultdict
+from nltk.corpus import wordnet as wn
 
 should_normalize = True
 
@@ -247,7 +250,7 @@ def resolve_pronouns(sentence,sent_discourse_model):
 
 # Look for negations in both question and answer
 def yes_no_q(question_text, story, goal_constituents, discourse_model):
-    best_sent, best_index = question_answer_similarity(question_text, goal_constituents, discourse_model)
+    best_sent, best_index = question_answer_similarity(question_text, story, goal_constituents, discourse_model)
     question_words = nltk.word_tokenize(question_text)
     answer_words = nltk.word_tokenize(best_sent)
 
@@ -271,8 +274,75 @@ def yes_no_q(question_text, story, goal_constituents, discourse_model):
             answer == "yes"
     return answer
 
-# Match the question with the sentence with the most similar words
 
+# From wordnet_demo.py
+DATA_DIR = "./wordnet"
+
+# From wordnet_demo.py
+def load_wordnet_ids(filename):
+    file = open(filename, 'r')
+    if "noun" in filename:
+        type = "noun"
+    else:
+        type = "verb"
+    csvreader = csv.DictReader(file, delimiter=",", quotechar='"')
+    word_ids = defaultdict()
+    for line in csvreader:
+        word_ids[line['synset_id']] = {'synset_offset': line['synset_offset'],
+                                       'story_'+type: line['story_'+type], 'stories': line['stories']}
+    return word_ids
+
+# Uses code from wordnet_demo.py
+def use_wordnet():
+    wn_noun_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_nouns.csv"))
+    wn_verb_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_verbs.csv"))
+    # print(wn_noun_ids)
+
+    # Iterate through dictionaries
+    for synset_id, items in wn_noun_ids.items():
+        noun = items['story_noun']
+        n_stories = items['stories']
+        print("wn_noun: ", end="")
+        print(noun, n_stories)
+        # get lemmas, hyponyms, hypernyms
+    for synset_id, items in wn_verb_ids.items():
+        verb = items['story_verb']
+        v_stories = items['stories']
+        print("wn_verb: ", end="")
+        print(verb, v_stories)
+        # get lemmas, hyponyms, hypernyms
+
+# def get_wn_nouns(question, story):
+#     q_id = question["qid"]
+#     story_id = question["sid"]
+
+
+# Uses code from wordnet_demo.py
+def get_synsets(word):
+    return wn.synsets(word)
+
+# Uses code from wordnet_demo.py
+def get_hyponyms(word):
+    all_hyponyms = []
+    for synset in get_synsets(word):
+        hyponyms = synset.hyponyms()
+        # print("%s: %s" % (synset, hyponyms))
+        for hypo in hyponyms:
+            # print(hypo.name()[0:hypo.name().index(".")])
+            all_hyponyms.append(hypo.name()[0:hypo.name().index(".")])
+    return all_hyponyms
+
+# Uses code from wordnet_demo.py
+def get_hypernyms(word):
+    all_hypernyms = []
+    for synset in get_synsets(word):
+        hypernyms = synset.hypernyms()
+        for hyper in hypernyms:
+            all_hypernyms.append(hyper.name()[0:hyper.name().index(".")])
+    return all_hypernyms
+
+
+# Match the question with the sentence with the most overlapping words
 def question_answer_similarity(question_text, story, goal_constituents,discourse_model):
     story_text = story["text"]
     story_par = story["story_par"]
@@ -412,7 +482,6 @@ def get_answer(question, story):
     print("\n"+question["qid"])
     #print("discourse model: "+str(discourse_model))
 
-
     #diagnose what kind of constituent the question wants
     goal_constituents = diagnose_goal(text_q,dep_q,par_q)
     # print(goal_constituents)
@@ -454,6 +523,11 @@ def get_answer(question, story):
     
     print("\n{} | {}".format(question["qid"], question_difficulty))
     print("     QUESTION: {}".format(question_text))
+
+    # use_wordnet()
+    # print(get_hyponyms("Dog"))   # returns a list of the hyponyms
+    # print(get_hypernyms("Dog"))  # returns a list of the hypernyms
+
     if question_difficulty == "Easy":
         if question_type_who:
             keyword = get_keyword(question_type_who.group(),dep_q)
@@ -518,7 +592,6 @@ def get_answer(question, story):
                 if match_obj:
                     found = True
                     decl_stmt = match_obj.group(2).replace("?", "")
-                    # print("     decl_stmt ::::::::::: {}".format(decl_stmt))
                     if found:
                         sentence = re.match(decl_stmt, best)
                         if sentence:
@@ -585,10 +658,14 @@ def get_answer(question, story):
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
 
-    elif question_difficulty = "Hard":
+    elif question_difficulty == "Hard":
         print(question_difficulty)
-    elif question_difficulty = "Discourse":
+        answer = question_answer_similarity(
+            question_text, story, goal_constituents, discourse_model)[0]
+    elif question_difficulty == "Discourse":
         print(question_difficulty)
+        answer = question_answer_similarity(
+            question_text, story, goal_constituents, discourse_model)[0]
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
     if yes_no_question:
