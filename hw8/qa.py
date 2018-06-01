@@ -585,9 +585,9 @@ def get_answer(question, story):
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
 
-    elif question_difficulty = "Hard":
+    elif question_difficulty == "Hard":
         print(question_difficulty)
-    elif question_difficulty = "Discourse":
+    elif question_difficulty == "Discourse":
         print(question_difficulty)
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
