@@ -247,7 +247,7 @@ def resolve_pronouns(sentence,sent_discourse_model):
 
 # Look for negations in both question and answer
 def yes_no_q(question_text, story, goal_constituents, discourse_model):
-    best_sent, best_index = question_answer_similarity(question_text, story["text"], story["story_par"], goal_constituents, discourse_model)
+    best_sent, best_index = question_answer_similarity(question_text, goal_constituents, discourse_model)
     question_words = nltk.word_tokenize(question_text)
     answer_words = nltk.word_tokenize(best_sent)
 
@@ -273,15 +273,20 @@ def yes_no_q(question_text, story, goal_constituents, discourse_model):
 
 # Match the question with the sentence with the most similar words
 
-def question_answer_similarity(question_text, story_text, story_par, goal_constituents,discourse_model):
-    #print("similarity to "+question_text)
+def question_answer_similarity(question_text, story, goal_constituents,discourse_model):
+    story_text = story["text"]
+    story_par = story["story_par"]
+    sch_text = story["sch"]
+    sch_par = story["sch_par"]
 
     question_words = nltk.word_tokenize(question_text)
     text_sentences = nltk.sent_tokenize(story_text)
-    # sch_sentences = nltk.sent_tokenize(str(story["sch"]))
+    sch_sentences = nltk.sent_tokenize(str(sch_text))
+
     text_freq = {}
     lmtzr = WordNetLemmatizer()
     sent_index = 0
+
     for sentence in text_sentences:
         text_words = resolve_pronouns(sentence,discourse_model[sent_index])
         lemma_text_words = [lmtzr.lemmatize(word) for word in text_words]
@@ -541,7 +546,7 @@ def get_answer(question, story):
                     answer = best
             else:
                 answer = best_match(question_text, matches)    
-        answer,sentence_index = question_answer_similarity(question_text, story["text"],story["story_par"],goal_constituents,discourse_model)#[0]
+        answer,sentence_index = question_answer_similarity(question_text, story ,goal_constituents,discourse_model)#[0]
         #sentence_index = question_answer_similarity(question_text, story)[1]
 
         # print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
@@ -551,7 +556,7 @@ def get_answer(question, story):
         if type(story["sch"]) is str:
             #print(nltk.sent_tokenize(story["sch"])[sentence_index])
             #print("STORY: "+answer+" VERSUS SCHERAAZAHD: "+nltk.sent_tokenize(story["sch"])[sentence_index])  
-            sche_answer,sche_index = question_answer_similarity(question_text,story["sch"],story["sch_par"],goal_constituents,sch_discourse_model)
+            sche_answer,sche_index = question_answer_similarity(question_text,story,goal_constituents,sch_discourse_model)
             print("SCHEANSWER: "+sche_answer)
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
@@ -561,7 +566,7 @@ def get_answer(question, story):
     elif question_difficulty == "Medium":
         question_text = normalize_question(question_text,dep_q,par_q)
         #answer = question_answer_similarity(question_text, story)
-        answer,sentence_index = question_answer_similarity(question_text, story["text"],story["story_par"],goal_constituents,discourse_model)#[0]
+        answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents,discourse_model)#[0]
         print("answer: "+answer)
         #sentence_index = question_answer_similarity(question_text, story)[1] #what is sentence_index?
         answer = get_answer_noun(sentence_index, dep_s)   
@@ -574,13 +579,13 @@ def get_answer(question, story):
         if type(story["sch"]) is str:
             #print(nltk.sent_tokenize(story["sch"])[sentence_index])                                                       
             #print("STORY: "+answer+" VERSUS SCHERAAZAHD: "+nltk.sent_tokenize(story["sch"])[sentence_index])       
-            sche_answer,sche_index = question_answer_similarity(question_text,story["sch"],story["sch_par"],goal_constituents,sch_discourse_model)
+            sche_answer,sche_index = question_answer_similarity(question_text,story,goal_constituents,sch_discourse_model)
             print("SCHEANSWER: "+sche_answer)
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
 
     else:
-        answer = question_answer_similarity(question_text, story["text"],story["story_par"],goal_constituents,discourse_model)[0]
+        answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
     if yes_no_question:
         if 'n' in answer:
             answer = "no"
