@@ -36,7 +36,7 @@ def diagnose_goal(question_text,dep_q,par_q):
     elif question_type_when:
         return ["NP"]
     elif question_type_how:
-        return ["VBN"]
+        return ["VBN","NP"]
     elif question_type_had:
         return ["RB"]
     elif question_type_how_long:
@@ -247,7 +247,7 @@ def resolve_pronouns(sentence,sent_discourse_model):
 
 # Look for negations in both question and answer
 def yes_no_q(question_text, story, goal_constituents, discourse_model):
-    best_sent, best_index = question_answer_similarity(question_text, story["text"], story["story_par"], goal_constituents, discourse_model)
+    best_sent, best_index = question_answer_similarity(question_text, story["text"], story["story_par"],story["story_dep"], goal_constituents, discourse_model)
     question_words = nltk.word_tokenize(question_text)
     answer_words = nltk.word_tokenize(best_sent)
 
@@ -273,39 +273,34 @@ def yes_no_q(question_text, story, goal_constituents, discourse_model):
 
 # Match the question with the sentence with the most similar words
 
-def question_answer_similarity(question_text, story_text, story_par, goal_constituents,discourse_model):
-    #print("similarity to "+question_text)
-
+def question_answer_similarity(question_text, story_text, story_par, story_dep, goal_constituents,discourse_model):
     question_words = nltk.word_tokenize(question_text)
     text_sentences = nltk.sent_tokenize(story_text)
-    #sch_sentences = nltk.sent_tokenize(str(story["sch"]))
     text_freq = {}
     lmtzr = WordNetLemmatizer()
     sent_index = 0
     for sentence in text_sentences:
+        if sent_index >= len(discourse_model):
+            break
         text_words = resolve_pronouns(sentence,discourse_model[sent_index])
         lemma_text_words = [lmtzr.lemmatize(word) for word in text_words]
-        #if sent_index < len(sch_sentences):
-        #    sch_words = resolve_pronouns(sch_sentences[sent_index],discourse_model[sent_index])
-        #print("pros resolved: "+str(text_words))
         text_freq[sentence] = 0
         for word in question_words:
             if word in text_words and word not in stopwords.words('english'):
                 text_freq[sentence] += 1
+                #weight it more heavily if it's a verb
+                for node in story_dep[sent_index].nodes:
+                    if story_dep[sent_index].nodes[node]["word"]==word and "VB" in story_dep[sent_index].nodes[node]["tag"]:
+                        text_freq[sentence]+=1
             if lmtzr.lemmatize(word) in lemma_text_words and word not in stopwords.words('english'):
-                #print("caught lemmatized word similarity")
-
                 text_freq[sentence] += 1
-            #if word in sch_words and word not in stopwords.words('english'):
-            #    text_freq[sentence] += 1
-            
-        #print(story["story_par"][text_sentences.index(sentence)])
+                for node in story_dep[sent_index].nodes:
+                    if story_dep[sent_index].nodes[node]["word"]==word and "VB" in story_dep[sent_index].nodes[node]["tag"]:
+                        text_freq[sentence]+=1
         if not any(pos in str(story_par[text_sentences.index(sentence)]) for pos in goal_constituents):
             text_freq[sentence] -= 10
-
-        #print(text_freq)
-
         sent_index += 1
+    #print(text_freq)
     best_sentence = max(text_freq, key=text_freq.get)
     best_index = text_sentences.index(best_sentence)
 
@@ -409,8 +404,6 @@ def get_answer(question, story):
 
     #diagnose what kind of constituent the question wants
     goal_constituents = diagnose_goal(text_q,dep_q,par_q)
-    # print(goal_constituents)
-    # print(rec_check_for_pos(par_q,goal_constituents))
 
     keyword = ""
     for node in dep_q.nodes:
@@ -429,7 +422,6 @@ def get_answer(question, story):
         keyword = "[^\.]*"+"[^\.]*".join(poss_adj)+"[^\.]"
 
     verb = rec_check_for_pos(par_q,["V"])
-    #keyword = "[^\.]*"+"[^\.]*".join(verb)+"[^\.]"
 
     question_text = question.get("text")  # gets the raw text of the question
     question_difficulty = question.get("difficulty")
@@ -444,6 +436,7 @@ def get_answer(question, story):
     question_type_why = re.match(r'[wW]hy (.*)',   question_text)
     question_type_did = re.match(r'[dD]id (.*)', question_text)
     question_type_had = re.match(r'[hH]ad (.*)', question_text)
+    question_type_how = re.match(r'[hH]ow (.*)',question_text)
 
     
     print("\n{} | {}".format(question["qid"], question_difficulty))
@@ -454,21 +447,18 @@ def get_answer(question, story):
         if question_type_what:
             keyword = get_noun(question_type_what.group(), dep_q)
             keyword += get_verb(question_type_what.group(), dep_q)
-            #keyword = get_keyword(question_type_what.group(),dep_q)
         if question_type_where:
-            # print(' '.join(question_type_where.group().split()[3:]))
             keyword = get_keyword(question_type_where.group(),dep_q)
         if question_type_when:
             keyword = get_noun(question_type_when.group(), dep_q)
-            # keyword = get_keyword(question_type_when.group(),dep_q)
         if question_type_why:
             keyword = get_noun(question_type_why.group(), dep_q)
         if question_type_had:
             yes_no_question = True
-            # print(move_auxiliaries(question_type_had.group().split(),dep_q))
         if question_type_did:
             yes_no_question = True
-            
+        if question_type_how:
+            keyword = get_keyword(question_type_how.group(),dep_q)
         global should_normalize
         should_normalize = True
 
@@ -479,7 +469,6 @@ def get_answer(question, story):
         for word in story_words:
             lemmad_words.append(lmtzr.lemmatize(word))
         matches = re.findall(("[^\.]*"+keyword+"[^\.]*").lower(),story["text"].lower())
-        # print(matches)
         if len(matches) != 0:
             if question_type_why:
                 for match in matches:
@@ -502,7 +491,10 @@ def get_answer(question, story):
                     pos = re.findall(noun, pair[1])
                     if pos and pair[0] not in question_words and pair[0] not in clean:
                         clean.append(pair[0])
-                return clean[0]  # returning the first noun produced the best result
+                if len(clean)>0:
+                    return clean[0]  # returning the first noun produced the best result
+                else:
+                    return "HALP"
             elif question_type_where:
                 # Only use the best match
                 best = best_match(question_text, matches)
@@ -541,46 +533,37 @@ def get_answer(question, story):
                     answer = best
             else:
                 answer = best_match(question_text, matches)    
-        answer,sentence_index = question_answer_similarity(question_text, story["text"],story["story_par"],goal_constituents,discourse_model)#[0]
-        #sentence_index = question_answer_similarity(question_text, story)[1]
-
-        # print(rec_check_for_pos(par_s[sentence_index],goal_constituents))
+        print("question text: "+question_text)
+        answer,sentence_index = question_answer_similarity(question_text, story["text"],story["story_par"],story["story_dep"],goal_constituents,discourse_model)
         
         answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
         sche_answer = ""
         if type(story["sch"]) is str:
-            #print(nltk.sent_tokenize(story["sch"])[sentence_index])
-            #print("STORY: "+answer+" VERSUS SCHERAAZAHD: "+nltk.sent_tokenize(story["sch"])[sentence_index])  
-            sche_answer,sche_index = question_answer_similarity(question_text,story["sch"],story["sch_par"],goal_constituents,sch_discourse_model)
-            print("SCHEANSWER: "+sche_answer)
+            sche_answer,sche_index = question_answer_similarity(question_text,story["sch"],story["sch_par"],story["sch_dep"],goal_constituents,sch_discourse_model)
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
-        #answer = get_answer_pos(sentence_index, dep_s, ["NN","JJ"]) #noun(sentence_index, dep_s)
-        #answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
 
     elif question_difficulty == "Medium":
         question_text = normalize_question(question_text,dep_q,par_q)
-        #answer = question_answer_similarity(question_text, story)
-        answer,sentence_index = question_answer_similarity(question_text, story["text"],story["story_par"],goal_constituents,discourse_model)#[0]
-        print("answer: "+answer)
-        #sentence_index = question_answer_similarity(question_text, story)[1] #what is sentence_index?
-        answer = get_answer_noun(sentence_index, dep_s)   
+        print("normalized to: "+question_text)
+        answer,sentence_index = question_answer_similarity(question_text, story["text"],story["story_par"],story["story_dep"],goal_constituents,discourse_model)
+        print("question_answer_similarity_returned: "+answer)
+        #answer = get_answer_noun(sentence_index, dep_s)   
+        print("after get_asnwer_noun: "+answer)
         answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
-
+        print("medanswer: "+answer)
         if question_type_did:
             answer = yes_no_q(question_text, story, goal_constituents, discourse_model)
 
         sche_answer = ""
         if type(story["sch"]) is str:
-            #print(nltk.sent_tokenize(story["sch"])[sentence_index])                                                       
-            #print("STORY: "+answer+" VERSUS SCHERAAZAHD: "+nltk.sent_tokenize(story["sch"])[sentence_index])       
-            sche_answer,sche_index = question_answer_similarity(question_text,story["sch"],story["sch_par"],goal_constituents,sch_discourse_model)
+            sche_answer,sche_index = question_answer_similarity(question_text,story["sch"],story["sch_par"],story["sch_dep"],goal_constituents,sch_discourse_model)
             print("SCHEANSWER: "+sche_answer)
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
 
     else:
-        answer = question_answer_similarity(question_text, story["text"],story["story_par"],goal_constituents,discourse_model)[0]
+        answer = question_answer_similarity(question_text, story["text"],story["story_par"],story["story_dep"],goal_constituents,discourse_model)[0]
     if yes_no_question:
         if 'n' in answer:
             answer = "no"
