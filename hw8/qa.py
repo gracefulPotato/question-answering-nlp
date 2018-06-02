@@ -33,6 +33,10 @@ def diagnose_goal(question_text,dep_q,par_q):
         if re.findall(r'[\n.]*\(VP\s*\(VBP? do\).*',str(par_q)):
             #print("DO QUESTIOHN")
             return ["VP"]
+        #if quesition ends in preposition, it wants a PP answer
+        if dep_q.nodes[len(question_text.split(" "))]["tag"] == "IN":
+            print("WHAT PP QUESTION")
+            return ["PP"]
         return ["NP","ADJP"]
     elif question_type_why:
         return ["S","SBAR"]
@@ -234,7 +238,7 @@ def get_answer_nsubj(best_sent_index, dep_s):
 
 def resolve_pronouns(sentence,sent_discourse_model):
 
-    #print(sent_discourse_model)
+    print(sent_discourse_model)
 
     lmtzr = WordNetLemmatizer()
     words =  nltk.word_tokenize(sentence)
@@ -351,6 +355,7 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
     sch_text = story["sch"]
     sch_par = story["sch_par"]
     question_words = nltk.word_tokenize(question_text)
+    print("QUESTIOJ WOKRD: "+str(question_words))
     text_sentences = nltk.sent_tokenize(story_text)
     text_freq = {}
     lmtzr = WordNetLemmatizer()
@@ -359,25 +364,34 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
         if sent_index >= len(discourse_model) or sent_index >= len(story_dep):
             break
         text_words = resolve_pronouns(sentence,discourse_model[sent_index])
-        lemma_text_words = [lmtzr.lemmatize(word) for word in text_words]
+        lemma_text_words = []
+        for word in text_words:
+            lemma_text_words.append(lmtzr.lemmatize(word,'v'))
+#        lemma_text_words = [lmtzr.lemmatize(word) for word in text_words]
+        print("LEMMA TEXT WORDS: "+str(lemma_text_words))
         text_freq[sentence] = 0
         for word in question_words:
             if word in text_words and word not in stopwords.words('english'):
+                print("Word: "+word+" in textwrods")
                 text_freq[sentence] += 1
                 #weight it more heavily if it's a verb
                 for node in story_dep[sent_index].nodes:
                     if story_dep[sent_index].nodes[node]["word"]==word and "VB" in story_dep[sent_index].nodes[node]["tag"]:
                         text_freq[sentence]+=1
             if lmtzr.lemmatize(word) in lemma_text_words and word not in stopwords.words('english'):
+                print("Word: "+word+"'s lemma "+lmtzr.lemmatize(word)+" in textwrods")
                 text_freq[sentence] += 1
                 for node in story_dep[sent_index].nodes:
-                    if story_dep[sent_index].nodes[node]["word"]==word and "VB" in story_dep[sent_index].nodes[node]["tag"]:
-                        text_freq[sentence]+=1
+                    story_lemma = lmtzr.lemmatize(str(story_dep[sent_index].nodes[node]["word"]))
+                    if story_lemma ==lmtzr.lemmatize(word) and "VB" in story_dep[sent_index].nodes[node]["tag"]:
+                        text_freq[sentence]+=2
+            else:
+                print("Word: "+word+"'s lemma "+lmtzr.lemmatize(word)+" not in textwrods")
 #        print("text_sentences.index(sentence): "+str(text_sentences.index(sentence)%(len(story_par)-1))+" and len(tory_par): "+str(len(story_par)))
         if not any(pos in str(story_par[text_sentences.index(sentence)%(len(story_par)-1)]) for pos in goal_constituents):
             text_freq[sentence] -= 10
         sent_index += 1
-    #print(text_freq)
+    print(text_freq)
     best_sentence = max(text_freq, key=text_freq.get)
     best_index = text_sentences.index(best_sentence)
 
@@ -660,13 +674,16 @@ def get_answer(question, story):
 
     elif question_difficulty == "Hard":
         print(question_difficulty)
-        answer = question_answer_similarity(
-            question_text, story, goal_constituents, discourse_model)[0]
+        answer, sentence_index  = question_answer_similarity(
+            question_text, story, goal_constituents, discourse_model)
+        answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
+        print("HARD ANSWER: "+answer)
 
     elif question_difficulty == "Discourse":
         print(question_difficulty)
-        answer = question_answer_similarity(
-            question_text, story, goal_constituents, discourse_model)[0]
+        answer, sentence_index  = question_answer_similarity(
+            question_text, story, goal_constituents, discourse_model)
+        answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
     if yes_no_question:
