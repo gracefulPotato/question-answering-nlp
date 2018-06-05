@@ -64,6 +64,7 @@ def uniq(input):
 def create_discourse_model(par_s):
     discourse_model = []
     nouns_so_far = []
+    locations_so_far = {}
     animate_pronouns = ["he","He","she","She","her","Her","him","Him","his","His","her","Her"] #need to fix possesives
     for sentence in par_s:
         pronoun_map = {}
@@ -92,7 +93,16 @@ def create_discourse_model(par_s):
         nouns_so_far += nouns_in_sentence
         nouns_so_far = uniq(nouns_so_far)
         discourse_model.append(pronoun_map)
-    return discourse_model
+        #add locations to locations_so_far
+        pps = rec_check_for_pos(sentence,["PP"])
+        print("pps: "+str(pps))
+        #for pp in pps:
+        if len(pps)>0 and ((pps[0] == "in" and pps[1]!="order") or pps[0] == "at" or pps[0] == "into" or pps[0] == "on"):
+            locations_so_far[par_s.index(sentence)] = (" ".join(pps))
+        if len(pps)>0 and pps[0] == "by":
+            locations_so_far[par_s.index(sentence)] = (" ".join(pps))
+    print("LOCATILNS: "+str(locations_so_far))
+    return discourse_model, locations_so_far
 
 def normalize_verb(keywords,dep_q):
     #need to normalize verb (unless it's a stopword like be)
@@ -378,7 +388,7 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
                 for node in story_dep[sent_index].nodes:
                     if story_dep[sent_index].nodes[node]["word"]==word and "VB" in story_dep[sent_index].nodes[node]["tag"]:
                         text_freq[sentence]+=1
-            if lmtzr.lemmatize(word) in lemma_text_words and word not in stopwords.words('english'):
+            if lmtzr.lemmatize(word,'v') in lemma_text_words and word not in stopwords.words('english'):
                 print("Word: "+word+"'s lemma "+lmtzr.lemmatize(word)+" in textwrods")
                 text_freq[sentence] += 1
                 for node in story_dep[sent_index].nodes:
@@ -486,11 +496,11 @@ def get_answer(question, story):
     dep_s = story["story_dep"]
     par_s = story["story_par"]
 
-    discourse_model = create_discourse_model(par_s)
+    discourse_model, location_model = create_discourse_model(par_s)
 
     answer = None
 
-    sch_discourse_model = create_discourse_model(story["sch_par"])
+    sch_discourse_model, sch_location_model = create_discourse_model(story["sch_par"])
     print("\n"+question["qid"])
     #print("discourse model: "+str(discourse_model))
 
@@ -684,6 +694,42 @@ def get_answer(question, story):
         answer, sentence_index  = question_answer_similarity(
             question_text, story, goal_constituents, discourse_model)
         answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
+        if "where" in question_text or "Where" in question_text:
+            i = 0
+            if "after" in question_text:
+                while sentence_index+i not in location_model:
+                    i+=1
+                answer = location_model[sentence_index+i]
+            elif "before" in question_text:
+                while sentence_index-i not in location_model:
+                    i+=1
+                answer =location_model[sentence_index+i]
+            else:
+                while i not in location_model:
+                    i+=1
+                answer =location_model[i]
+            return answer
+        if "why" in question_text or "Why" in question_text:
+            answer=" ".join(rec_check_for_pos(par_s[sentence_index-1],goal_constituents)).lower()
+        if "who" in question_text or "Who" in question_text:
+            i = 0
+            for sent in discourse_model:
+                print(str(i)+" "+str(sent))
+                i += 1
+            answer = []
+            for pronoun in rec_check_for_pos(par_s[sentence_index],goal_constituents):
+                if pronoun in discourse_model[sentence_index]:
+                    #prioritize capitalized rather than 0th
+                    for antecedent in pronoun:
+                        if antecedent[0].isupper():
+                            answer.append(antecedent)
+                            break
+                if answer == []:
+                    answer.append(discourse_model[sentence_index][pronoun][0])
+            if len(answer)>0:
+                answer = " ".join(list(set(answer)))
+            else:
+                answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
     if yes_no_question:
