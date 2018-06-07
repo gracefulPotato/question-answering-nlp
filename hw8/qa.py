@@ -36,7 +36,7 @@ def diagnose_goal(question_text,dep_q,par_q):
         #if quesition ends in preposition, it wants a PP answer
         if dep_q.nodes[len(question_text.split(" "))]["tag"] == "IN":
             print("WHAT PP QUESTION")
-            return ["PP"]
+            return ["PP","NP"]
         return ["NP","ADJP"]
     elif question_type_why:
         return ["S","SBAR"]
@@ -75,7 +75,7 @@ def rec_print_vps(vp_structs):
                         str_child = re.sub(r'\$','',str_child)
                         str_child = re.sub(r'\s+',' ',str_child)
                         str_child = re.sub(r'^ ','',str_child)
-                        all_vps += [str_child]
+                        all_vps += str_child.split("and")
                         vps,vp_structs = check_for_top_pos(child,["VP"])
                         all_vps+=rec_print_vps(vp_structs)
     return all_vps
@@ -87,7 +87,20 @@ def create_discourse_model(par_s):
     animate_pronouns = ["he","He","she","She","her","Her","him","Him","his","His","her","Her"] #need to fix possesives
     for sentence in par_s:
         pronoun_map = {}
-        nouns_in_sentence = rec_check_for_pos(sentence,["NP"])
+        nouns_in_sentence = mod_rec_check_for_pos(sentence,["NP"])
+        #remove stopwords
+        #determiner = ""
+        #for noun in nouns_in_sentence:
+        #    if noun.lower() in stopwords.words():
+        #        nouns_in_sentence.remove(noun)
+        #        determiner = noun
+        #    else:
+        #        if determiner != "":
+        #            nouns_in_sentence.remove(noun)
+        #            noun = determiner+" "+noun
+        #            nouns_in_sentence.append(noun)
+        #        determiner = ""
+        print("NOUNS IN SENT: "+str(nouns_in_sentence))
         vps_in_sentence = rec_check_for_pos(sentence,["VP"])
         
         print("vps_in_sentence: "+str(vps_in_sentence))
@@ -175,6 +188,17 @@ def rec_check_for_pos(par_q,posses):
         elif any(pos in child.label() and not (pos == "VP" and child.label() == "ADVP") for pos in posses):
             pos_instances = pos_instances +child.leaves()
         else: 
+            pos_instances = pos_instances + rec_check_for_pos(child,posses)
+    return pos_instances
+
+def mod_rec_check_for_pos(par_q,posses):
+    pos_instances = []
+    for child in par_q:
+        if child in par_q.leaves():
+            return []
+        elif any(pos in child.label() and not (pos == "VP" and child.label() == "ADVP") for pos in posses):
+            pos_instances = pos_instances +[" ".join(child.leaves())]
+        else:
             pos_instances = pos_instances + rec_check_for_pos(child,posses)
     return pos_instances
 
@@ -544,6 +568,8 @@ def get_answer(question, story):
 
 
     """
+    lmtzr = WordNetLemmatizer()
+
     text_q = question["text"]
     dep_q = question["dep"]
     par_q = question["par"]
@@ -780,7 +806,8 @@ def get_answer(question, story):
                 if pronoun in discourse_model[sentence_index]:
                     #prioritize capitalized rather than 0th
                     for antecedent in pronoun:
-                        if antecedent[0].isupper():
+                        if antecedent[0].isupper() and antecedent[0] not in stopwords.words:
+                            print(antecedent[0]+" not in "+str(stopwords.words))
                             answer.append(antecedent)
                             #break
                 if answer == []:
@@ -794,9 +821,9 @@ def get_answer(question, story):
             #find the question's verb in the action_model
             question_verb = rec_check_for_pos(par_q,["VB"])#get_verb(question_text,dep_q) #rec_check_for_pos(question_text,["VB"])
             question_verb = question_verb[len(question_verb)-1]
-            print("qeustiontext: "+question_text+" and dep_q: "+str(dep_q))
-            print("Searching for question_verb: "+str(question_verb))
-            question_verb = question_verb[len(question_verb)-1]
+            #print("qeustiontext: "+question_text+" and dep_q: "+str(dep_q))
+            print("Searching for question_verb: "+str(question_verb)+" in action model: "+str(action_model[sentence_index]))
+            question_verb = question_verb #[len(question_verb)-1]
             vp_index = 0
             for vp in action_model[sentence_index]:
                 print("vp in action model:  "+vp)
@@ -817,6 +844,54 @@ def get_answer(question, story):
                         j-=1
                 print("choosing first of "+str(action_model[sentence_index+j]))
                 answer = action_model[sentence_index+j][-1]
+            if "after" in question_text or "After" in question_text:
+                vp_index = len(action_model[sentence_index])-1
+                for i in range(len(action_model[sentence_index])-1,0,-1):
+                #for vp in action_model[sentence_index]:
+                    vp = action_model[sentence_index][i]
+                    print("after vp in action model:  "+vp)
+                    lemma_vp = ""
+                    for word in nltk.word_tokenize(vp):
+                        lemma_vp+=lmtzr.lemmatize(word,'v')
+                        lemma_vp+=" "
+                    if lmtzr.lemmatize(question_verb,'v') in lemma_vp:
+                        print(lmtzr.lemmatize(question_verb,'v')+" in "+lemma_vp)
+                        break
+                    else:
+                        print(lmtzr.lemmatize(question_verb,'v')+" not in "+lemma_vp)
+                        vp_index-=1
+                if len(action_model[sentence_index])>vp_index+1:
+                    print("quesiton vp: "+str(action_model[sentence_index][vp_index]))
+                    answer = action_model[sentence_index][vp_index+1]
+                else:
+                    j = 1
+                    while len(action_model[sentence_index+j])==0:
+                        j+=1
+                    if j >=len(action_model):
+                        while len(action_model[sentence_index+j])==0:
+                            j-=1
+                    print("choosing first of "+str(action_model[sentence_index+j]))
+                    answer = action_model[sentence_index+j][0]
+            elif "before" in question_text or "Before" in question_text:
+                vp_index = 0
+                for vp in action_model[sentence_index]:
+                    print("before vp in action model:  "+vp)
+                    if question_verb in vp:
+                        break
+                    else:
+                        vp_index+=1
+                if len(action_model[sentence_index])>vp_index:
+                    print("quesiton vp: "+str(action_model[sentence_index][vp_index]))
+                    answer = action_model[sentence_index][vp_index-1]
+                else:
+                    j = 1
+                    while len(action_model[sentence_index-j])==0:
+                        j+=1
+                    if j >=len(action_model):
+                        while len(action_model[sentence_index-j])==0:
+                            j-=1
+                    print("choosing last of "+str(action_model[sentence_index-j]))
+                    answer = action_model[sentence_index-j][-1]
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
     if yes_no_question:
