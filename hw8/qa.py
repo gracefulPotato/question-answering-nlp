@@ -9,8 +9,10 @@ import math
 import csv
 from collections import defaultdict
 from nltk.corpus import wordnet as wn
+import string
 
 should_normalize = True
+DATA_DIR = "./wordnet"  # From wordnet_demo.py
 
 def diagnose_goal(question_text,dep_q,par_q):
     #print(par_q)
@@ -233,9 +235,6 @@ def get_answer_nsubj(best_sent_index, dep_s):
     return nsubj
 
 def resolve_pronouns(sentence,sent_discourse_model):
-
-    #print(sent_discourse_model)
-
     lmtzr = WordNetLemmatizer()
     words =  nltk.word_tokenize(sentence)
     resolved_words = []
@@ -275,10 +274,6 @@ def yes_no_q(question_text, story, goal_constituents, discourse_model):
             answer == "yes"
     return answer
 
-
-# From wordnet_demo.py
-DATA_DIR = "./wordnet"
-
 # From wordnet_demo.py
 def load_wordnet_ids(filename):
     file = open(filename, 'r')
@@ -294,54 +289,286 @@ def load_wordnet_ids(filename):
     return word_ids
 
 # Uses code from wordnet_demo.py
-def use_wordnet():
-    wn_noun_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_nouns.csv"))
-    wn_verb_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_verbs.csv"))
-    # print(wn_noun_ids)
+def get_story_nouns_verbs(story, sentence):
+    s_id = story["sid"]
 
-    # Iterate through dictionaries
-    for synset_id, items in wn_noun_ids.items():
+    noun_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_nouns.csv"))
+    verb_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_verbs.csv"))
+
+    nouns = []
+    for synset_id, items in noun_ids.items():
         noun = items['story_noun']
-        n_stories = items['stories']
-        print("wn_noun: ", end="")
-        print(noun, n_stories)
-        # get lemmas, hyponyms, hypernyms
-    for synset_id, items in wn_verb_ids.items():
+        stories = items['stories']
+        if len(stories) >= 1 and s_id+".vgl" in stories:
+            nouns.append(noun)
+
+    verbs = []
+    for synset_id, items in verb_ids.items():
         verb = items['story_verb']
-        v_stories = items['stories']
-        print("wn_verb: ", end="")
-        print(verb, v_stories)
-        # get lemmas, hyponyms, hypernyms
-
-# def get_wn_nouns(question, story):
-#     q_id = question["qid"]
-#     story_id = question["sid"]
-
+        stories = items['stories']
+        if len(stories) >= 1 and s_id+".vgl" in stories:
+            verbs.append(verb)
+    # print(nouns + verbs)
+    return nouns + verbs
 
 # Uses code from wordnet_demo.py
-def get_synsets(word):
-    return wn.synsets(word)
+def get_story_wn_ids(story, sentence):
+    s_id = story["sid"]
+    noun_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_nouns.csv"))
+    verb_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_verbs.csv"))
+
+    nouns = []
+    for synset_id, items in noun_ids.items():
+        noun_id = synset_id
+        stories = items['stories']
+        if len(stories) >= 1 and s_id+".vgl" in stories:
+            nouns.append(noun_id)
+
+    verbs = []
+    for synset_id, items in verb_ids.items():
+        verb_id = synset_id
+        stories = items['stories']
+        if len(stories) >= 1 and s_id+".vgl" in stories:
+            verbs.append(verb_id)
+    print(nouns + verbs)
+    return nouns + verbs
+
+def get_full_synset(story, sentence):
+    # noun_verb_ids = get_story_nouns_verbs(story, sentence)
+    noun_verb_ids = get_story_wn_ids(story, sentence)
+    all_synonyms = []
+
+    for an_id in noun_verb_ids:
+        # print(wn.synset(an_id))
+        # for i in get_synsets(an_id):
+        all_synonyms.append(wn.synset(an_id))
+    return all_synonyms
+
+# Old version
+# def get_wn_overlap(question, story):
+#     q_id = question["qid"]
+#     q_text = question["text"]
+#     s_id = question["sid"]
+#     s_text = story["text"]
+#     q_words = nltk.word_tokenize(q_text)
+
+#     # Remove stopwords from question
+#     q_synonyms = []
+#     first = True
+#     for word in q_words:
+        
+#         if first and word not in stopwords.words('English'):
+#             q_words.remove(word)
+#             first = False
+        
+#         if word in stopwords.words('English') or word == '?':
+#             q_words.remove(word)
+#         # else:
+#             # syns = get_synonyms(word)
+#             # print("WORD TO GET: {}".format(word))
+#             # if len(syns) >= 1:
+#             #     for s in syns:
+#             #         q_synonyms.append(s)
+    
+#     # for word in q_words:
+#     #     syns = get_synonyms(word)
+#     #     # print("WORD TO GET: {}".format(word))
+#     #     if len(syns) >= 1:
+#     #         for s in syns:
+#     #             q_synonyms.append(s)
+    
+#     # print("        qwords: {}".format(q_words))
+#     # q_words_all = q_words + q_synonyms
+#     # s_all_synonyms = get_full_synset(story)
+#     text_freq = {}
+#     sent_index = 0
+
+#     # print("  qwordsall: {}\n".format(q_words_all))
+#     for s_sent in nltk.sent_tokenize(s_text):
+#         # s_all_synonyms = get_full_synset(story, s_sent)
+#         for s_word in s_sent:
+#             s_all_synonyms = get_hypo_hyper(s_word)
+#         text_freq[s_sent] = 0
+#         # print("q_words {}".format(q_words))
+#         for q_word in q_words:
+#             # print("q word: {}".format(q_word))
+#             if q_word in s_all_synonyms:
+#                 # print("dict item: {}".format(s_sent))
+#                 text_freq[s_sent] += 1
+#         sent_index += 1
+#         # print("next sent")
+#         # print(s_all_synonyms)
+#     # print("        sallsynonyms: {}\n".format(s_all_synonyms))
+#     best_sentence = max(text_freq, key=text_freq.get)
+#     best_index = nltk.sent_tokenize(s_text).index(best_sentence)
+#     # print("best sentence: {}".format(best_sentence))
+#     # print(text_freq)
+
+#     return best_sentence, best_index
+
+# Updated version
+def get_wn_sent_overlap(question, story):
+    quest_text = question["text"]
+    story_text = story["text"]
+
+    noun_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_nouns.csv"))
+    verb_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_verbs.csv"))
+
+    s_sents = nltk.sent_tokenize(story_text)
+    q_words = nltk.word_tokenize(quest_text)
+    max_value = 0
+
+    # Start by normalizing the question
+    q_words = q_words[1:-1]           # Citation: https://stackoverflow.com/questions/11338143/how-to-remove-the-first-and-last-item-in-a-list
+    quest_words = []
+    for w in q_words:
+        if w not in stopwords.words('english'):
+            quest_words.append(w)
+    
+    # 1. Start by trying to find the best sentence by matching the question directly
+    # 2. If no matches then try lemmatizing the words in both the question and the text
+    # 3. If no matches then try finding synonyms with WordNet
+    s_sents = nltk.sent_tokenize(story_text)
+    s_sentences = {}
+    s_index = 0
+    for s_sent in s_sents:
+        # print("sentence: {}".format(s_sent))
+        s_index += 1
+        s_sentences[s_sent] = 0
+        s_sent_synonyms = []
+        s_words = nltk.word_tokenize(s_sent)
+        
+        for s_word in s_words:
+            synsets = wn.synsets(s_word)
+            for syn in synsets:
+                if syn.name() in noun_ids or syn.name() in verb_ids:
+                    for s in syn.lemmas():
+                        if s.name() not in s_sent_synonyms:
+                            s_sent_synonyms.append(s.name())
+                        if s_word not in s_sent_synonyms:
+                            s_sent_synonyms.append(s_word)   # also append the word itself as a backup
+                        # print(s.name())
+                        if s.name() in q_words:
+                            # print("...sentence: {}".format(s_words))
+                            # print("...sMATCH: {}, {}.".format(s.name(), q_words))
+                            # print("...synonyms: {}\n".format(s_sent_synonyms))
+                            s_sentences[s_sent] += 1
+                        else:   # if you can't find a match, try lemmatizing words in question
+                            lmtzr = WordNetLemmatizer()
+                            lems = []
+                            for w in q_words:
+                                lem = lmtzr.lemmatize(w, 'v')
+                                lems.append(lem)
+                            if s.name() in lems:
+                                # print("...sentence: {}".format(s_words))
+                                # print("...lMATCH: {}, {}.".format(s.name(), q_words))
+                                # print("...synonyms: {}\n".format(s_sent_synonyms))
+                                s_sentences[s_sent] += 1
+                            # print(s.name())
+                else:
+                    continue
+        
+                
+    best_sentence = max(s_sentences, key=s_sentences.get)
+    best_index = s_sents.index(best_sentence)
+
+    m = max(s_sentences, key=s_sentences.get)
+    max_value = s_sentences[m]
+
+    # 4. If no synonyms found, try matching hypernyms and hyponyms:
+    if max_value < 1:
+        text_freq = {}
+        index = 0
+        for s_sent in s_sents:
+            index += 1
+            text_freq[s_sent] = 0
+            s_sent_hyper = []
+            s_sent_hypo = []
+            s_words = nltk.word_tokenize(s_sent)
+            for s_word in s_words:
+                if s_word.lower() not in stopwords.words('english'):
+                    synsets = wn.synsets(s_word)
+                    for s in synsets:
+                        if s.name() in noun_ids or s.name() in verb_ids:
+                            for h in s.hypernyms():
+                                lemmas = h.lemmas()
+                                for l in lemmas:
+                                    s_sent_hyper.append(l.name())
+                                    if l.name() in q_words:
+                                        # print("...sentence: {}".format(s_words))
+                                        # print("...heMATCH: {}, {}.".format(s.name(), q_words))
+                                        text_freq[s_sent] += 1
+                            for h in s.hyponyms():
+                                lemmas = h.lemmas()
+                                for l in lemmas:
+                                    s_sent_hypo.append(l.name())
+                                    if l.name() in q_words:
+                                        # print("...sentence: {}".format(s_words))
+                                        # print("...hoMATCH: {}, {}.".format(s.name(), q_words))
+                                        text_freq[s_sent] += 1
+        m = max(text_freq, key=text_freq.get)
+        max_val = text_freq[m]
+        best_sentence = max(text_freq, key=text_freq.get)
+        best_index = s_sents.index(best_sentence)
+
+    return best_sentence, best_index
+
+def reformulate_question_wn(question, story):
+    noun_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_nouns.csv"))
+    verb_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_verbs.csv"))
+    q_text = question["text"]
+    q_words = nltk.word_tokenize(q_text)
+    q_words = q_words[1:-1]  # remove question word and question mark
+    words = []
+    for word in q_words:
+        if word not in stopwords.words('english'):
+            words.append(word)
+    
+    synonyms = []
+    for w in words:
+        syns = wn.synsets(w)
+        for syn in syns:
+            if syn.name() in noun_ids or syn.name() in verb_ids:
+                syn = syn.lemma_names()
+                for s in syn:
+                    if s not in synonyms:
+                        synonyms.append(s)
+
+# Uses code from wordnet_demo.py
+def get_synsets(word_id):
+    return wn.synsets(word_id)
+
+def get_hypo_hyper(word):
+    return get_hyponyms(word) + get_hypernyms(word)
 
 # Uses code from wordnet_demo.py
 def get_hyponyms(word):
+    noun_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_nouns.csv"))
+    verb_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_verbs.csv"))
     all_hyponyms = []
     for synset in get_synsets(word):
         hyponyms = synset.hyponyms()
         # print("%s: %s" % (synset, hyponyms))
         for hypo in hyponyms:
             # print(hypo.name()[0:hypo.name().index(".")])
-            all_hyponyms.append(hypo.name()[0:hypo.name().index(".")])
+            if hypo.name() in noun_ids or hypo.name() in verb_ids: 
+                all_hyponyms.append(hypo.name()[0:hypo.name().index(".")])
+                # print(hypo.name())
+    # print("all hypo: \n{}\n".format(all_hyponyms))
     return all_hyponyms
 
 # Uses code from wordnet_demo.py
 def get_hypernyms(word):
+    noun_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_nouns.csv"))
+    verb_ids = load_wordnet_ids("{}/{}".format(DATA_DIR, "Wordnet_verbs.csv"))
     all_hypernyms = []
     for synset in get_synsets(word):
         hypernyms = synset.hypernyms()
         for hyper in hypernyms:
-            all_hypernyms.append(hyper.name()[0:hyper.name().index(".")])
+            if hyper.name() in noun_ids or hyper.name() in verb_ids:
+                all_hypernyms.append(hyper.name()[0:hyper.name().index(".")])
+    # print("all hyper: \n{}\n".format(all_hypernyms))
     return all_hypernyms
-
 
 # Match the question with the sentence with the most overlapping words
 def question_answer_similarity(question_text, story, goal_constituents,discourse_model):
@@ -373,7 +600,7 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
                 for node in story_dep[sent_index].nodes:
                     if story_dep[sent_index].nodes[node]["word"]==word and "VB" in story_dep[sent_index].nodes[node]["tag"]:
                         text_freq[sentence]+=1
-        print("text_sentences.index(sentence): "+str(text_sentences.index(sentence)%(len(story_par)-1))+" and len(tory_par): "+str(len(story_par)))
+        # print("text_sentences.index(sentence): "+str(text_sentences.index(sentence)%(len(story_par)-1))+" and len(tory_par): "+str(len(story_par)))
         if not any(pos in str(story_par[text_sentences.index(sentence)%(len(story_par)-1)]) for pos in goal_constituents):
             text_freq[sentence] -= 10
         sent_index += 1
@@ -477,7 +704,7 @@ def get_answer(question, story):
     answer = None
 
     sch_discourse_model = create_discourse_model(story["sch_par"])
-    print("\n"+question["qid"])
+    # print("\n"+question["qid"])
     #print("discourse model: "+str(discourse_model))
 
     #diagnose what kind of constituent the question wants
@@ -516,13 +743,6 @@ def get_answer(question, story):
     question_type_did = re.match(r'[dD]id (.*)', question_text)
     question_type_had = re.match(r'[hH]ad (.*)', question_text)
     question_type_how = re.match(r'[hH]ow (.*)',question_text)
-    
-    print("\n{} | {}".format(question["qid"], question_difficulty))
-    print("     QUESTION: {}".format(question_text))
-
-    # use_wordnet()
-    # print(get_hyponyms("Dog"))   # returns a list of the hyponyms
-    # print(get_hypernyms("Dog"))  # returns a list of the hypernyms
 
     if question_difficulty == "Easy":
         if question_type_who:
@@ -617,7 +837,7 @@ def get_answer(question, story):
                     answer = best
             else:
                 answer = best_match(question_text, matches)    
-        print("question text: "+question_text)
+        # print("question text: "+question_text)
         answer,sentence_index = question_answer_similarity(question_text, story ,goal_constituents,discourse_model)#[0]
         answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
         sche_answer = ""
@@ -626,7 +846,7 @@ def get_answer(question, story):
             #print(nltk.sent_tokenize(story["sch"])[sentence_index])
             #print("STORY: "+answer+" VERSUS SCHERAAZAHD: "+nltk.sent_tokenize(story["sch"])[sentence_index])  
             sche_answer,sche_index = question_answer_similarity(question_text,story,goal_constituents,sch_discourse_model)
-            print("SCHEANSWER: "+sche_answer)
+            # print("SCHEANSWER: "+sche_answer)
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
         #answer = get_answer_pos(sentence_index, dep_s, ["NN","JJ"]) #noun(sentence_index, dep_s)
@@ -636,9 +856,9 @@ def get_answer(question, story):
         question_text = normalize_question(question_text,dep_q,par_q)
         #answer = question_answer_similarity(question_text, story)
         answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents,discourse_model)#[0]
-        print("answer: "+answer)
+        # print("answer: "+answer)
         #sentence_index = question_answer_similarity(question_text, story)[1] #what is sentence_index?
-        answer = get_answer_noun(sentence_index, dep_s)   
+        # answer = get_answer_noun(sentence_index, dep_s)   
         answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
 
         if question_type_did:
@@ -649,17 +869,20 @@ def get_answer(question, story):
      
             sche_answer,sche_index = question_answer_similarity(question_text,story,goal_constituents,sch_discourse_model)
 
-            print("SCHEANSWER: "+sche_answer)
+            # print("SCHEANSWER: "+sche_answer)
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
 
     elif question_difficulty == "Hard":
-        print(question_difficulty)
-        answer = question_answer_similarity(
-            question_text, story, goal_constituents, discourse_model)[0]
+        print("\n{} | {}".format(question["qid"], question_difficulty))
+        print("-----QUESTION: {}".format(question_text))
+        # answer = get_wn_overlap(question,story)[0]
+        answer = get_wn_sent_overlap(question, story)[0]
+        print("-----ANSWER: {}".format(answer))
+        # answer = question_answer_similarity(
+        #     question_text, story, goal_constituents, discourse_model)[0]
 
     elif question_difficulty == "Discourse":
-        print(question_difficulty)
         answer = question_answer_similarity(
             question_text, story, goal_constituents, discourse_model)[0]
     else:
@@ -671,7 +894,8 @@ def get_answer(question, story):
             answer = "yes"
     if answer == None:
         answer = ' '.join(rec_check_for_pos(story["story_par"][0],["NP"]))
-    print("     ANSWER: {}".format(answer))
+    
+    answer = re.sub(r'[.,?!]', '', answer)  # keep colons for time answers
     return answer
 
 
