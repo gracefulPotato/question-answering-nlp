@@ -974,7 +974,7 @@ def get_answer(question, story):
                     question_text, story, goal_constituents, discourse_model)
         answer = " ".join(rec_check_for_pos(
             par_s[sentence_index], goal_constituents)).lower()
-        answer = get_wn_sent_overlap(question, story)[0]
+        answer = get_wn_sent_overlap(question, story)[0]   #Katie
         print("-----ANSWER: {}".format(answer))
         # answer = question_answer_similarity(
         #     question_text, story, goal_constituents, discourse_model)[0]
