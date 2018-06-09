@@ -1,0 +1,5 @@
+get_verb: lion
+(['sleeping'], [Tree('VP', [Tree('VBG', ['sleeping'])])])
+reccheckforpos vpb['was', 'sleeping']
+
+fables-06-1

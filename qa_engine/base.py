@@ -5,7 +5,7 @@ from nltk.tree import Tree
 from collections import defaultdict
 
 DATA_DIR = "data/"
-DATASET = "hw7"
+DATASET = "hw8"
 QUESTION_FILE = "{}-questions.csv".format(DATASET)
 ANSWER_FILE = "{}-answers.csv".format(DATASET)
 STORIES_FILE = "{}-stories.csv".format(DATASET)

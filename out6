@@ -1,0 +1,6239 @@
+
+fables-06-1
+
+fables-06-1 | Easy
+     QUESTION: Where was the lion sleeping?
+question text: Where was the lion sleeping?
+     ANSWER: in his lair by a Mouse running over his face
+
+fables-06-2
+
+fables-06-2 | Easy
+     QUESTION: Who is terrified?
+question text: Who is terrified?
+     ANSWER: The Mouse , terrified , him its life
+
+fables-06-3
+
+fables-06-3 | Easy
+     QUESTION: What amused the Lion so much?
+question text: What amused the Lion so much?
+     ANSWER: The idea of so insignificant a creature able to do anything for him amused the Lion so much that he laughed aloud , and good-humouredly let it go
+
+fables-06-4
+
+fables-06-4 | Easy
+     QUESTION: Where did the Lion get entangled in one day?
+question text: Where did the Lion get entangled in one day?
+     ANSWER: for your kindness
+
+fables-06-5
+
+fables-06-5 | Easy
+     QUESTION: Why was the lion awaked?
+question text: Why was the lion awaked?
+     ANSWER: The lion awaked because a mouse ran into the face of the lion .
+
+fables-06-6
+
+fables-06-6 | Easy
+     QUESTION: Who spread some net in order to catch a big game?
+question text: Who spread some net in order to catch a big game?
+     ANSWER: One day the Lion a net which had been spread for game by some hunters the Mouse his anger the spot
+
+fables-06-7
+
+fables-06-7 | Easy
+     QUESTION: Who entangled himself in the net?
+
+fables-06-8
+
+fables-06-8 | Easy
+     QUESTION: What did the mouse immediately begin gnawing?
+question text: What did the mouse immediately begin gnawing?
+     ANSWER: The mouse the rope of the net the tooth of the mouse
+
+fables-06-9
+
+fables-06-9 | Medium
+     QUESTION: What woke up the lion?
+normalized to: woke up the lion
+question_answer_similarity_returned: A Lion asleep in his lair was waked up by a Mouse running over his face.
+after get_asnwer_noun: A Lion asleep in his lair was waked up by a Mouse running over his face.
+medanswer: a lion asleep in his lair a mouse running over his face
+SCHEANSWER: There once was a lion.
+     ANSWER: a lion asleep in his lair a mouse running over his face
+
+fables-06-10
+
+fables-06-10 | Medium
+     QUESTION: Why did the trapper spread some net?
+normalized to: the trapper spread some net
+question_answer_similarity_returned: One day the Lion got entangled in a net which had been spread for game by some hunters, and the Mouse heard and recognised his roars of anger and ran to the spot.
+after get_asnwer_noun: One day the Lion got entangled in a net which had been spread for game by some hunters, and the Mouse heard and recognised his roars of anger and ran to the spot.
+medanswer: one day the lion got entangled in a net which had been spread for game by some hunters , and the mouse heard and recognised his roars of anger and ran to the spot .
+SCHEANSWER: A trapper spread some net in order to catch a big game.
+     ANSWER: A trapper spread some net in order to catch a big game .
+
+fables-06-11
+
+fables-06-11 | Medium
+     QUESTION: Who entreated the lion?
+normalized to: entreated the lion
+question_answer_similarity_returned: The Mouse, terrified, piteously entreated him to spare its life.
+after get_asnwer_noun: The Mouse, terrified, piteously entreated him to spare its life.
+medanswer: the mouse , terrified , him its life
+SCHEANSWER: The mouse began to be extremely frightened and piteously entreated the lion to spare it.
+     ANSWER: The mouse the lion to spare it
+
+fables-06-12
+
+fables-06-12 | Medium
+     QUESTION: What did the mouse recognize?
+normalized to: the mouse recognize
+question_answer_similarity_returned: A Lion asleep in his lair was waked up by a Mouse running over his face.
+after get_asnwer_noun: A Lion asleep in his lair was waked up by a Mouse running over his face.
+medanswer: a lion asleep in his lair a mouse running over his face
+SCHEANSWER: The lion awaked because a mouse ran into the face of the lion.
+     ANSWER: a lion asleep in his lair a mouse running over his face
+
+fables-06-13
+
+fables-06-13 | Medium
+     QUESTION: What were the ropes gnawed with?
+normalized to: were the ropes gnawed with
+question_answer_similarity_returned: Without more ado it set to work to gnaw the ropes with its teeth, and succeeded before long in setting the Lion free.
+after get_asnwer_noun: Without more ado it set to work to gnaw the ropes with its teeth, and succeeded before long in setting the Lion free.
+medanswer: more ado it the ropes its teeth the lion free
+SCHEANSWER: The mouse immediately began gnawing the rope of the net with the tooth of the mouse.
+     ANSWER: more ado it the ropes its teeth the lion free
+
+fables-06-14
+
+fables-06-14 | Hard
+     QUESTION: Who expressed mirth?
+     ANSWER: A Lion asleep in his lair was waked up by a Mouse running over his face.
+
+fables-06-15
+
+fables-06-15 | Hard
+     QUESTION: Who gnawed the bungee?
+     ANSWER: A Lion asleep in his lair was waked up by a Mouse running over his face.
+
+fables-06-16
+
+fables-06-16 | Hard
+     QUESTION: Why did the king of beasts laugh?
+     ANSWER: A Lion asleep in his lair was waked up by a Mouse running over his face.
+
+fables-06-17
+
+fables-06-17 | Hard
+     QUESTION: Who entangled himself in the meshing?
+     ANSWER: One day the Lion got entangled in a net which had been spread for game by some hunters, and the Mouse heard and recognised his roars of anger and ran to the spot.
+
+fables-06-18
+
+fables-06-18 | Hard
+     QUESTION: What did the hunter spread?
+     ANSWER: One day the Lion got entangled in a net which had been spread for game by some hunters, and the Mouse heard and recognised his roars of anger and ran to the spot.
+
+fables-06-19
+
+fables-06-19 | Discourse
+     QUESTION: Why did the Lion lose his temper?
+     ANSWER: Losing his temper he seized it with his paw and was about to kill it.
+
+fables-06-20
+
+fables-06-20 | Discourse
+     QUESTION: Who lost his temper?
+     ANSWER: Losing his temper he seized it with his paw and was about to kill it.
+
+fables-06-21
+
+fables-06-21 | Discourse
+     QUESTION: Who was seized?
+     ANSWER: Losing his temper he seized it with his paw and was about to kill it.
+
+fables-06-22
+
+fables-06-22 | Discourse
+     QUESTION: Did the Lion laugh?
+     ANSWER: A Lion asleep in his lair was waked up by a Mouse running over his face.
+
+fables-06-23
+
+fables-06-23 | Discourse
+     QUESTION:  What did the lion do after laughing?
+     ANSWER: A Lion asleep in his lair was waked up by a Mouse running over his face.
+
+fables-06-24
+
+fables-06-24 | Discourse
+     QUESTION: What did the mouse do after hearing and recognizing the lion’s roars?
+     ANSWER: One day the Lion got entangled in a net which had been spread for game by some hunters, and the Mouse heard and recognised his roars of anger and ran to the spot.
+
+fables-06-25
+
+fables-06-25 | Discourse
+     QUESTION: What did the mouse do after running to the spot?
+     ANSWER: A Lion asleep in his lair was waked up by a Mouse running over his face.
+
+fables-06-26
+
+fables-06-26 | Easy
+     QUESTION: Who was asleep in his lair?
+
+fables-06-27
+
+fables-06-27 | Medium
+     QUESTION: who woke the lion?
+normalized to: woke the lion
+question_answer_similarity_returned: A Lion asleep in his lair was waked up by a Mouse running over his face.
+after get_asnwer_noun: A Lion asleep in his lair was waked up by a Mouse running over his face.
+medanswer: a lion asleep in his lair a mouse running over his face
+SCHEANSWER: There once was a lion.
+     ANSWER: a lion asleep in his lair a mouse running over his face
+
+fables-06-28
+
+fables-06-28 | Discourse
+     QUESTION: Who asked to be let go?
+     ANSWER: "Please let me go," it cried, "and one day I will repay you for your kindness."
+
+blogs-03-1
+
+blogs-03-1 | Easy
+     QUESTION: What was Louisiana adversely affected by?
+question text: What was Louisiana adversely affected by?
+     ANSWER: Louisiana Hurricane Gustav
+
+blogs-03-2
+
+blogs-03-2 | Easy
+     QUESTION: What rolled in on Monday, September 1, in the morning?
+question text: What rolled in on Monday, September 1, in the morning?
+     ANSWER: The storm Monday September 1 the morning
+
+blogs-03-3
+
+blogs-03-3 | Easy
+     QUESTION: What started kicking up?
+question text: What started kicking up?
+     ANSWER: Winds
+
+blogs-03-4
+
+blogs-03-4 | Easy
+     QUESTION: Who came to Baton Rouge yesterday to assess the damage?
+
+blogs-03-5
+
+blogs-03-5 | Easy
+     QUESTION: Where was the storm occurring?
+question text: Where was the storm occurring?
+     ANSWER: to me in all of last weekend on the Weather Channel and local news
+
+blogs-03-6
+
+blogs-03-6 | Easy
+     QUESTION: Where did the narrator go back to in order to purchase a portable generator?
+question text: Where did the narrator go back to in order to purchase a portable generator?
+     ANSWER: to a store named Home Depot in order to purchase a portable generator
+
+blogs-03-7
+
+blogs-03-7 | Easy
+     QUESTION: What did the area of a neighborhood of the narrator have?
+question text: What did the area of a neighborhood of the narrator have?
+     ANSWER: An area of a neighborhood of the narrator a large group of pine trees a group of oak trees
+
+blogs-03-8
+
+blogs-03-8 | Easy
+     QUESTION: Why did the narrator begin to be nervous?
+question text: Why did the narrator begin to be nervous?
+     ANSWER: The narrator began to be concerned because -- if the first tree were to later fall , and were to later fall on the house of the narrator -- the house of the narrator would have begun to be damaged , and the family of the narrator would begin to be wounded .
+
+blogs-03-9
+
+blogs-03-9 | Easy
+     QUESTION: Where did the narrator bring the family of the narrator to?
+question text: Where did the narrator bring the family of the narrator to?
+     ANSWER: on the house of the narrator of the narrator of the narrator
+
+blogs-03-10
+
+blogs-03-10 | Medium
+     QUESTION: Who filled the container of some gasoline?
+normalized to: filled the container of some gasoline
+question_answer_similarity_returned: I filled up my three SUVs and I filled up five five-gallon containers of gasoline.
+after get_asnwer_noun: I filled up my three SUVs and I filled up five five-gallon containers of gasoline.
+medanswer: i my three suvs i five five-gallon containers of gasoline
+SCHEANSWER: The narrator filled a group of cars and filled the container of some gasoline.
+     ANSWER: The narrator a group of cars the container of some gasoline
+
+blogs-03-11
+
+blogs-03-11 | Medium
+     QUESTION: Who had a group of oak trees?
+normalized to: had a group of oak trees
+question_answer_similarity_returned: I live in an area where there are lots of large pine and oak trees.
+after get_asnwer_noun: I live in an area where there are lots of large pine and oak trees.
+medanswer: i an area there lots of large pine and oak trees
+SCHEANSWER: An area of a neighborhood of the narrator had a large group of pine trees and had a group of oak trees.
+     ANSWER: An area of a neighborhood of the narrator a large group of pine trees a group of oak trees
+
+blogs-03-12
+
+blogs-03-12 | Medium
+     QUESTION: What fell on the yard of a neighbor?
+normalized to: fell on the yard of a neighbor
+question_answer_similarity_returned: About 12:30pm, I was standing on my back patio when I watched a large tree split in two and fall in my neighbor's yard.
+after get_asnwer_noun: About 12:30pm, I was standing on my back patio when I watched a large tree split in two and fall in my neighbor's yard.
+medanswer: 12:30 pm i my back patio i a large tree split two my neighbor 's yard
+SCHEANSWER: The tree split apart and fell on the yard of a neighbor.
+     ANSWER: 12:30 pm i my back patio i a large tree split two my neighbor 's yard
+
+blogs-03-13
+
+blogs-03-13 | Medium
+     QUESTION: Who watched a large tree?
+normalized to: watched a large tree
+question_answer_similarity_returned: About 12:30pm, I was standing on my back patio when I watched a large tree split in two and fall in my neighbor's yard.
+after get_asnwer_noun: About 12:30pm, I was standing on my back patio when I watched a large tree split in two and fall in my neighbor's yard.
+medanswer: 12:30 pm i my back patio i a large tree split two my neighbor 's yard
+SCHEANSWER: The narrator stood up on a patio and watched a large tree.
+     ANSWER: 12:30 pm i my back patio i a large tree split two my neighbor 's yard
+
+blogs-03-14
+
+blogs-03-14 | Medium
+     QUESTION: What did the first tree fall onto?
+normalized to: did the first tree fall onto
+question_answer_similarity_returned: About 12:30pm, I was standing on my back patio when I watched a large tree split in two and fall in my neighbor's yard.
+after get_asnwer_noun: About 12:30pm, I was standing on my back patio when I watched a large tree split in two and fall in my neighbor's yard.
+medanswer: 12:30 pm i my back patio i a large tree split two my neighbor 's yard
+SCHEANSWER: The narrator began to be concerned because -- if the first tree were to later fall, and were to later fall on the house of the narrator -- the house of the narrator would have begun to be damaged, and the family of the narrator would begin to be wounded.
+     ANSWER: The narrator the first tree the house of the narrator the house of the narrator the family of the narrator
+
+blogs-03-15
+
+blogs-03-15 | Medium
+     QUESTION: Who stayed in an area of the home where we felt safest?
+normalized to: stayed in an area of the home where we felt safest
+question_answer_similarity_returned: My wife, our five children, and our dog, stayed in an area of the home where we felt safest.
+after get_asnwer_noun: My wife, our five children, and our dog, stayed in an area of the home where we felt safest.
+medanswer: my wife , our five children , and our dog , an area of the home we safest
+SCHEANSWER: The wife of the narrator stayed in the safe area of some home, a dog stayed in the area of the home, and the group of children of the narrator stayed in the area of the home.
+     ANSWER: my wife , our five children , and our dog , an area of the home we safest
+
+blogs-03-16
+
+blogs-03-16 | Hard
+     QUESTION: What began to be down over a municipality?
+     ANSWER: Louisiana was adversely affected by Hurricane Gustav.
+
+blogs-03-17
+
+blogs-03-17 | Hard
+     QUESTION: What happened in Louisiana?
+     ANSWER: Here's what happened to me and my family:
+We watched the storm moving in all of last weekend on the Weather Channel and local news.
+
+blogs-03-18
+
+blogs-03-18 | Hard
+     QUESTION: Who bought a portable generator?
+     ANSWER: I went to Home Depot just in the nick of time to purchase a portable generator.
+
+blogs-03-19
+
+blogs-03-19 | Hard
+     QUESTION: Where was the tempest occurring?
+     ANSWER: Louisiana was adversely affected by Hurricane Gustav.
+
+blogs-03-20
+
+blogs-03-20 | Hard
+     QUESTION: Who filled the container of some gasoline?
+     ANSWER: I filled up my three SUVs and I filled up five five-gallon containers of gasoline.
+
+blogs-06-1
+
+blogs-06-1 | Easy
+     QUESTION: What broke because the broiler of the oven activated?
+question text: What broke because the broiler of the oven activated?
+     ANSWER: The oven it 350 degrees broiler stuck ??
+
+blogs-06-2
+
+blogs-06-2 | Easy
+     QUESTION: What did the oven scorch?
+question text: What did the oven scorch?
+     ANSWER: The oven it 350 degrees broiler stuck ??
+
+blogs-06-3
+
+blogs-06-3 | Easy
+     QUESTION: Who unsuccessfully tried to eliminate the fire?
+
+blogs-06-4
+
+blogs-06-4 | Easy
+     QUESTION: What did the husband of the narrator quickly shut?
+question text: What did the husband of the narrator quickly shut?
+     ANSWER: The husband of the narrator the door of the oven the fire spreading
+
+blogs-06-5
+
+blogs-06-5 | Easy
+     QUESTION: Who had a fire in our old oven/range?
+
+blogs-06-6
+
+blogs-06-6 | Easy
+     QUESTION: What malfunctioned?
+question text: What malfunctioned?
+     ANSWER: The oven it 350 degrees broiler stuck ??
+
+blogs-06-7
+
+blogs-06-7 | Easy
+     QUESTION: What did I run and get?
+question text: What did I run and get?
+     ANSWER: my husband a batch of cookies them flames
+
+blogs-06-8
+
+blogs-06-8 | Easy
+     QUESTION: What was toast?
+question text: What was toast?
+     ANSWER: The oven it 350 degrees broiler stuck ??
+
+blogs-06-9
+
+blogs-06-9 | Easy
+     QUESTION: What have we been using?
+question text: What have we been using?
+     ANSWER: then we a plug-in burner , griddle , and counter top oven
+
+blogs-06-10
+
+blogs-06-10 | Medium
+     QUESTION: Why did an oven break?
+normalized to: did an oven break
+question_answer_similarity_returned: The oven malfunctioned... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck??...
+after get_asnwer_noun: The oven malfunctioned... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck??...
+medanswer: the oven malfunctioned ... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck ??
+SCHEANSWER: An oven broke because the broiler of the oven activated.
+     ANSWER: the oven malfunctioned ... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck ??
+
+blogs-06-11
+
+blogs-06-11 | Medium
+     QUESTION: Where did the fire ascend?
+normalized to: did the fire ascend
+question_answer_similarity_returned: A couple of weeks ago we had a fire in our old oven/range.
+after get_asnwer_noun: A couple of weeks ago we had a fire in our old oven/range.
+medanswer: of weeks in our old oven/range
+SCHEANSWER: The oven scorched a group of treats and created some fire.
+     ANSWER: of weeks in our old oven/range
+
+blogs-06-12
+
+blogs-06-12 | Medium
+     QUESTION: What ascended to the ceiling?
+normalized to: ascended to the ceiling
+question_answer_similarity_returned: He opened the oven door and the flames shot all the way up to the ceiling!!!
+after get_asnwer_noun: He opened the oven door and the flames shot all the way up to the ceiling!!!
+medanswer: he the oven door and the flames all the way the ceiling !!!
+SCHEANSWER: The fire ascended to the ceiling of the house.
+     ANSWER: he the oven door and the flames all the way the ceiling !!!
+
+blogs-06-13
+
+blogs-06-13 | Medium
+     QUESTION: What did the narrator order?
+normalized to: did the narrator order
+question_answer_similarity_returned: Woohoo!!
+after get_asnwer_noun: Woohoo!!
+medanswer: woohoo !!
+SCHEANSWER: The husband of the narrator quickly shut the door of the oven in order to prevent the fire spreading.
+     ANSWER: The husband of the narrator the door of the oven the fire spreading
+
+blogs-06-14
+
+blogs-06-14 | Medium
+     QUESTION: What was I excited about?
+normalized to: was I excited about
+question_answer_similarity_returned: So excited about my new range I ordered a few days ago.
+after get_asnwer_noun: So excited about my new range I ordered a few days ago.
+medanswer: my new range i a few days
+SCHEANSWER: The narrator began to be excited because she had ordered the second oven.
+     ANSWER: my new range i a few days
+
+blogs-06-15
+
+blogs-06-15 | Medium
+     QUESTION: What did my husband find in the flames?
+normalized to: my husband find in the flames
+question_answer_similarity_returned: my husband went to get a batch of cookies and found them in flames.
+after get_asnwer_noun: my husband went to get a batch of cookies and found them in flames.
+medanswer: my husband a batch of cookies them flames
+SCHEANSWER: The husband of a narrator who owned a house and owned the oven attempted for the husband of the narrator to retrieve the group of treats and discovered that the oven had created the fire.
+     ANSWER: my husband a batch of cookies them flames
+
+blogs-06-16
+
+blogs-06-16 | Hard
+     QUESTION: What made some fire?
+     ANSWER: A couple of weeks ago we had a fire in our old oven/range.
+
+blogs-06-17
+
+blogs-06-17 | Hard
+     QUESTION: Who tried to extinguish the fire?
+     ANSWER: He tried to put the fire out unsuccessfully and then quickly shut the door to keep the fire from spreading.
+
+blogs-06-18
+
+blogs-06-18 | Hard
+     QUESTION: What broke because the broiler of the oven tripped?
+     ANSWER: The oven malfunctioned... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck??...
+
+blogs-06-19
+
+blogs-06-19 | Discourse
+     QUESTION: What was the husband unsuccessful at?
+     ANSWER: The oven malfunctioned... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck??...
+
+blogs-06-20
+
+blogs-06-20 | Medium
+     QUESTION: When was there a fire?
+normalized to: was there a fire
+question_answer_similarity_returned: A couple of weeks ago we had a fire in our old oven/range.
+after get_asnwer_noun: A couple of weeks ago we had a fire in our old oven/range.
+medanswer: a couple of weeks we a fire in our old oven/range
+SCHEANSWER: The oven scorched a group of treats and created some fire.
+     ANSWER: a couple of weeks we a fire in our old oven/range
+
+blogs-06-21
+
+blogs-06-21 | Discourse
+     QUESTION: What happened after the husband went to get the cookies?
+     ANSWER: my husband went to get a batch of cookies and found them in flames.
+
+blogs-06-22
+
+blogs-06-22 | Discourse
+     QUESTION: Why did the husband shut the door?
+     ANSWER: He tried to put the fire out unsuccessfully and then quickly shut the door to keep the fire from spreading.
+
+blogs-06-23
+
+blogs-06-23 | Discourse
+     QUESTION: What happened after the husband opened the door?
+     ANSWER: He opened the oven door and the flames shot all the way up to the ceiling!!!
+
+blogs-06-24
+
+blogs-06-24 | Discourse
+     QUESTION: What got damaged?
+     ANSWER: Nothing got damaged besides the range but it took days of airing the house out and cleaning before things were 100% back to normal.
+
+fables-01-1
+
+fables-01-1 | Easy
+     QUESTION: Where was the crow sitting?
+question text: Where was the crow sitting?
+     ANSWER: on a branch of a tree with a piece of cheese in her beak of getting the cheese
+
+fables-01-2
+
+fables-01-2 | Easy
+     QUESTION: What did the crow have in her beak?
+question text: What did the crow have in her beak?
+     ANSWER: Some cheese the beak of the crow
+
+fables-01-3
+
+fables-01-3 | Easy
+     QUESTION: Who is the Story about?
+question text: Who is the Story about?
+     ANSWER: A Crow a branch of a tree with a piece of cheese in her beak a Fox her his wits some way of getting the cheese
+
+fables-01-4
+
+fables-01-4 | Easy
+     QUESTION: What did the fox do to the cheese?
+question text: What did the fox do to the cheese?
+     ANSWER: was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese
+
+fables-01-5
+
+fables-01-5 | Easy
+     QUESTION: Where was the fox standing?
+question text: Where was the fox standing?
+     ANSWER: under the tree above me
+
+fables-01-6
+
+fables-01-6 | Easy
+     QUESTION: What did the crow feel?
+question text: What did the crow feel?
+     ANSWER: the tree he What a noble bird I see above me
+
+fables-01-7
+
+fables-01-7 | Easy
+     QUESTION: Who flattered the crow?
+
+fables-01-8
+
+fables-01-8 | Medium
+     QUESTION: What was the crow doing?
+normalized to: was the crow doing
+question_answer_similarity_returned: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+after get_asnwer_noun: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+medanswer: a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese
+SCHEANSWER: There once was a crow.
+     ANSWER: a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese
+
+fables-01-9
+
+fables-01-9 | Medium
+     QUESTION: Where was the cheese?
+normalized to: was the cheese
+question_answer_similarity_returned: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+after get_asnwer_noun: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+medanswer: on a branch of a tree with a piece of cheese in her beak of getting the cheese
+SCHEANSWER: Some cheese was in the beak of the crow.
+     ANSWER: on a branch of a tree with a piece of cheese in her beak of getting the cheese
+
+fables-01-10
+
+fables-01-10 | Medium
+     QUESTION: Who set his wits to work?
+normalized to: set his wits to work
+question_answer_similarity_returned: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+after get_asnwer_noun: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+medanswer: a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese
+SCHEANSWER: The fox snatched the cheese, said that the crow was able to sing and the fox said that the crow needed wits.
+     ANSWER: a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese
+
+fables-01-11
+
+fables-01-11 | Medium
+     QUESTION: Who tried to discover how to get the cheese?
+normalized to: tried to discover how to get the cheese
+question_answer_similarity_returned: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+after get_asnwer_noun: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+medanswer: a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese
+SCHEANSWER: A fox observed the crow and tried to discover how to get the cheese.
+     ANSWER: a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese
+
+fables-01-12
+
+fables-01-12 | Medium
+     QUESTION: What did the fox say about the bird’s beauty?
+normalized to: the fox say about the bird’s beauty
+question_answer_similarity_returned: Coming and standing under the tree he looked up and said, "What a noble bird I see above me!
+after get_asnwer_noun: Coming and standing under the tree he looked up and said, "What a noble bird I see above me!
+medanswer: the tree he what a noble bird i see above me
+SCHEANSWER: The fox said that the beauty of the bird was incomparable.
+     ANSWER: The fox the beauty of the bird incomparable
+
+fables-01-13
+
+fables-01-13 | Medium
+     QUESTION: How did the crow caw?
+normalized to: did the crow caw
+question_answer_similarity_returned: The Crow was hugely flattered by this, and just to show the Fox that she could sing she gave a loud caw.
+after get_asnwer_noun: The Crow was hugely flattered by this, and just to show the Fox that she could sing she gave a loud caw.
+medanswer: flattered
+SCHEANSWER: The crow felt that the fox had flattered her and cawed loudly in order for she to show him that she was able to sing.
+     ANSWER: flattered
+
+fables-01-14
+
+fables-01-14 | Hard
+     QUESTION: Who did the fox notice?
+     ANSWER: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+
+fables-01-15
+
+fables-01-15 | Hard
+     QUESTION: Who observed the corvine bird?
+     ANSWER: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+
+fables-01-16
+
+fables-01-16 | Hard
+     QUESTION: Who needed intelligence?
+     ANSWER: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+
+fables-01-17
+
+fables-01-17 | Hard
+     QUESTION: Who was perched on a branch?
+     ANSWER: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+
+fables-01-18
+
+fables-01-18 | Hard
+     QUESTION: Who felt buttered up?
+     ANSWER: A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese.
+
+fables-02-1
+
+fables-02-1 | Easy
+     QUESTION: Who was feeding in a meadow?
+
+fables-02-2
+
+fables-02-2 | Easy
+     QUESTION: Who was persuaded by this flattery?
+
+fables-02-3
+
+fables-02-3 | Easy
+     QUESTION: Where was the bull?
+question text: Where was the bull?
+     ANSWER: in the world
+
+fables-02-4
+
+fables-02-4 | Easy
+     QUESTION: Who was grazing?
+question text: Who was grazing?
+     ANSWER: The bull grazing in a meadow
+
+fables-02-5
+
+fables-02-5 | Easy
+     QUESTION: Who watched the bull?
+
+fables-02-6
+
+fables-02-6 | Easy
+     QUESTION: What did the lion feign?
+question text: What did the lion feign?
+     ANSWER: What a fine head !
+
+fables-02-7
+
+fables-02-7 | Easy
+     QUESTION: Who is the story about?
+question text: Who is the story about?
+     ANSWER: my dear friend , what in the world makes you those ugly horns
+
+fables-02-8
+
+fables-02-8 | Easy
+     QUESTION: Who was foolish?
+
+fables-02-9
+
+fables-02-9 | Easy
+     QUESTION: What did the lion want?
+question text: What did the lion want?
+     ANSWER: What a fine head !
+
+fables-02-10
+
+fables-02-10 | Easy
+     QUESTION: Why did not the lion attack the bull?
+question text: Why did not the lion attack the bull?
+     ANSWER: The lion did n't attack the bull because the lion feared sharp every horn of the bull .
+
+fables-02-11
+
+fables-02-11 | Easy
+     QUESTION: What did the lion fear?
+question text: What did the lion fear?
+     ANSWER: What a fine head !
+
+fables-02-12
+
+fables-02-12 | Medium
+     QUESTION: What is ugly?
+normalized to: is ugly
+question_answer_similarity_returned: But, my dear friend, what in the world makes you wear those ugly horns?
+after get_asnwer_noun: But, my dear friend, what in the world makes you wear those ugly horns?
+medanswer: my dear friend , what in the world makes you those ugly horns
+SCHEANSWER: The lion advised the bull to remove every horn of the bull because every horn of the bull was ugly.
+     ANSWER: my dear friend , what in the world makes you those ugly horns
+
+fables-02-13
+
+fables-02-13 | Medium
+     QUESTION: Who salivated?
+normalized to: salivated
+question_answer_similarity_returned: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+after get_asnwer_noun: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+medanswer: a lion a fat bull feeding a meadow his mouth he the royal feast he he him he his sharp horns
+SCHEANSWER: A lion watched the bull and salivated because the lion wanted to eat the bull.
+     ANSWER: a lion a fat bull feeding a meadow his mouth he the royal feast he he him he his sharp horns
+
+fables-02-14
+
+fables-02-14 | Medium
+     QUESTION: Why did the lion salivate?
+normalized to: the lion salivate
+question_answer_similarity_returned: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+after get_asnwer_noun: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+medanswer: a lion watched a fat bull feeding in a meadow , and his mouth watered when he thought of the royal feast he would make , but he did not dare to attack him , for he was afraid of his sharp horns .
+SCHEANSWER: A lion watched the bull and salivated because the lion wanted to eat the bull.
+     ANSWER: a lion watched a fat bull feeding in a meadow , and his mouth watered when he thought of the royal feast he would make , but he did not dare to attack him , for he was afraid of his sharp horns .
+
+fables-02-15
+
+fables-02-15 | Medium
+     QUESTION: What did the lion advise the bull?
+normalized to: the lion advise the bull
+question_answer_similarity_returned: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+after get_asnwer_noun: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+medanswer: a lion a fat bull feeding a meadow his mouth he the royal feast he he him he afraid of his sharp horns
+SCHEANSWER: A lion watched the bull and salivated because the lion wanted to eat the bull.
+     ANSWER: a lion a fat bull feeding a meadow his mouth he the royal feast he he him he afraid of his sharp horns
+
+fables-02-16
+
+fables-02-16 | Medium
+     QUESTION: Why did the lion advise the bull to remove its horns?
+normalized to: the lion advise the bull to remove its horns
+question_answer_similarity_returned: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+after get_asnwer_noun: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+medanswer: a lion watched a fat bull feeding in a meadow , and his mouth watered when he thought of the royal feast he would make , but he did not dare to attack him , for he was afraid of his sharp horns .
+SCHEANSWER: The lion advised the bull to remove every horn of the bull because every horn of the bull was ugly.
+     ANSWER: a lion watched a fat bull feeding in a meadow , and his mouth watered when he thought of the royal feast he would make , but he did not dare to attack him , for he was afraid of his sharp horns .
+
+fables-02-17
+
+fables-02-17 | Medium
+     QUESTION: What did the lion decide?
+normalized to: the lion decide
+question_answer_similarity_returned: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+after get_asnwer_noun: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+medanswer: a lion a fat bull feeding a meadow his mouth he the royal feast he he him he afraid of his sharp horns
+SCHEANSWER: A lion watched the bull and salivated because the lion wanted to eat the bull.
+     ANSWER: a lion a fat bull feeding a meadow his mouth he the royal feast he he him he afraid of his sharp horns
+
+fables-02-18
+
+fables-02-18 | Medium
+     QUESTION: Who has horns?
+normalized to: has horns
+question_answer_similarity_returned: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+after get_asnwer_noun: A Lion watched a fat Bull feeding in a meadow, and his mouth watered when he thought of the royal feast he would make, but he did not dare to attack him, for he was afraid of his sharp horns.
+medanswer: a lion a fat bull feeding a meadow his mouth he the royal feast he he him he his sharp horns
+SCHEANSWER: The lion didn't attack the bull because the lion feared sharp every horn of the bull.
+     ANSWER: a lion a fat bull feeding a meadow his mouth he the royal feast he he him he his sharp horns
+
+fables-02-19
+
+fables-02-19 | Hard
+     QUESTION: Who did the big cat witness?
+     ANSWER: But, my dear friend, what in the world makes you wear those ugly horns?
+
+fables-02-20
+
+fables-02-20 | Hard
+     QUESTION: Why did not the lion strike the bull?
+     ANSWER: But, my dear friend, what in the world makes you wear those ugly horns?
+
+fables-02-21
+
+fables-02-21 | Hard
+     QUESTION: What did the lion gobble?
+     ANSWER: What a fine head!
+
+fables-02-22
+
+fables-02-22 | Hard
+     QUESTION: What did the lion consume?
+     ANSWER: What a fine head!
+
+fables-02-23
+
+fables-02-23 | Hard
+     QUESTION: Who tried to kill the bull?
+     ANSWER: But, my dear friend, what in the world makes you wear those ugly horns?
+
+blogs-01-1
+
+blogs-01-1 | Easy
+     QUESTION: When did the G20 summit start?
+question text: When did the G20 summit start?
+     ANSWER: Today the start of the G20 summit
+
+blogs-01-2
+
+blogs-01-2 | Easy
+     QUESTION: What is the summit meeting named?
+question text: What is the summit meeting named?
+     ANSWER: A summit meeting named G20 summit eventful today
+
+blogs-01-3
+
+blogs-01-3 | Easy
+     QUESTION: Where did the protest happen?
+question text: Where did the protest happen?
+     ANSWER: of people who have different views on how to run the government they follow so they protest
+
+blogs-01-4
+
+blogs-01-4 | Easy
+     QUESTION: What did the people burn?
+question text: What did the people burn?
+     ANSWER: there many leaders their a lot of people who have different views on how to run the government they follow so they protest
+
+blogs-01-5
+
+blogs-01-5 | Easy
+     QUESTION: Who rebelled?
+
+blogs-01-6
+
+blogs-01-6 | Easy
+     QUESTION: Who created a riot?
+question text: Who created a riot?
+     ANSWER: There a protest that happened along the street where I work it a bunch of people a riot
+
+blogs-01-7
+
+blogs-01-7 | Easy
+     QUESTION: What happened to a police car?
+question text: What happened to a police car?
+     ANSWER: There a protest that happened along the street where I work it peaceful a bunch of people a riot
+
+blogs-01-8
+
+blogs-01-8 | Easy
+     QUESTION: Who burned a police car?
+question text: Who burned a police car?
+     ANSWER: The people a police car a thing a police
+
+blogs-01-9
+
+blogs-01-9 | Easy
+     QUESTION: What was burned?
+question text: What was burned?
+     ANSWER: Police cars things cops
+
+blogs-01-10
+
+blogs-01-10 | Easy
+     QUESTION: What happened to the police cars?
+question text: What happened to the police cars?
+     ANSWER: There a protest that happened along the street where I work it peaceful a bunch of people a riot
+
+blogs-01-11
+
+blogs-01-11 | Easy
+     QUESTION: What was fired?
+question text: What was fired?
+     ANSWER: things worse gas and bean bag bullets the rioters they windows of stores
+
+blogs-01-12
+
+blogs-01-12 | Easy
+     QUESTION: What was fired at the rioters?
+question text: What was fired at the rioters?
+     ANSWER: things worse gas and bean bag bullets the rioters they windows of stores
+
+blogs-01-13
+
+blogs-01-13 | Easy
+     QUESTION: What was smashed?
+question text: What was smashed?
+     ANSWER: Today a very eventful work day
+
+blogs-01-14
+
+blogs-01-14 | Medium
+     QUESTION: Who fired a bullet at the people?
+normalized to: fired a bullet at the people
+question_answer_similarity_returned: As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores.
+after get_asnwer_noun: As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores.
+medanswer: things gas and bean bag bullets the rioters they windows of stores
+SCHEANSWER: The police fired a tear gas at the people and fired a bullet at the people, and the people smashed a window.
+     ANSWER: The police a gas the people a bullet the people the people a window
+
+blogs-01-15
+
+blogs-01-15 | Medium
+     QUESTION: Who was tear gas fired at?
+normalized to: tear gas fired at
+question_answer_similarity_returned: As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores.
+after get_asnwer_noun: As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores.
+medanswer: things gas and bean bag bullets the rioters they windows of stores
+SCHEANSWER: The police fired a tear gas at the people and fired a bullet at the people, and the people smashed a window.
+     ANSWER: things gas and bean bag bullets the rioters they windows of stores
+
+blogs-01-16
+
+blogs-01-16 | Medium
+     QUESTION: Why did the people protest?
+normalized to: the people protest
+question_answer_similarity_returned: Since there are so many leaders coming together their are going to be a lot of people who have different views on how to run the government they follow so they protest.
+after get_asnwer_noun: Since there are so many leaders coming together their are going to be a lot of people who have different views on how to run the government they follow so they protest.
+medanswer: since there are so many leaders coming together their are going to be a lot of people who have different views on how to run the government they follow so they protest .
+SCHEANSWER: A people protested because it disagreed about a view.
+     ANSWER: since there are so many leaders coming together their are going to be a lot of people who have different views on how to run the government they follow so they protest .
+
+blogs-01-17
+
+blogs-01-17 | Medium
+     QUESTION: What did the people create?
+normalized to: the people create
+question_answer_similarity_returned: Since there are so many leaders coming together their are going to be a lot of people who have different views on how to run the government they follow so they protest.
+after get_asnwer_noun: Since there are so many leaders coming together their are going to be a lot of people who have different views on how to run the government they follow so they protest.
+medanswer: there many leaders their a lot of people who have different views on how to run the government they follow so they protest
+SCHEANSWER: A people protested because it disagreed about a view.
+     ANSWER: there many leaders their a lot of people who have different views on how to run the government they follow so they protest
+
+blogs-01-18
+
+blogs-01-18 | Medium
+     QUESTION: Why were the police in full riot gear?
+normalized to: were the police in full riot gear
+question_answer_similarity_returned: Police were in full riot gear to alleviate the violence.
+after get_asnwer_noun: Police were in full riot gear to alleviate the violence.
+medanswer: police were in full riot gear to alleviate the violence .
+SCHEANSWER: The police alleviated the people of riot.
+     ANSWER: police were in full riot gear to alleviate the violence .
+
+blogs-01-19
+
+blogs-01-19 | Hard
+     QUESTION: Who blasted tear gas?
+     ANSWER: As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores.
+
+blogs-01-20
+
+blogs-01-20 | Hard
+     QUESTION: Who created disorder?
+     ANSWER: Today was a very eventful work day.
+
+blogs-01-21
+
+blogs-01-21 | Hard
+     QUESTION: Who fired a chemical weapon?
+     ANSWER: As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores.
+
+blogs-01-22
+
+blogs-01-22 | Hard
+     QUESTION: Who revolted?
+     ANSWER: Today was a very eventful work day.
+
+blogs-01-23
+
+blogs-01-23 | Hard
+     QUESTION: What combusted?
+     ANSWER: Today was a very eventful work day.
+
+blogs-01-24
+
+blogs-01-24 | Hard
+     QUESTION: Who was a slug fired at?
+     ANSWER: As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores.
+
+fables-04-1
+
+fables-04-1 | Easy
+     QUESTION: Who did the Fox invite to dinner?
+
+fables-04-2
+
+fables-04-2 | Easy
+     QUESTION: What was the only fare provided?
+question text: What was the only fare provided?
+     ANSWER: A Fox a Stork dinner , at which the only fare provided was a large flat dish of soup
+
+fables-04-3
+
+fables-04-3 | Easy
+     QUESTION: Where was some soup served?
+question text: Where was some soup served?
+     ANSWER: to dinner , at which the only fare provided was a large flat dish of soup
+
+fables-04-4
+
+fables-04-4 | Easy
+     QUESTION: Who is the story about?
+question text: Who is the story about?
+     ANSWER: A Fox a Stork dinner , at which the only fare provided was a large flat dish of soup
+
+fables-04-5
+
+fables-04-5 | Easy
+     QUESTION: What did the fox do to the soup?
+question text: What did the fox do to the soup?
+     ANSWER: invited a Stork to dinner , at which the only fare provided was a large flat dish of soup
+
+fables-04-6
+
+fables-04-6 | Easy
+     QUESTION: Why did the fox begin to be hungry and begin to be helpless?
+question text: Why did the fox begin to be hungry and begin to be helpless?
+     ANSWER: The fox began to be hungry and began to be helpless because he was n't able to reach some food that was in the pitcher .
+
+fables-04-7
+
+fables-04-7 | Easy
+     QUESTION: What did the stork easily fitted the long bill into?
+question text: What did the stork easily fitted the long bill into?
+     ANSWER: The stork the long bill of the stork the long and narrow neck of the pitcher
+
+fables-04-8
+
+fables-04-8 | Easy
+     QUESTION: Why did the Fox sit by hungry and helpless?
+question text: Why did the Fox sit by hungry and helpless?
+     ANSWER: Thus , while she enjoyed her dinner , the Fox sat by hungry and helpless , for it was impossible for him to reach the tempting contents of the vessel .
+
+fables-04-9
+
+fables-04-9 | Medium
+     QUESTION: What was savoury?
+normalized to: was savoury
+question_answer_similarity_returned: The Fox lapped it up with great relish, but the Stork with her long bill tried in vain to partake of the savoury broth.
+after get_asnwer_noun: The Fox lapped it up with great relish, but the Stork with her long bill tried in vain to partake of the savoury broth.
+medanswer: the fox it great relish the stork with her long bill vain the savoury broth
+SCHEANSWER: A clever fox invited a stork to dine.
+     ANSWER: the fox it great relish the stork with her long bill vain the savoury broth
+
+fables-04-10
+
+fables-04-10 | Medium
+     QUESTION: Who failed to drink some broth?
+normalized to: failed to drink some broth
+question_answer_similarity_returned: The Fox lapped it up with great relish, but the Stork with her long bill tried in vain to partake of the savoury broth.
+after get_asnwer_noun: The Fox lapped it up with great relish, but the Stork with her long bill tried in vain to partake of the savoury broth.
+medanswer: the fox it great relish the stork with her long bill vain the savoury broth
+SCHEANSWER: The stork attempted to drink some savory broth and failed.
+     ANSWER: the fox it great relish the stork with her long bill vain the savoury broth
+
+fables-04-11
+
+fables-04-11 | Medium
+     QUESTION: What was the shape of the neck of the pitcher?
+normalized to: was the shape of the neck of the pitcher
+question_answer_similarity_returned: But not long after the Stork invited him in turn, and set before him a pitcher with a long and narrow neck, into which she could get her bill with ease.
+after get_asnwer_noun: But not long after the Stork invited him in turn, and set before him a pitcher with a long and narrow neck, into which she could get her bill with ease.
+medanswer: the stork him turn him a pitcher with a long and narrow neck , into which she could get her bill with ease
+SCHEANSWER: The stork easily fitted the long bill of the stork into the long and narrow neck of the pitcher.
+     ANSWER: the stork him turn him a pitcher with a long and narrow neck , into which she could get her bill with ease
+
+fables-04-12
+
+fables-04-12 | Medium
+     QUESTION: What was clever?
+normalized to: was clever
+question_answer_similarity_returned: A Fox invited a Stork to dinner, at which the only fare provided was a large flat dish of soup.
+after get_asnwer_noun: A Fox invited a Stork to dinner, at which the only fare provided was a large flat dish of soup.
+medanswer: a fox a stork dinner , at which the only fare provided was a large flat dish of soup
+SCHEANSWER: A clever fox invited a stork to dine.
+     ANSWER: A clever fox a stork to dine
+
+fables-04-13
+
+fables-04-13 | Medium
+     QUESTION: What was the soup served in?
+normalized to: was the soup served in
+question_answer_similarity_returned: A Fox invited a Stork to dinner, at which the only fare provided was a large flat dish of soup.
+after get_asnwer_noun: A Fox invited a Stork to dinner, at which the only fare provided was a large flat dish of soup.
+medanswer: a fox a stork dinner , at which the only fare provided was a large flat dish of soup
+SCHEANSWER: The fox only served some soup in a flat and large dish.
+     ANSWER: a fox a stork dinner , at which the only fare provided was a large flat dish of soup
+
+fables-04-14
+
+fables-04-14 | Hard
+     QUESTION: Who tried to drink some savory broth and failed?
+     ANSWER: The Fox lapped it up with great relish, but the Stork with her long bill tried in vain to partake of the savoury broth.
+
+fables-04-15
+
+fables-04-15 | Hard
+     QUESTION: Who tried to drink some savory stock?
+     ANSWER: The Fox lapped it up with great relish, but the Stork with her long bill tried in vain to partake of the savoury broth.
+
+fables-04-16
+
+fables-04-16 | Hard
+     QUESTION: What did the canine serve?
+     ANSWER: A Fox invited a Stork to dinner, at which the only fare provided was a large flat dish of soup.
+
+fables-04-17
+
+fables-04-17 | Hard
+     QUESTION: Who attempted to drink some savory soup?
+     ANSWER: A Fox invited a Stork to dinner, at which the only fare provided was a large flat dish of soup.
+
+blogs-05-1
+
+blogs-05-1 | Easy
+     QUESTION: What was the narrator?
+question text: What was the narrator?
+     ANSWER: There a group of students and a narrator
+
+blogs-05-2
+
+blogs-05-2 | Easy
+     QUESTION: What did the narrator check the group of students for?
+question text: What did the narrator check the group of students for?
+     ANSWER: There a group of students and a narrator
+
+blogs-05-3
+
+blogs-05-3 | Easy
+     QUESTION: Who noticed that the ankle of the narrator was observed?
+
+blogs-05-4
+
+blogs-05-4 | Easy
+     QUESTION: What did the narrator resume?
+question text: What did the narrator resume?
+     ANSWER: There a group of students and a narrator
+
+blogs-05-5
+
+blogs-05-5 | Easy
+     QUESTION: Who glanced around the group of students?
+question text: Who glanced around the group of students?
+     ANSWER: The narrator the group of students
+
+blogs-05-6
+
+blogs-05-6 | Easy
+     QUESTION: What did the narrator lift?
+question text: What did the narrator lift?
+     ANSWER: There a group of students and a narrator
+
+blogs-05-7
+
+blogs-05-7 | Easy
+     QUESTION: Who looked down to see that my underslip had somehow made its way to the floor?
+
+blogs-05-8
+
+blogs-05-8 | Easy
+     QUESTION: What did I share with you?
+question text: What did I share with you?
+     ANSWER: I you one of my most embarassing moments as a teacher to date
+
+blogs-05-9
+
+blogs-05-9 | Easy
+     QUESTION: What did I look down to see?
+question text: What did I look down to see?
+     ANSWER: the offending white -LRB- not red and black thank the Lord -RRB- slip and casually it in the bottom drawer of my desk
+
+blogs-05-10
+
+blogs-05-10 | Medium
+     QUESTION: What did the narrator carefully step over?
+normalized to: the narrator carefully step over
+question_answer_similarity_returned: So I looked at my underwear round my ankles, looked at the class, looked back at the garment, carefully stepped out of it, said, "Oh dear look, what on earth can that be?
+after get_asnwer_noun: So I looked at my underwear round my ankles, looked at the class, looked back at the garment, carefully stepped out of it, said, "Oh dear look, what on earth can that be?
+medanswer: the offending white -lrb- not red and black thank the lord -rrb- slip and casually it in the bottom drawer of my desk
+SCHEANSWER: The narrator carefully stepped over the slip.
+     ANSWER: The narrator the slip
+
+blogs-05-11
+
+blogs-05-11 | Medium
+     QUESTION: Why did the slip fall?
+normalized to: the slip fall
+question_answer_similarity_returned: ", lifted the offending white (not red and black thank the Lord) slip and casually popped it in the bottom drawer of my desk.
+after get_asnwer_noun: ", lifted the offending white (not red and black thank the Lord) slip and casually popped it in the bottom drawer of my desk.
+medanswer: i continued , `` ok class , page 33 . ''
+SCHEANSWER: The narrator was a teacher, owned some white slip and owned a desk.
+     ANSWER: The narrator was a teacher , owned some white slip and owned a desk .
+
+blogs-05-12
+
+blogs-05-12 | Medium
+     QUESTION: Who feigned bewilderment?
+normalized to: feigned bewilderment
+question_answer_similarity_returned: Just thought I would share with you one of my most embarassing moments as a teacher to date.
+after get_asnwer_noun: Just thought I would share with you one of my most embarassing moments as a teacher to date.
+medanswer: i you one of my most embarassing moments as a teacher to date
+SCHEANSWER: The narrator feigned bewilderment.
+     ANSWER: The narrator bewilderment
+
+blogs-05-13
+
+blogs-05-13 | Medium
+     QUESTION: What was the narrator/I teaching?
+normalized to: was the narrator/I teaching
+question_answer_similarity_returned: Ten years ago I was teaching a mixed class of 5th graders ESL.
+after get_asnwer_noun: Ten years ago I was teaching a mixed class of 5th graders ESL.
+medanswer: ten years i a mixed class of 5th graders esl
+SCHEANSWER: The narrator was teaching the group of students language.
+     ANSWER: ten years i a mixed class of 5th graders esl
+
+blogs-05-14
+
+blogs-05-14 | Medium
+     QUESTION: What did the narrator/I wonder?
+normalized to: the narrator/I wonder
+question_answer_similarity_returned: Just thought I would share with you one of my most embarassing moments as a teacher to date.
+after get_asnwer_noun: Just thought I would share with you one of my most embarassing moments as a teacher to date.
+medanswer: i you one of my most embarassing moments as a teacher to date
+SCHEANSWER: There once was a group of students and a narrator.
+     ANSWER: i you one of my most embarassing moments as a teacher to date
+
+blogs-05-15
+
+blogs-05-15 | Medium
+     QUESTION: Who batted an eyelid?
+normalized to: batted an eyelid
+question_answer_similarity_returned: No one, strangely, batted an eyelid.
+after get_asnwer_noun: No one, strangely, batted an eyelid.
+medanswer: later that day i they the day their parents over dinner
+SCHEANSWER: There once was a group of students and a narrator.
+     ANSWER: later that day i they the day their parents over dinner
+
+blogs-05-16
+
+blogs-05-16 | Hard
+     QUESTION: Who detected that the ankle of the narrator was observed?
+     ANSWER: So I looked at my underwear round my ankles, looked at the class, looked back at the garment, carefully stepped out of it, said, "Oh dear look, what on earth can that be?
+
+blogs-05-17
+
+blogs-05-17 | Hard
+     QUESTION: What did the narrator raise?
+     ANSWER: Elastic gone What to do?
+
+blogs-05-18
+
+blogs-05-18 | Discourse
+     QUESTION: Where was the teacher standing?
+     ANSWER: I had taken the register and was standing at the front of the class doing some revision...
+
+blogs-05-19
+
+blogs-05-19 | Medium
+     QUESTION: When did the teacher how they had described the day?
+normalized to: did the teacher how they described the day
+question_answer_similarity_returned: Later that day I wondered how they had described the day to their parents over dinner.
+after get_asnwer_noun: Later that day I wondered how they had described the day to their parents over dinner.
+medanswer: so ahmed , what did you do in school today
+SCHEANSWER: The narrator was a teacher, owned some white slip and owned a desk.
+     ANSWER: The narrator a teacher some white slip a desk
+
+blogs-05-20
+
+blogs-05-20 | Discourse
+     QUESTION: What did the teacher wonder?
+     ANSWER: Elastic gone What to do?
+
+fables-05-1
+
+fables-05-1 | Easy
+     QUESTION: Who was the Farmer greatly annoyed by?
+
+fables-05-2
+
+fables-05-2 | Easy
+     QUESTION: Where did the Fox make straight for?
+question text: Where did the Fox make straight for?
+     ANSWER: for the fields for cutting
+
+fables-05-3
+
+fables-05-3 | Easy
+     QUESTION: Who lost all his harvest?
+question text: Who lost all his harvest?
+     ANSWER: It fire the Farmer all his harvest
+
+fables-05-4
+
+fables-05-4 | Easy
+     QUESTION: Who set a trap?
+
+fables-05-5
+
+fables-05-5 | Easy
+     QUESTION: Where did the agriculturist tie some fiber onto?
+question text: Where did the agriculturist tie some fiber onto?
+     ANSWER: onto the tail of the fox and in order
+
+fables-05-6
+
+fables-05-6 | Easy
+     QUESTION: Who kindled the fiber?
+question text: Who kindled the fiber?
+     ANSWER: The agriculturist the fiber the fox
+
+fables-05-7
+
+fables-05-7 | Easy
+     QUESTION: What ignited and burned completely?
+question text: What ignited and burned completely?
+     ANSWER: A Farmer greatly annoyed by a Fox , which came prowling about his yard at night and carried off his fowls
+
+fables-05-8
+
+fables-05-8 | Easy
+     QUESTION: Who lost a corp?
+question text: Who lost a corp?
+     ANSWER: It fire the Farmer all his harvest
+
+fables-05-9
+
+fables-05-9 | Medium
+     QUESTION: What did the farmer lose?
+normalized to: the farmer lose
+question_answer_similarity_returned: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+after get_asnwer_noun: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+medanswer: a farmer greatly annoyed by a fox , which came prowling about his yard at night and carried off his fowls
+SCHEANSWER: There once was a fox and a fowl.
+     ANSWER: a farmer greatly annoyed by a fox , which came prowling about his yard at night and carried off his fowls
+
+fables-05-10
+
+fables-05-10 | Medium
+     QUESTION: Who caught the fox?
+normalized to: caught the fox
+question_answer_similarity_returned: So he set a trap for him and caught him; and in order to be revenged upon him, he tied a bunch of tow to his tail and set fire to it and let him go.
+after get_asnwer_noun: So he set a trap for him and caught him; and in order to be revenged upon him, he tied a bunch of tow to his tail and set fire to it and let him go.
+medanswer: he a trap him him him he a bunch of tow his tail and set fire to it him
+SCHEANSWER: The agriculturist set a trap and caught the fox.
+     ANSWER: The agriculturist set a the fox
+
+fables-05-11
+
+fables-05-11 | Medium
+     QUESTION: Who freed the fox?
+normalized to: freed the fox
+question_answer_similarity_returned: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+after get_asnwer_noun: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+medanswer: a farmer a fox , which came prowling about his yard at night and carried off his fowls
+SCHEANSWER: The agriculturist kindled the fiber and freed the fox.
+     ANSWER: a farmer a fox , which came prowling about his yard at night and carried off his fowls
+
+fables-05-12
+
+fables-05-12 | Medium
+     QUESTION: Why did the agriculturist begin to be unlucky?
+normalized to: the agriculturist begin to be unlucky
+question_answer_similarity_returned: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+after get_asnwer_noun: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+medanswer: a farmer was greatly annoyed by a fox , which came prowling about his yard at night and carried off his fowls .
+SCHEANSWER: The agriculturist began to be unlucky because the fox ran into a field.
+     ANSWER: The agriculturist began to be unlucky because the fox ran into a field .
+
+fables-05-13
+
+fables-05-13 | Medium
+     QUESTION: What burned completely?
+normalized to: burned completely
+question_answer_similarity_returned: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+after get_asnwer_noun: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+medanswer: a farmer greatly annoyed by a fox , which came prowling about his yard at night and carried off his fowls
+SCHEANSWER: The corn ignited and burned completely.
+     ANSWER: a farmer greatly annoyed by a fox , which came prowling about his yard at night and carried off his fowls
+
+fables-05-14
+
+fables-05-14 | Hard
+     QUESTION: Who was stealing the chicken?
+     ANSWER: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+
+fables-05-15
+
+fables-05-15 | Hard
+     QUESTION: What did the agriculturist ignite?
+     ANSWER: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+
+fables-05-16
+
+fables-05-16 | Hard
+     QUESTION: Who did the agriculturist unloosen?
+     ANSWER: A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls.
+
+blogs-02-1
+
+blogs-02-1 | Easy
+     QUESTION: Who died?
+
+blogs-02-2
+
+blogs-02-2 | Easy
+     QUESTION: Where did the young man die?
+question text: Where did the young man die?
+     ANSWER: of the young man on the front yard of a narrator of the young man
+
+blogs-02-3
+
+blogs-02-3 | Easy
+     QUESTION: Who visited the place where he died?
+
+blogs-02-4
+
+blogs-02-4 | Easy
+     QUESTION: Why did the narrator decide to talk to the young man?
+question text: Why did the narrator decide to talk to the young man?
+     ANSWER: The narrator later went back to the spot of the yard of the narrator and decided to talk to the young man because it wanted the young man to know the narrator regretting that it had not aided him .
+
+blogs-02-5
+
+blogs-02-5 | Easy
+     QUESTION: Where did the narrator enter?
+question text: Where did the narrator enter?
+     ANSWER: of the young man on the front yard of a narrator of the young man
+
+blogs-02-6
+
+blogs-02-6 | Easy
+     QUESTION: What did the narrator see?
+question text: What did the narrator see?
+     ANSWER: A young man the motorbike of the young man the front yard of a narrator the neck of the young man
+
+blogs-02-7
+
+blogs-02-7 | Easy
+     QUESTION: Who was snoring?
+question text: Who was snoring?
+     ANSWER: my logical mind it my brother playing around with his new flashlight all like it , but the closest thing I could imagine I the house everyone
+
+blogs-02-8
+
+blogs-02-8 | Easy
+     QUESTION: Who crashed the motorbike?
+
+blogs-02-9
+
+blogs-02-9 | Easy
+     QUESTION: Who stayed with the young man?
+question text: Who stayed with the young man?
+     ANSWER: A few years a young man my front lawn he his motorbike
+
+blogs-02-10
+
+blogs-02-10 | Easy
+     QUESTION: Who is the story about?
+question text: Who is the story about?
+     ANSWER: A few years a young man my front lawn he his motorbike
+
+blogs-02-11
+
+blogs-02-11 | Easy
+     QUESTION: What did the narrator begin to wonder?
+question text: What did the narrator begin to wonder?
+     ANSWER: The narrator the flash an orb
+
+blogs-02-12
+
+blogs-02-12 | Easy
+     QUESTION: What was in a group of trees that was above the narrator?
+question text: What was in a group of trees that was above the narrator?
+     ANSWER: The narrator some bright flash a group of trees that was above the narrator
+
+blogs-02-13
+
+blogs-02-13 | Medium
+     QUESTION: When did the young man die?
+normalized to: the young man die
+question_answer_similarity_returned: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+after get_asnwer_noun: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+medanswer: a few years a young man my front lawn he his motorbike
+SCHEANSWER: A young man long ago crashed the motorbike of the young man on the front yard of a narrator and broke the neck of the young man.
+     ANSWER: a few years a young man my front lawn he his motorbike
+
+blogs-02-14
+
+blogs-02-14 | Medium
+     QUESTION: Where did the young man crash the motorbike?
+normalized to: the young man crash the motorbike
+question_answer_similarity_returned: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+after get_asnwer_noun: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+medanswer: on my front lawn
+SCHEANSWER: A young man long ago crashed the motorbike of the young man on the front yard of a narrator and broke the neck of the young man.
+     ANSWER: of the young man on the front yard of a narrator of the young man
+
+blogs-02-15
+
+blogs-02-15 | Medium
+     QUESTION: Who broke the neck of the young man?
+normalized to: broke the neck of the young man
+question_answer_similarity_returned: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+after get_asnwer_noun: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+medanswer: a few years a young man my front lawn he his motorbike
+SCHEANSWER: A young man long ago crashed the motorbike of the young man on the front yard of a narrator and broke the neck of the young man.
+     ANSWER: A young man the motorbike of the young man the front yard of a narrator the neck of the young man
+
+blogs-02-16
+
+blogs-02-16 | Medium
+     QUESTION: Who decided to talk to the young man?
+normalized to: decided to talk to the young man
+question_answer_similarity_returned: Later, when I was visiting the place where he died, I decided to talk to him as if he were still there because I wanted him to know how bad I felt that I couldnt help him.
+after get_asnwer_noun: Later, when I was visiting the place where he died, I decided to talk to him as if he were still there because I wanted him to know how bad I felt that I couldnt help him.
+medanswer: i the place where he died i him he i him i i him
+SCHEANSWER: The narrator later went back to the spot of the yard of the narrator and decided to talk to the young man because it wanted the young man to know the narrator regretting that it had not aided him.
+     ANSWER: The narrator the spot of the yard of the narrator the young man it the young man the narrator regretting that it had not aided him
+
+blogs-02-17
+
+blogs-02-17 | Hard
+     QUESTION: What did the narrator go into?
+     ANSWER: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+
+blogs-02-18
+
+blogs-02-18 | Hard
+     QUESTION: Who was catching some Zs?
+     ANSWER: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+
+blogs-02-19
+
+blogs-02-19 | Hard
+     QUESTION: Who walked in the house of the narrator?
+     ANSWER: At first, my logical mind thought that it was my brother playing around with his new flashlight (not at all like it, but the closest thing I could imagine)
+And when I went inside the house, everyone was snoring!
+
+blogs-02-20
+
+blogs-02-20 | Hard
+     QUESTION: What did the narrator perceive?
+     ANSWER: A few years ago, a young man died out on my front lawn when he crashed his motorbike.
+
+blogs-04-1
+
+blogs-04-1 | Easy
+     QUESTION: Who approached the bowl?
+question text: Who approached the bowl?
+     ANSWER: We a large stainless steel bowl of water the back deck for Benjamin to drink out of when he 's playing outside
+
+blogs-04-2
+
+blogs-04-2 | Easy
+     QUESTION: Who fell over the deck's railing
+question text: Who fell over the deck's railing
+     ANSWER: The squirrel the deck 's railing the squirrel the squirrel
+
+blogs-04-3
+
+blogs-04-3 | Easy
+     QUESTION: What slipped off the deck's railing?
+question text: What slipped off the deck's railing?
+     ANSWER: The squirrel 's paw the deck 's railing
+
+blogs-04-4
+
+blogs-04-4 | Easy
+     QUESTION: What did the birds bath themselves in?
+question text: What did the birds bath themselves in?
+     ANSWER: the day many birds it it
+
+blogs-04-5
+
+blogs-04-5 | Easy
+     QUESTION: Who also comes to drink out of it?
+
+blogs-04-6
+
+blogs-04-6 | Easy
+     QUESTION: Who saw his one little paw hanging on?
+
+blogs-04-7
+
+blogs-04-7 | Easy
+     QUESTION: What did I wish I had?
+question text: What did I wish I had?
+     ANSWER: This one of those times I wish I had a digital camera
+
+blogs-04-8
+
+blogs-04-8 | Easy
+     QUESTION: Who drinks out of it and bathes in it?
+
+blogs-04-9
+
+blogs-04-9 | Easy
+     QUESTION: Where do the birds literally line up on?
+question text: Where do the birds literally line up on?
+     ANSWER: on the railing
+
+blogs-04-10
+
+blogs-04-10 | Medium
+     QUESTION: Where did the narrator place the bowl?
+normalized to: the narrator place the bowl
+question_answer_similarity_returned: We keep a large stainless steel bowl of water outside on the back deck for Benjamin to drink out of when he's playing outside.
+after get_asnwer_noun: We keep a large stainless steel bowl of water outside on the back deck for Benjamin to drink out of when he's playing outside.
+medanswer: of water outside on the back deck for benjamin to drink out of when he 's playing outside
+SCHEANSWER:  The narrator placed the bowl on the deck in order for Benjamin to drink the bowl's water.
+     ANSWER: of water outside on the back deck for benjamin to drink out of when he 's playing outside
+
+blogs-04-11
+
+blogs-04-11 | Medium
+     QUESTION: Where did the squirrel fall?
+normalized to: the squirrel fall
+question_answer_similarity_returned: The craziest squirrel just came by- he was literally jumping in fright at what I believe was his own reflection in the bowl.
+after get_asnwer_noun: The craziest squirrel just came by- he was literally jumping in fright at what I believe was his own reflection in the bowl.
+medanswer: by in fright at what i believe was his own reflection in the bowl
+SCHEANSWER: The squirrel fell over the deck's railing because the squirrel leaped because the squirrel was startled.
+     ANSWER: by in fright at what i believe was his own reflection in the bowl
+
+blogs-04-12
+
+blogs-04-12 | Medium
+     QUESTION: Why did the birds organize themselves?
+normalized to: the birds organize themselves
+question_answer_similarity_returned: Throughout the day, many birds drink out of it and bathe in it.
+after get_asnwer_noun: Throughout the day, many birds drink out of it and bathe in it.
+medanswer: throughout the day , many birds drink out of it and bathe in it .
+SCHEANSWER: The birds drank the bowl's water.
+     ANSWER: throughout the day , many birds drink out of it and bathe in it .
+
+blogs-04-13
+
+blogs-04-13 | Medium
+     QUESTION: What did we keep outside on the back deck?
+normalized to: we keep outside on the back deck
+question_answer_similarity_returned: We keep a large stainless steel bowl of water outside on the back deck for Benjamin to drink out of when he's playing outside.
+after get_asnwer_noun: We keep a large stainless steel bowl of water outside on the back deck for Benjamin to drink out of when he's playing outside.
+medanswer: we a large stainless steel bowl of water the back deck for benjamin to drink out of when he 's playing outside
+SCHEANSWER:  The narrator placed the bowl on the deck in order for Benjamin to drink the bowl's water.
+     ANSWER: we a large stainless steel bowl of water the back deck for benjamin to drink out of when he 's playing outside
+
+blogs-04-14
+
+blogs-04-14 | Hard
+     QUESTION: Where did the birds form themselves?
+     ANSWER: Throughout the day, many birds drink out of it and bathe in it.
+
+blogs-04-15
+
+blogs-04-15 | Hard
+     QUESTION: What erred off the deck's railing?
+     ANSWER: We keep a large stainless steel bowl of water outside on the back deck for Benjamin to drink out of when he's playing outside.
+
+fables-03-1
+
+fables-03-1 | Easy
+     QUESTION: Who is the story about?
+
+fables-03-2
+
+fables-03-2 | Easy
+     QUESTION: Who swooped down upon a Serpant?
+question text: Who swooped down upon a Serpant?
+     ANSWER: An Eagle a Serpent it his talons the intention of carrying it off and devouring it
+
+fables-03-3
+
+fables-03-3 | Easy
+     QUESTION: What did the Eagle seize it with?
+question text: What did the Eagle seize it with?
+     ANSWER: An Eagle a Serpent it his talons the intention of carrying it off and devouring it
+
+fables-03-4
+
+fables-03-4 | Easy
+     QUESTION: Who came to the assistance of the Eagle?
+
+fables-03-5
+
+fables-03-5 | Easy
+     QUESTION: What did the Serpent spit?
+question text: What did the Serpent spit?
+     ANSWER: An Eagle a Serpent it his talons the intention of carrying it off and devouring it
+
+fables-03-6
+
+fables-03-6 | Easy
+     QUESTION: Where did the Serpent spit some poison?
+question text: Where did the Serpent spit some poison?
+     ANSWER: In revenge the Serpent spat some of his poison into the man 's drinking-horn
+
+fables-03-7
+
+fables-03-7 | Easy
+     QUESTION: What did the countryman decide?
+question text: What did the countryman decide?
+     ANSWER: A countryman , who was a witness of the encounter , the assistance of the Eagle him the Serpent him
+
+fables-03-8
+
+fables-03-8 | Easy
+     QUESTION: Who spilled the drinking vessel?
+question text: Who spilled the drinking vessel?
+     ANSWER: The eagle the drinking vessel
+
+fables-03-9
+
+fables-03-9 | Easy
+     QUESTION: What did the eagle spill?
+question text: What did the eagle spill?
+     ANSWER: An eagle a serpent it order for he it
+
+fables-03-10
+
+fables-03-10 | Easy
+     QUESTION: Where were the contents of the horn spilled?
+question text: Where were the contents of the horn spilled?
+     ANSWER: with his exertions with a draught from the horn , when the Eagle knocked it out of his hand , and spilled its contents upon the ground
+
+fables-03-11
+
+fables-03-11 | Easy
+     QUESTION: What was heated?
+question text: What was heated?
+     ANSWER: An Eagle a Serpent it his talons the intention of carrying it off and devouring it
+
+fables-03-12
+
+fables-03-12 | Easy
+     QUESTION: What did the Serpent do in revenge?
+question text: What did the Serpent do in revenge?
+     ANSWER: the Serpent spat some of his poison into the man 's drinking-horn
+
+fables-03-13
+
+fables-03-13 | Medium
+     QUESTION: Who seized it?
+normalized to: seized it
+question_answer_similarity_returned: An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it.
+after get_asnwer_noun: An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it.
+medanswer: an eagle a serpent it his talons the intention of carrying it off and devouring it
+SCHEANSWER: An eagle swooped toward a serpent and seized it in order for he to devour it.
+     ANSWER: an eagle a serpent it his talons the intention of carrying it off and devouring it
+
+fables-03-14
+
+fables-03-14 | Medium
+     QUESTION: Who had its coils around him?
+normalized to: had its coils around him
+question_answer_similarity_returned: But the Serpent was too quick for him and had its coils round him in a moment; and then there ensued a life-and-death struggle between the two.
+after get_asnwer_noun: But the Serpent was too quick for him and had its coils round him in a moment; and then there ensued a life-and-death struggle between the two.
+medanswer: the serpent him its coils him a moment there a life-and-death struggle between the two
+SCHEANSWER: The eagle fought with the serpent, and the serpent coiled around him.
+     ANSWER: the serpent him its coils him a moment there a life-and-death struggle between the two
+
+fables-03-15
+
+fables-03-15 | Medium
+     QUESTION: Who was a witness of the encounter?
+normalized to: was a witness of the encounter
+question_answer_similarity_returned: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+after get_asnwer_noun: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+medanswer: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+SCHEANSWER: An eagle swooped toward a serpent and seized it in order for he to devour it.
+     ANSWER: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+
+fables-03-16
+
+fables-03-16 | Medium
+     QUESTION: Who came to the assistance of the Eagle?
+normalized to: came to the assistance of the Eagle
+question_answer_similarity_returned: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+after get_asnwer_noun: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+medanswer: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+SCHEANSWER: An eagle swooped toward a serpent and seized it in order for he to devour it.
+     ANSWER: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+
+fables-03-17
+
+fables-03-17 | Medium
+     QUESTION: What did the countryman own?
+normalized to: the countryman own
+question_answer_similarity_returned: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+after get_asnwer_noun: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+medanswer: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+SCHEANSWER: A countryman who owned a drinking vessel tried to help the eagle to escape.
+     ANSWER: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+
+fables-03-18
+
+fables-03-18 | Medium
+     QUESTION: Who succeeded in freeing him?
+normalized to: succeeded in freeing him
+question_answer_similarity_returned: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+after get_asnwer_noun: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+medanswer: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+SCHEANSWER: An eagle swooped toward a serpent and seized it in order for he to devour it.
+     ANSWER: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+
+fables-03-19
+
+fables-03-19 | Medium
+     QUESTION: What did the countryman free the eagle from?
+normalized to: the countryman free the eagle from
+question_answer_similarity_returned: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+after get_asnwer_noun: A countryman, who was a witness of the encounter, came to the assistance of the Eagle, and succeeded in freeing him from the Serpent and enabling him to escape.
+medanswer: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+SCHEANSWER: A countryman who owned a drinking vessel tried to help the eagle to escape.
+     ANSWER: a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him
+
+fables-03-20
+
+fables-03-20 | Medium
+     QUESTION: What did the Serpent spat?
+normalized to: did the Serpent spat
+question_answer_similarity_returned: In revenge the Serpent spat some of his poison into the man's drinking-horn.
+after get_asnwer_noun: In revenge the Serpent spat some of his poison into the man's drinking-horn.
+medanswer: revenge the serpent spat some of his poison into the man 's drinking-horn
+SCHEANSWER: The serpent spat some poison in the drinking vessel.
+     ANSWER: revenge the serpent spat some of his poison into the man 's drinking-horn
+
+fables-03-21
+
+fables-03-21 | Medium
+     QUESTION: Who spilled its contents?
+normalized to: spilled its contents
+question_answer_similarity_returned: Heated with his exertions, the man was about to slake his thirst with a draught from the horn, when the Eagle knocked it out of his hand, and spilled its contents upon the ground.
+after get_asnwer_noun: Heated with his exertions, the man was about to slake his thirst with a draught from the horn, when the Eagle knocked it out of his hand, and spilled its contents upon the ground.
+medanswer: his exertions the man his thirst a draught the horn , when the eagle knocked it out of his hand , and spilled its contents upon the ground
+SCHEANSWER: The eagle spilled the drinking vessel.
+     ANSWER: his exertions the man his thirst a draught the horn , when the eagle knocked it out of his hand , and spilled its contents upon the ground
+
+fables-03-22
+
+fables-03-22 | Hard
+     QUESTION: Who swooped towards a snake?
+     ANSWER: An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it.
+
+fables-03-23
+
+fables-03-23 | Hard
+     QUESTION: Who spiraled around the eagle?
+     ANSWER: An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it.
+
+fables-03-24
+
+fables-03-24 | Hard
+     QUESTION: What did the bird of prey descend toward?
+     ANSWER: An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it.
+
+fables-03-25
+
+fables-03-25 | Hard
+     QUESTION: Who skirmished with the serpent?
+     ANSWER: An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it.
+
+fables-03-26
+
+fables-03-26 | Hard
+     QUESTION: Who tried to support the eagle?
+     ANSWER: An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it.
+
+fables-03-27
+
+fables-03-27 | Hard
+     QUESTION: Where did the serpent spat some toxin?
+     ANSWER: In revenge the Serpent spat some of his poison into the man's drinking-horn.
+
+mc500.train.0.1
+
+mc500.train.0.1 | Easy
+     QUESTION: Why did Alyssa go to Miami?
+question text: Why did Alyssa go to Miami?
+     ANSWER: She 's now in Miami .
+
+mc500.train.0.2
+
+mc500.train.0.2 | Easy
+     QUESTION: What did Ellen order?
+question text: What did Ellen order?
+     ANSWER: swimming she her friend Ellen 's house
+
+mc500.train.0.3
+
+mc500.train.0.3 | Easy
+     QUESTION: who had soup?
+
+mc500.train.0.4
+
+mc500.train.0.4 | Easy
+     QUESTION: where did Alyssa travel from?
+question text: where did Alyssa travel from?
+     ANSWER: to the beach after a long trip
+
+mc500.train.0.5
+
+mc500.train.0.5 | Easy
+     QUESTION: What makes Alyssa happy?
+question text: What makes Alyssa happy?
+     ANSWER: It a happy time for everyone
+
+mc500.train.0.6
+
+mc500.train.0.6 | Easy
+     QUESTION: Why did they stay the night?
+question text: Why did they stay the night?
+     ANSWER: They stayed the night because they were tired .
+
+mc500.train.0.7
+
+mc500.train.0.7 | Easy
+     QUESTION: Who traded stories?
+
+mc500.train.0.8
+
+mc500.train.0.8 | Easy
+     QUESTION: Who went to the beach?
+
+mc500.train.0.9
+
+mc500.train.0.9 | Easy
+     QUESTION: What was the restaurant's special?
+question text: What was the restaurant's special?
+     ANSWER: Alyssa the restaurant 's special
+
+mc500.train.0.10
+
+mc500.train.0.10 | Easy
+     QUESTION: What did Kristin have to eat?
+question text: What did Kristin have to eat?
+     ANSWER: Alyssa her friends Kristin and Rachel Ellen 's house
+
+mc500.train.0.11
+
+mc500.train.0.11 | Easy
+     QUESTION: Where did the girls go for dinner?
+question text: Where did the girls go for dinner?
+     ANSWER: to a restaurant for dinner
+
+mc500.train.0.12
+
+mc500.train.0.12 | Easy
+     QUESTION: Where did Alyssa meet her friends?
+question text: Where did Alyssa meet her friends?
+     ANSWER: at Ellen 's house
+
+mc500.train.0.13
+
+mc500.train.0.13 | Medium
+     QUESTION: What did Ellen and Alyssa have to drink?
+normalized to: Ellen and Alyssa have to drink
+question_answer_similarity_returned: Ellen greeted Alyssa and they both had some lemonade to drink.
+after get_asnwer_noun: Ellen greeted Alyssa and they both had some lemonade to drink.
+medanswer: ellen alyssa and they some lemonade to drink
+     ANSWER: ellen alyssa and they some lemonade to drink
+
+mc500.train.0.14
+
+mc500.train.0.14 | Medium
+     QUESTION: What did the ladies do after dinner?
+normalized to: the ladies do after dinner
+question_answer_similarity_returned: The girls went to a restaurant for dinner.
+after get_asnwer_noun: The girls went to a restaurant for dinner.
+medanswer: went to a restaurant for dinner
+     ANSWER: went to a restaurant for dinner
+
+mc500.train.0.15
+
+mc500.train.0.15 | Medium
+     QUESTION: Did Alyssa and her friends have a good time?
+Alyssa and her friends have a good time?
+normalized to: Alyssa and her friends have a good time
+question_answer_similarity_returned: Alyssa was happy to spend time with her friends again.
+after get_asnwer_noun: Alyssa was happy to spend time with her friends again.
+medanswer: alyssa time friends
+     ANSWER: yes
+
+mc500.train.0.16
+
+mc500.train.0.16 | Medium
+     QUESTION: Did Alyssa go swimming?
+Alyssa go swimming?
+normalized to: Alyssa go swimming
+question_answer_similarity_returned: After going swimming and laying out, she went to her friend Ellen's house.
+after get_asnwer_noun: After going swimming and laying out, she went to her friend Ellen's house.
+medanswer: swimming friend ellen house
+     ANSWER: yes
+
+mc500.train.0.17
+
+mc500.train.0.17 | Discourse
+     QUESTION: What did she do while at the beach?
+     ANSWER: Alyssa got to the beach after a long trip.
+
+mc500.train.0.18
+
+mc500.train.0.18 | Hard
+     QUESTION: Did Alyssa take a long trip?
+     ANSWER: Alyssa got to the beach after a long trip.
+
+mc500.train.0.19
+
+mc500.train.0.19 | Hard
+     QUESTION: What city is Alyssa in?
+     ANSWER: Alyssa got to the beach after a long trip.
+
+mc500.train.0.20
+
+mc500.train.0.20 | Discourse
+     QUESTION: What did Alyssa eat at the restaurant?
+     ANSWER: Alyssa enjoyed the restaurant's special.
+
+mc500.train.0.21
+
+mc500.train.0.21 | Medium
+     QUESTION: Who did Alyssa call?
+normalized to: Alyssa call
+question_answer_similarity_returned: Alyssa got to the beach after a long trip.
+after get_asnwer_noun: Alyssa got to the beach after a long trip.
+medanswer: alyssa the beach a long trip
+     ANSWER: alyssa the beach a long trip
+
+mc500.train.0.22
+
+mc500.train.0.22 | Medium
+     QUESTION: Why did the ladies go back to Ellen’s house? 
+normalized to: the ladies go back to Ellen’s house
+question_answer_similarity_returned: After eating, the ladies went back to Ellen's house to have fun.
+after get_asnwer_noun: After eating, the ladies went back to Ellen's house to have fun.
+medanswer: after eating , the ladies went back to ellen 's house to have fun .
+     ANSWER: after eating , the ladies went back to ellen 's house to have fun .
+
+mc500.train.0.23
+
+mc500.train.0.23 | Discourse
+     QUESTION: In Miami, where did Alyssa go first?
+     ANSWER: But she wanted some time to herself at the beach, so she went there first.
+
+mc500.train.0.24
+
+mc500.train.0.24 | Discourse
+     QUESTION: Where did Alyssa go after the beach?
+     ANSWER: Alyssa got to the beach after a long trip.
+
+mc500.train.23.1
+
+mc500.train.23.1 | Easy
+     QUESTION: When was Andrew bored?
+question text: When was Andrew bored?
+     ANSWER: It Saturday afternoon Andrew
+
+mc500.train.23.2
+
+mc500.train.23.2 | Easy
+     QUESTION: What day was it?
+question text: What day was it?
+     ANSWER: He TV all day
+
+mc500.train.23.3
+
+mc500.train.23.3 | Easy
+     QUESTION: Where did Andrew look?
+question text: Where did Andrew look?
+     ANSWER: outside the window by the door
+
+mc500.train.23.4
+
+mc500.train.23.4 | Easy
+     QUESTION: what did Andrew see by the door?
+question text: what did Andrew see by the door?
+     ANSWER: Andrew the window the newspaper the door
+
+mc500.train.23.5
+
+mc500.train.23.5 | Easy
+     QUESTION: Where was the picture of the elephant?
+question text: Where was the picture of the elephant?
+     ANSWER: On the front of an elephant
+
+mc500.train.23.6
+
+mc500.train.23.6 | Easy
+     QUESTION: How long had Andrew been watching TV?
+question text: How long had Andrew been watching TV?
+     ANSWER: TV day
+
+mc500.train.23.7
+
+mc500.train.23.7 | Easy
+     QUESTION: What did Andrew and his dad read?
+question text: What did Andrew and his dad read?
+     ANSWER: Andrew and his dad the story
+
+mc500.train.23.8
+
+mc500.train.23.8 | Easy
+     QUESTION: Where was the circus?
+question text: Where was the circus?
+     ANSWER: in town
+
+mc500.train.23.9
+
+mc500.train.23.9 | Easy
+     QUESTION: Had Andrew ever been to the circus?
+question text: Had Andrew ever been to the circus?
+     ANSWER: no
+
+mc500.train.23.10
+
+mc500.train.23.10 | Easy
+     QUESTION: What did Andrew feed the goldfish?
+question text: What did Andrew feed the goldfish?
+     ANSWER: we Andrew 's dad you your goldfish
+
+mc500.train.23.11
+
+mc500.train.23.11 | Easy
+     QUESTION: Who did lots of tricks?
+
+mc500.train.23.12
+
+mc500.train.23.12 | Easy
+     QUESTION: What did Andrew and his dad eat?
+question text: What did Andrew and his dad eat?
+     ANSWER: Andrew 's dad I the newspaper
+
+mc500.train.23.13
+
+mc500.train.23.13 | Easy
+     QUESTION: Where did Andrew and his dad have fun?
+question text: Where did Andrew and his dad have fun?
+     ANSWER: of fun at the circus
+
+mc500.train.23.14
+
+mc500.train.23.14 | Easy
+     QUESTION: Where did Andrew and his dad go?
+question text: Where did Andrew and his dad go?
+     ANSWER: to the circus
+
+mc500.train.23.15
+
+mc500.train.23.15 | Easy
+     QUESTION: Which character in the story went down the slide?
+question text: Which character in the story went down the slide?
+     ANSWER: The elephant a slide
+
+mc500.train.23.16
+
+mc500.train.23.16 | Medium
+     QUESTION: What  did Andrew's dad say about the newspaper?
+normalized to: Andrew's dad say about the newspaper
+question_answer_similarity_returned: Andrew's dad said, "I think the newspaper is here.
+after get_asnwer_noun: Andrew's dad said, "I think the newspaper is here.
+medanswer: andrew 's dad i the newspaper
+     ANSWER: andrew 's dad i the newspaper
+
+mc500.train.23.17
+
+mc500.train.23.17 | Medium
+     QUESTION: Where was the newspaper?
+normalized to: was the newspaper
+question_answer_similarity_returned: Maybe we can find an idea in the newspaper."
+after get_asnwer_noun: Maybe we can find an idea in the newspaper."
+medanswer: in the newspaper
+     ANSWER: in the newspaper
+
+mc500.train.23.18
+
+mc500.train.23.18 | Medium
+     QUESTION: Who went down the slide?
+normalized to: went down the slide
+question_answer_similarity_returned: The elephant even went down a slide!
+after get_asnwer_noun: The elephant even went down a slide!
+medanswer: the elephant a slide
+     ANSWER: the elephant a slide
+
+mc500.train.23.19
+
+mc500.train.23.19 | Medium
+     QUESTION: What were the animals at the circus doing?
+normalized to: were the animals at the circus doing
+question_answer_similarity_returned: The people and animals at the circus did lots of tricks.
+after get_asnwer_noun: The people and animals at the circus did lots of tricks.
+medanswer: the people and animals at the circus lots of tricks
+     ANSWER: the people and animals at the circus lots of tricks
+
+mc500.train.23.20
+
+mc500.train.23.20 | Medium
+     QUESTION: What did he bring to his dad?
+normalized to: he bring to his dad
+question_answer_similarity_returned: He promised to bring it some peanuts from the circus for later.
+after get_asnwer_noun: He promised to bring it some peanuts from the circus for later.
+medanswer: he it some peanuts the circus for later
+     ANSWER: he it some peanuts the circus for later
+
+mc500.train.23.21
+
+mc500.train.23.21 | Medium
+     QUESTION: What did Andrew need to do before he could go to the circus?
+normalized to: Andrew need to do before he could to the circus
+question_answer_similarity_returned: "Yes, we can,' Andrew's dad said, 'but first you need to feed your goldfish."
+after get_asnwer_noun: "Yes, we can,' Andrew's dad said, 'but first you need to feed your goldfish."
+medanswer: can said first need to feed your goldfish
+     ANSWER: can said first need to feed your goldfish
+
+mc500.train.23.22
+
+mc500.train.23.22 | Medium
+     QUESTION: Who ate the peanuts?
+normalized to: ate the peanuts
+question_answer_similarity_returned: Andrew and his dad ate lots of peanuts.
+after get_asnwer_noun: Andrew and his dad ate lots of peanuts.
+medanswer: andrew and his dad lots of peanuts
+     ANSWER: andrew and his dad lots of peanuts
+
+mc500.train.23.23
+
+mc500.train.23.23 | Hard
+     QUESTION: What was on the front page of the newspaper?
+     ANSWER: Andrew's dad said, "I think the newspaper is here.
+
+mc500.train.23.24
+
+mc500.train.23.24 | Hard
+     QUESTION: why weren't there any peanuts left?
+     ANSWER: There weren't any peanuts left to bring home to the goldfish.
+
+mc500.train.18.1
+
+mc500.train.18.1 | Easy
+     QUESTION: Where did Kelly go?
+question text: Where did Kelly go?
+     ANSWER: to her back yard
+
+mc500.train.18.2
+
+mc500.train.18.2 | Easy
+     QUESTION: When did Kelly wake up?
+question text: When did Kelly wake up?
+     ANSWER: Kelly one morning her back yard
+
+mc500.train.18.3
+
+mc500.train.18.3 | Easy
+     QUESTION: what did Kelly do after she woke up?
+question text: what did Kelly do after she woke up?
+     ANSWER: woke up one morning and went outside to her back yard
+
+mc500.train.18.4
+
+mc500.train.18.4 | Easy
+     QUESTION: What is big and beautiful?
+question text: What is big and beautiful?
+     ANSWER: She her mom the biggest , most beautiful bunch of flowers her mother had ever seen
+
+mc500.train.18.5
+
+mc500.train.18.5 | Easy
+     QUESTION: what did Kelly get?
+question text: what did Kelly get?
+     ANSWER: Kelly one morning her back yard
+
+mc500.train.18.6
+
+mc500.train.18.6 | Easy
+     QUESTION: What did Kelly collect?
+question text: What did Kelly collect?
+     ANSWER: She a hurry it Mother 's Day she flowers her mom her a present
+
+mc500.train.18.7
+
+mc500.train.18.7 | Easy
+     QUESTION: Where were the best flowers?
+question text: Where were the best flowers?
+     ANSWER: in her yard
+
+mc500.train.18.8
+
+mc500.train.18.8 | Easy
+     QUESTION: Where did Kelly hide the flowers?
+question text: Where did Kelly hide the flowers?
+     ANSWER: After that in a secret spot
+
+mc500.train.18.9
+
+mc500.train.18.9 | Medium
+     QUESTION: Why was Kelly in a hurry?
+normalized to: was Kelly in a hurry
+question_answer_similarity_returned: She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present.
+after get_asnwer_noun: She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present.
+medanswer: she was in a hurry because it was mother 's day and she had to collect flowers before her mom woke up to give to her as a present .
+     ANSWER: she was in a hurry because it was mother 's day and she had to collect flowers before her mom woke up to give to her as a present .
+
+mc500.train.18.10
+
+mc500.train.18.10 | Easy
+     QUESTION: What did Kelly want to give her mom?
+question text: What did Kelly want to give her mom?
+     ANSWER: She a hurry it Mother 's Day she flowers her mom her a present
+
+mc500.train.18.11
+
+mc500.train.18.11 | Easy
+     QUESTION: How did Kelly feel when her mother woke up?
+question text: How did Kelly feel when her mother woke up?
+     ANSWER: excited
+
+mc500.train.18.12
+
+mc500.train.18.12 | Easy
+     QUESTION: Why was Kelly in a hurry?
+question text: Why was Kelly in a hurry?
+     ANSWER: She was in a hurry because it was Mother 's Day and she had to collect flowers before her mom woke up to give to her as a present .
+
+mc500.train.18.13
+
+mc500.train.18.13 | Easy
+     QUESTION: what size were the orange ones?
+question text: what size were the orange ones?
+     ANSWER: The red ones big the orange ones small the green ones the middle
+
+mc500.train.18.14
+
+mc500.train.18.14 | Easy
+     QUESTION: what did Kelly hide?
+question text: what did Kelly hide?
+     ANSWER: that she the flowers a secret spot
+
+mc500.train.18.15
+
+mc500.train.18.15 | Easy
+     QUESTION: Which flower was mother's favorite?
+question text: Which flower was mother's favorite?
+     ANSWER: Her mother 's favorite the red one
+
+mc500.train.18.16
+
+mc500.train.18.16 | Easy
+     QUESTION: What time did Kelly's mother wake up?
+question text: What time did Kelly's mother wake up?
+     ANSWER: Her mother 's favorite the red one
+
+mc500.train.18.17
+
+mc500.train.18.17 | Medium
+     QUESTION: What did Kelly use to tie the flowers together?
+normalized to: Kelly use to tie the flowers together
+question_answer_similarity_returned: After Kelly collected all of the flowers, she went inside and tied them together with string.
+after get_asnwer_noun: After Kelly collected all of the flowers, she went inside and tied them together with string.
+medanswer: kelly all of the flowers she them string
+     ANSWER: kelly all of the flowers she them string
+
+mc500.train.18.18
+
+mc500.train.18.18 | Medium
+     QUESTION: what did Kelly give her mom as a present?
+normalized to: Kelly give her mom as a present
+question_answer_similarity_returned: She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present.
+after get_asnwer_noun: She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present.
+medanswer: she a hurry it mother 's day she flowers her mom her a present
+     ANSWER: she a hurry it mother 's day she flowers her mom her a present
+
+mc500.train.18.19
+
+mc500.train.18.19 | Medium
+     QUESTION: What was her baby sister's name?
+normalized to: was her baby sister's name
+question_answer_similarity_returned: She hoped her baby sister Morgan, who was still in diapers, wouldn't find the flowers and eat them.
+after get_asnwer_noun: She hoped her baby sister Morgan, who was still in diapers, wouldn't find the flowers and eat them.
+medanswer: she her baby sister morgan , who was still in diapers , the flowers them
+     ANSWER: she her baby sister morgan , who was still in diapers , the flowers them
+
+mc500.train.18.20
+
+mc500.train.18.20 | Medium
+     QUESTION: Why did Kelly hide the flowers a second time?
+normalized to: Kelly hide the flowers a second time
+question_answer_similarity_returned: After that, she had to hide the flowers in a secret spot.
+after get_asnwer_noun: After that, she had to hide the flowers in a secret spot.
+medanswer: after that , she had to hide the flowers in a secret spot .
+     ANSWER: after that , she had to hide the flowers in a secret spot .
+
+mc500.train.18.21
+
+mc500.train.18.21 | Medium
+     QUESTION: Why was Kelly collecting flowers?
+normalized to: was Kelly collecting flowers
+question_answer_similarity_returned: She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present.
+after get_asnwer_noun: She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present.
+medanswer: she was in a hurry because it was mother 's day and she had to collect flowers before her mom woke up to give to her as a present .
+     ANSWER: she was in a hurry because it was mother 's day and she had to collect flowers before her mom woke up to give to her as a present .
+
+mc500.train.18.22
+
+mc500.train.18.22 | Hard
+     QUESTION: What did she tie together with a string?
+     ANSWER: After Kelly collected all of the flowers, she went inside and tied them together with string.
+
+mc500.train.18.23
+
+mc500.train.18.23 | Hard
+     QUESTION: where did she pick flowers flowers?
+     ANSWER: She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present.
+
+mc500.train.18.24
+
+mc500.train.18.24 | Discourse
+     QUESTION: Which flowers were big?
+     ANSWER: She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present.
+
+mc500.train.18.25
+
+mc500.train.18.25 | Discourse
+     QUESTION: After she woke up, where did Kelly go?
+     ANSWER: Finally, her mother woke up at 8:30 AM, and Kelly was excited!
+
+mc500.train.18.26
+
+mc500.train.18.26 | Discourse
+     QUESTION: What did Kelly do after she had collected the flowers?
+     ANSWER: After Kelly collected all of the flowers, she went inside and tied them together with string.
+
+mc500.train.25.0
+
+mc500.train.25.0 | Easy
+     QUESTION: Where is the beautiful pond?
+question text: Where is the beautiful pond?
+     ANSWER: in a beautiful pond by the river
+
+mc500.train.25.1
+
+mc500.train.25.1 | Medium
+     QUESTION: Where did Maxine live?
+normalized to: Maxine live
+question_answer_similarity_returned: Maxine was a happy frog that lived in a beautiful pond by the river.
+after get_asnwer_noun: Maxine was a happy frog that lived in a beautiful pond by the river.
+medanswer: in a beautiful pond by the river
+     ANSWER: in a beautiful pond by the river
+
+mc500.train.25.2
+
+mc500.train.25.2 | Hard
+     QUESTION: What did Cindy throw?
+     ANSWER: After that Cindy didn't throw any rocks, and Maxine and Thomas could swim together and take lots of baths.
+
+mc500.train.25.3
+
+mc500.train.25.3 | Hard
+     QUESTION: who did Maxine meet?
+     ANSWER: Maxine was a happy frog that lived in a beautiful pond by the river.
+
+mc500.train.111.0
+
+mc500.train.111.0 | Easy
+     QUESTION: Who was singing?
+
+mc500.train.111.1
+
+mc500.train.111.1 | Easy
+     QUESTION: What did Will laugh at?
+question text: What did Will laugh at?
+     ANSWER: the store Will a good laugh at a very silly looking dog
+
+mc500.train.111.2
+
+mc500.train.111.2 | Medium
+     QUESTION: What did Will hear?
+normalized to: Will hear
+question_answer_similarity_returned: Will was playing his favorite song.
+after get_asnwer_noun: Will was playing his favorite song.
+medanswer: his favorite song
+     ANSWER: his favorite song
+
+mc500.train.111.3
+
+mc500.train.111.3 | Medium
+     QUESTION: How did Will get to the store?
+normalized to: Will get to the store
+question_answer_similarity_returned: Will got hungry and went inside to get a biscuit.
+after get_asnwer_noun: Will got hungry and went inside to get a biscuit.
+medanswer: 
+     ANSWER: 
+
+mc500.train.111.4
+
+mc500.train.111.4 | Medium
+     QUESTION: Where did Will walk to?
+normalized to: Will walk to
+question_answer_similarity_returned: Will sat and finished his dinner in the kitchen.
+after get_asnwer_noun: Will sat and finished his dinner in the kitchen.
+medanswer: in the kitchen
+     ANSWER: in the kitchen
+
+mc500.train.111.5
+
+mc500.train.111.5 | Discourse
+     QUESTION: Where did Will eat dinner?
+     ANSWER: Will sat and finished his dinner in the kitchen.
+----------------------------------------
+
+SCORING fables-06-1
+
+Comparing Gold   "in a lair "
+      and Resp   "in his lair by a Mouse running over his face"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING fables-06-2
+
+Comparing Gold   "the mouse"
+      and Resp   "The Mouse , terrified , him its life"
+
+RECALL:    1.000
+PRECISION: 0.286
+F-measure: 0.444
+
+----------------------------------------
+
+SCORING fables-06-3
+
+Comparing Gold   "the idea of so insignificant a creature ever being able to do anything for him"
+      and Resp   "The idea of so insignificant a creature able to do anything for him amused the Lion so much that he laughed aloud , and good-humouredly let it go"
+
+RECALL:    0.867
+PRECISION: 0.500
+F-measure: 0.634
+
+----------------------------------------
+
+SCORING fables-06-4
+
+Comparing Gold   "a net which had been spread for game by some hunters"
+      and Resp   "for your kindness"
+
+RECALL:    0.091
+PRECISION: 0.333
+F-measure: 0.143
+
+----------------------------------------
+
+SCORING fables-06-5
+
+Comparing Gold   "because a mouse ran into the face of the lion"
+      and Resp   "The lion awaked because a mouse ran into the face of the lion ."
+
+RECALL:    1.000
+PRECISION: 0.818
+F-measure: 0.900
+
+----------------------------------------
+
+SCORING fables-06-6
+
+Comparing Gold   "a trapper"
+      and Resp   "One day the Lion a net which had been spread for game by some hunters the Mouse his anger the spot"
+
+RECALL:    0.500
+PRECISION: 0.053
+F-measure: 0.095
+
+----------------------------------------
+
+SCORING fables-06-7
+
+Comparing Gold   "the lion"
+      and Resp   "day"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-06-8
+
+Comparing Gold   "the rope of the net"
+      and Resp   "The mouse the rope of the net the tooth of the mouse"
+
+RECALL:    1.000
+PRECISION: 0.667
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING fables-06-9
+
+Comparing Gold   "a mouse"
+      and Resp   "a lion asleep in his lair a mouse running over his face"
+
+RECALL:    1.000
+PRECISION: 0.200
+F-measure: 0.333
+
+----------------------------------------
+
+SCORING fables-06-10
+
+Comparing Gold   "in order to catch a big game"
+      and Resp   "A trapper spread some net in order to catch a big game ."
+
+RECALL:    1.000
+PRECISION: 0.583
+F-measure: 0.737
+
+----------------------------------------
+
+SCORING fables-06-11
+
+Comparing Gold   "the mouse"
+      and Resp   "The mouse the lion to spare it"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING fables-06-12
+
+Comparing Gold   "the voice of the lion"
+      and Resp   "a lion asleep in his lair a mouse running over his face"
+
+RECALL:    0.250
+PRECISION: 0.100
+F-measure: 0.143
+
+----------------------------------------
+
+SCORING fables-06-13
+
+Comparing Gold   "its teeth"
+      and Resp   "more ado it the ropes its teeth the lion free"
+
+RECALL:    1.000
+PRECISION: 0.222
+F-measure: 0.364
+
+----------------------------------------
+
+SCORING fables-06-14
+
+Comparing Gold   "the lion"
+      and Resp   "A Lion asleep in his lair was waked up by a Mouse running over his face."
+
+RECALL:    0.500
+PRECISION: 0.067
+F-measure: 0.118
+
+----------------------------------------
+
+SCORING fables-06-15
+
+Comparing Gold   "the mouse"
+      and Resp   "A Lion asleep in his lair was waked up by a Mouse running over his face."
+
+RECALL:    0.500
+PRECISION: 0.067
+F-measure: 0.118
+
+----------------------------------------
+
+SCORING fables-06-16
+
+Comparing Gold   "because he thought that the mouse is extremely not able to help him."
+      and Resp   "A Lion asleep in his lair was waked up by a Mouse running over his face."
+
+RECALL:    0.143
+PRECISION: 0.133
+F-measure: 0.138
+
+----------------------------------------
+
+SCORING fables-06-17
+
+Comparing Gold   "the lion"
+      and Resp   "One day the Lion got entangled in a net which had been spread for game by some hunters, and the Mouse heard and recognised his roars of anger and ran to the spot."
+
+RECALL:    1.000
+PRECISION: 0.065
+F-measure: 0.121
+
+----------------------------------------
+
+SCORING fables-06-18
+
+Comparing Gold   "some net"
+      and Resp   "One day the Lion got entangled in a net which had been spread for game by some hunters, and the Mouse heard and recognised his roars of anger and ran to the spot."
+
+RECALL:    1.000
+PRECISION: 0.065
+F-measure: 0.121
+
+----------------------------------------
+
+SCORING fables-06-19
+
+Comparing Gold   "he was waked up by a mouse running over his face "
+      and Resp   "Losing his temper he seized it with his paw and was about to kill it."
+
+RECALL:    0.273
+PRECISION: 0.214
+F-measure: 0.240
+
+----------------------------------------
+
+SCORING fables-06-20
+
+Comparing Gold   "the lion"
+      and Resp   "Losing his temper he seized it with his paw and was about to kill it."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-06-21
+
+Comparing Gold   "the mouse"
+      and Resp   "Losing his temper he seized it with his paw and was about to kill it."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-06-22
+
+Comparing Gold   "yes"
+      and Resp   "A Lion asleep in his lair was waked up by a Mouse running over his face."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-06-23
+
+Comparing Gold   " he let the mouse go"
+      and Resp   "A Lion asleep in his lair was waked up by a Mouse running over his face."
+
+RECALL:    0.200
+PRECISION: 0.067
+F-measure: 0.100
+
+----------------------------------------
+
+SCORING fables-06-24
+
+Comparing Gold   "he ran to the spot"
+      and Resp   "One day the Lion got entangled in a net which had been spread for game by some hunters, and the Mouse heard and recognised his roars of anger and ran to the spot."
+
+RECALL:    0.800
+PRECISION: 0.129
+F-measure: 0.222
+
+----------------------------------------
+
+SCORING fables-06-25
+
+Comparing Gold   "it set to work to gnaw the ropes with its teeth"
+      and Resp   "A Lion asleep in his lair was waked up by a Mouse running over his face."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-06-26
+
+Comparing Gold   "a lion"
+      and Resp   "lion"
+
+RECALL:    0.500
+PRECISION: 1.000
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-06-27
+
+Comparing Gold   "a mouse"
+      and Resp   "a lion asleep in his lair a mouse running over his face"
+
+RECALL:    1.000
+PRECISION: 0.200
+F-measure: 0.333
+
+----------------------------------------
+
+SCORING fables-06-28
+
+Comparing Gold   "the mouse"
+      and Resp   ""Please let me go," it cried, "and one day I will repay you for your kindness.""
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-03-1
+
+Comparing Gold   "hurricane gustav"
+      and Resp   "Louisiana Hurricane Gustav"
+
+RECALL:    1.000
+PRECISION: 0.667
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING blogs-03-2
+
+Comparing Gold   "the storm"
+      and Resp   "The storm Monday September 1 the morning"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING blogs-03-3
+
+Comparing Gold   "winds"
+      and Resp   "Winds"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING blogs-03-4
+
+Comparing Gold   "president bush"
+      and Resp   "president"
+
+RECALL:    0.500
+PRECISION: 1.000
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING blogs-03-5
+
+Comparing Gold   "in louisiana "
+      and Resp   "to me in all of last weekend on the Weather Channel and local news"
+
+RECALL:    0.500
+PRECISION: 0.071
+F-measure: 0.125
+
+----------------------------------------
+
+SCORING blogs-03-6
+
+Comparing Gold   "a store named home depot "
+      and Resp   "to a store named Home Depot in order to purchase a portable generator"
+
+RECALL:    1.000
+PRECISION: 0.455
+F-measure: 0.625
+
+----------------------------------------
+
+SCORING blogs-03-7
+
+Comparing Gold   "a large group of pine trees and had a group of oak trees"
+      and Resp   "An area of a neighborhood of the narrator a large group of pine trees a group of oak trees"
+
+RECALL:    0.778
+PRECISION: 0.583
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING blogs-03-8
+
+Comparing Gold   "because it owned a group of trees and near the house of the narrator"
+      and Resp   "The narrator began to be concerned because -- if the first tree were to later fall , and were to later fall on the house of the narrator -- the house of the narrator would have begun to be damaged , and the family of the narrator would begin to be wounded ."
+
+RECALL:    0.500
+PRECISION: 0.222
+F-measure: 0.308
+
+----------------------------------------
+
+SCORING blogs-03-9
+
+Comparing Gold   "the house of the parent of the narrator"
+      and Resp   "on the house of the narrator of the narrator of the narrator"
+
+RECALL:    0.800
+PRECISION: 0.800
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING blogs-03-10
+
+Comparing Gold   "the narrator"
+      and Resp   "The narrator a group of cars the container of some gasoline"
+
+RECALL:    1.000
+PRECISION: 0.222
+F-measure: 0.364
+
+----------------------------------------
+
+SCORING blogs-03-11
+
+Comparing Gold   "an area of a neighborhood of the narrator"
+      and Resp   "An area of a neighborhood of the narrator a large group of pine trees a group of oak trees"
+
+RECALL:    1.000
+PRECISION: 0.583
+F-measure: 0.737
+
+----------------------------------------
+
+SCORING blogs-03-12
+
+Comparing Gold   "the tree"
+      and Resp   "12:30 pm i my back patio i a large tree split two my neighbor 's yard"
+
+RECALL:    0.500
+PRECISION: 0.071
+F-measure: 0.125
+
+----------------------------------------
+
+SCORING blogs-03-13
+
+Comparing Gold   "the narrator"
+      and Resp   "12:30 pm i my back patio i a large tree split two my neighbor 's yard"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-03-14
+
+Comparing Gold   "a rv of the neighbor"
+      and Resp   "The narrator the first tree the house of the narrator the house of the narrator the family of the narrator"
+
+RECALL:    0.400
+PRECISION: 0.286
+F-measure: 0.333
+
+----------------------------------------
+
+SCORING blogs-03-15
+
+Comparing Gold   "my wife, our five children, and our dog"
+      and Resp   "my wife , our five children , and our dog , an area of the home we safest"
+
+RECALL:    1.000
+PRECISION: 0.533
+F-measure: 0.696
+
+----------------------------------------
+
+SCORING blogs-03-16
+
+Comparing Gold   "the group of power lines"
+      and Resp   "Louisiana was adversely affected by Hurricane Gustav."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-03-17
+
+Comparing Gold   "storm"
+      and Resp   "Here's what happened to me and my family:
+We watched the storm moving in all of last weekend on the Weather Channel and local news."
+
+RECALL:    1.000
+PRECISION: 0.038
+F-measure: 0.074
+
+----------------------------------------
+
+SCORING blogs-03-18
+
+Comparing Gold   "the narrator"
+      and Resp   "I went to Home Depot just in the nick of time to purchase a portable generator."
+
+RECALL:    0.500
+PRECISION: 0.062
+F-measure: 0.111
+
+----------------------------------------
+
+SCORING blogs-03-19
+
+Comparing Gold   "in louisiana"
+      and Resp   "Louisiana was adversely affected by Hurricane Gustav."
+
+RECALL:    0.500
+PRECISION: 0.125
+F-measure: 0.200
+
+----------------------------------------
+
+SCORING blogs-03-20
+
+Comparing Gold   "the narrator"
+      and Resp   "I filled up my three SUVs and I filled up five five-gallon containers of gasoline."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-06-1
+
+Comparing Gold   "an oven"
+      and Resp   "The oven it 350 degrees broiler stuck ??"
+
+RECALL:    0.500
+PRECISION: 0.125
+F-measure: 0.200
+
+----------------------------------------
+
+SCORING blogs-06-2
+
+Comparing Gold   "a group of treats "
+      and Resp   "The oven it 350 degrees broiler stuck ??"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-06-3
+
+Comparing Gold   "the husband of the narrator "
+      and Resp   "door"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-06-4
+
+Comparing Gold   "the door of the oven "
+      and Resp   "The husband of the narrator the door of the oven the fire spreading"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING blogs-06-5
+
+Comparing Gold   "we"
+      and Resp   "couple"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-06-6
+
+Comparing Gold   "the oven"
+      and Resp   "The oven it 350 degrees broiler stuck ??"
+
+RECALL:    1.000
+PRECISION: 0.250
+F-measure: 0.400
+
+----------------------------------------
+
+SCORING blogs-06-7
+
+Comparing Gold   "a fire extinguisher"
+      and Resp   "my husband a batch of cookies them flames"
+
+RECALL:    0.333
+PRECISION: 0.125
+F-measure: 0.182
+
+----------------------------------------
+
+SCORING blogs-06-8
+
+Comparing Gold   "our stove"
+      and Resp   "The oven it 350 degrees broiler stuck ??"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-06-9
+
+Comparing Gold   "a plug-in burner, griddle, and counter top oven"
+      and Resp   "then we a plug-in burner , griddle , and counter top oven"
+
+RECALL:    1.000
+PRECISION: 0.818
+F-measure: 0.900
+
+----------------------------------------
+
+SCORING blogs-06-10
+
+Comparing Gold   "because the broiler of the oven activated"
+      and Resp   "the oven malfunctioned ... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck ??"
+
+RECALL:    0.500
+PRECISION: 0.136
+F-measure: 0.214
+
+----------------------------------------
+
+SCORING blogs-06-11
+
+Comparing Gold   "to the ceiling"
+      and Resp   "of weeks in our old oven/range"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-06-12
+
+Comparing Gold   "the fire"
+      and Resp   "he the oven door and the flames all the way the ceiling !!!"
+
+RECALL:    0.500
+PRECISION: 0.100
+F-measure: 0.167
+
+----------------------------------------
+
+SCORING blogs-06-13
+
+Comparing Gold   "a new second oven"
+      and Resp   "The husband of the narrator the door of the oven the fire spreading"
+
+RECALL:    0.250
+PRECISION: 0.125
+F-measure: 0.167
+
+----------------------------------------
+
+SCORING blogs-06-14
+
+Comparing Gold   "my new range"
+      and Resp   "my new range i a few days"
+
+RECALL:    1.000
+PRECISION: 0.429
+F-measure: 0.600
+
+----------------------------------------
+
+SCORING blogs-06-15
+
+Comparing Gold   "a batch of cookies"
+      and Resp   "my husband a batch of cookies them flames"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING blogs-06-16
+
+Comparing Gold   "the oven"
+      and Resp   "A couple of weeks ago we had a fire in our old oven/range."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-06-17
+
+Comparing Gold   "the husband of the narrator"
+      and Resp   "He tried to put the fire out unsuccessfully and then quickly shut the door to keep the fire from spreading."
+
+RECALL:    0.250
+PRECISION: 0.059
+F-measure: 0.095
+
+----------------------------------------
+
+SCORING blogs-06-18
+
+Comparing Gold   "an oven"
+      and Resp   "The oven malfunctioned... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck??..."
+
+RECALL:    0.500
+PRECISION: 0.045
+F-measure: 0.083
+
+----------------------------------------
+
+SCORING blogs-06-19
+
+Comparing Gold   " trying to put the fire out"
+      and Resp   "The oven malfunctioned... it was supposed to be baking at 350 degrees but somehow broiler came on and got stuck??..."
+
+RECALL:    0.333
+PRECISION: 0.091
+F-measure: 0.143
+
+----------------------------------------
+
+SCORING blogs-06-20
+
+Comparing Gold   "a couple of weeks ago"
+      and Resp   "a couple of weeks we a fire in our old oven/range"
+
+RECALL:    0.800
+PRECISION: 0.400
+F-measure: 0.533
+
+----------------------------------------
+
+SCORING blogs-06-21
+
+Comparing Gold   " he shut the door to keep the fire from spreading"
+      and Resp   "my husband went to get a batch of cookies and found them in flames."
+
+RECALL:    0.111
+PRECISION: 0.067
+F-measure: 0.083
+
+----------------------------------------
+
+SCORING blogs-06-22
+
+Comparing Gold   "to keep the fire from spreading"
+      and Resp   "He tried to put the fire out unsuccessfully and then quickly shut the door to keep the fire from spreading."
+
+RECALL:    1.000
+PRECISION: 0.353
+F-measure: 0.522
+
+----------------------------------------
+
+SCORING blogs-06-23
+
+Comparing Gold   " the flames shot all the way up to the ceiling "
+      and Resp   "He opened the oven door and the flames shot all the way up to the ceiling!!!"
+
+RECALL:    1.000
+PRECISION: 0.571
+F-measure: 0.727
+
+----------------------------------------
+
+SCORING blogs-06-24
+
+Comparing Gold   "the range"
+      and Resp   "Nothing got damaged besides the range but it took days of airing the house out and cleaning before things were 100% back to normal."
+
+RECALL:    1.000
+PRECISION: 0.080
+F-measure: 0.148
+
+----------------------------------------
+
+SCORING fables-01-1
+
+Comparing Gold   "on a branch of a tree"
+      and Resp   "on a branch of a tree with a piece of cheese in her beak of getting the cheese"
+
+RECALL:    1.000
+PRECISION: 0.385
+F-measure: 0.556
+
+----------------------------------------
+
+SCORING fables-01-2
+
+Comparing Gold   "a piece of cheese"
+      and Resp   "Some cheese the beak of the crow"
+
+RECALL:    0.500
+PRECISION: 0.333
+F-measure: 0.400
+
+----------------------------------------
+
+SCORING fables-01-3
+
+Comparing Gold   "a fox and a crow"
+      and Resp   "A Crow a branch of a tree with a piece of cheese in her beak a Fox her his wits some way of getting the cheese"
+
+RECALL:    0.750
+PRECISION: 0.167
+F-measure: 0.273
+
+----------------------------------------
+
+SCORING fables-01-4
+
+Comparing Gold   "snatched"
+      and Resp   "was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-01-5
+
+Comparing Gold   "under the tree"
+      and Resp   "under the tree above me"
+
+RECALL:    1.000
+PRECISION: 0.600
+F-measure: 0.750
+
+----------------------------------------
+
+SCORING fables-01-6
+
+Comparing Gold   "flattered"
+      and Resp   "the tree he What a noble bird I see above me"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-01-7
+
+Comparing Gold   "the fox"
+      and Resp   "fox"
+
+RECALL:    0.500
+PRECISION: 1.000
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-01-8
+
+Comparing Gold   "sitting on the branch of a tree"
+      and Resp   "a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese"
+
+RECALL:    0.714
+PRECISION: 0.278
+F-measure: 0.400
+
+----------------------------------------
+
+SCORING fables-01-9
+
+Comparing Gold   "in the beak of the crow"
+      and Resp   "on a branch of a tree with a piece of cheese in her beak of getting the cheese"
+
+RECALL:    0.800
+PRECISION: 0.308
+F-measure: 0.444
+
+----------------------------------------
+
+SCORING fables-01-10
+
+Comparing Gold   "a fox"
+      and Resp   "a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese"
+
+RECALL:    1.000
+PRECISION: 0.111
+F-measure: 0.200
+
+----------------------------------------
+
+SCORING fables-01-11
+
+Comparing Gold   "a fox"
+      and Resp   "a crow a branch of a tree with a piece of cheese in her beak a fox her his wits some way of getting the cheese"
+
+RECALL:    1.000
+PRECISION: 0.111
+F-measure: 0.200
+
+----------------------------------------
+
+SCORING fables-01-12
+
+Comparing Gold   "the beauty of the bird was incomparable"
+      and Resp   "The fox the beauty of the bird incomparable"
+
+RECALL:    0.833
+PRECISION: 0.833
+F-measure: 0.833
+
+----------------------------------------
+
+SCORING fables-01-13
+
+Comparing Gold   "loudly"
+      and Resp   "flattered"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-01-14
+
+Comparing Gold   "the crow"
+      and Resp   "A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese."
+
+RECALL:    1.000
+PRECISION: 0.069
+F-measure: 0.129
+
+----------------------------------------
+
+SCORING fables-01-15
+
+Comparing Gold   "a fox"
+      and Resp   "A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese."
+
+RECALL:    1.000
+PRECISION: 0.069
+F-measure: 0.129
+
+----------------------------------------
+
+SCORING fables-01-16
+
+Comparing Gold   "the crow"
+      and Resp   "A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese."
+
+RECALL:    1.000
+PRECISION: 0.069
+F-measure: 0.129
+
+----------------------------------------
+
+SCORING fables-01-17
+
+Comparing Gold   "the crow"
+      and Resp   "A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese."
+
+RECALL:    1.000
+PRECISION: 0.069
+F-measure: 0.129
+
+----------------------------------------
+
+SCORING fables-01-18
+
+Comparing Gold   "the crow"
+      and Resp   "A Crow was sitting on a branch of a tree with a piece of cheese in her beak when a Fox observed her and set his wits to work to discover some way of getting the cheese."
+
+RECALL:    1.000
+PRECISION: 0.069
+F-measure: 0.129
+
+----------------------------------------
+
+SCORING fables-02-1
+
+Comparing Gold   "a fat bull"
+      and Resp   "lion"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-02-2
+
+Comparing Gold   "the bull"
+      and Resp   "bull"
+
+RECALL:    0.500
+PRECISION: 1.000
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-02-3
+
+Comparing Gold   "in a meadow"
+      and Resp   "in the world"
+
+RECALL:    0.333
+PRECISION: 0.333
+F-measure: 0.333
+
+----------------------------------------
+
+SCORING fables-02-4
+
+Comparing Gold   "the bull"
+      and Resp   "The bull grazing in a meadow"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING fables-02-5
+
+Comparing Gold   "a lion"
+      and Resp   "lion"
+
+RECALL:    0.500
+PRECISION: 1.000
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-02-6
+
+Comparing Gold   "that the lion was friendly"
+      and Resp   "What a fine head !"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-02-7
+
+Comparing Gold   "a lion and a bull"
+      and Resp   "my dear friend , what in the world makes you those ugly horns"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-02-8
+
+Comparing Gold   "the bull"
+      and Resp   "bull"
+
+RECALL:    0.500
+PRECISION: 1.000
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-02-9
+
+Comparing Gold   "to eat the bull"
+      and Resp   "What a fine head !"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-02-10
+
+Comparing Gold   "because the lion feared sharp every horn of the bull"
+      and Resp   "The lion did n't attack the bull because the lion feared sharp every horn of the bull ."
+
+RECALL:    1.000
+PRECISION: 0.692
+F-measure: 0.818
+
+----------------------------------------
+
+SCORING fables-02-11
+
+Comparing Gold   "sharp every horn of the bull"
+      and Resp   "What a fine head !"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-02-12
+
+Comparing Gold   "horns"
+      and Resp   "my dear friend , what in the world makes you those ugly horns"
+
+RECALL:    1.000
+PRECISION: 0.077
+F-measure: 0.143
+
+----------------------------------------
+
+SCORING fables-02-13
+
+Comparing Gold   "a lion"
+      and Resp   "a lion a fat bull feeding a meadow his mouth he the royal feast he he him he his sharp horns"
+
+RECALL:    1.000
+PRECISION: 0.133
+F-measure: 0.235
+
+----------------------------------------
+
+SCORING fables-02-14
+
+Comparing Gold   "because the lion wanted to eat the bull"
+      and Resp   "a lion watched a fat bull feeding in a meadow , and his mouth watered when he thought of the royal feast he would make , but he did not dare to attack him , for he was afraid of his sharp horns ."
+
+RECALL:    0.571
+PRECISION: 0.114
+F-measure: 0.190
+
+----------------------------------------
+
+SCORING fables-02-15
+
+Comparing Gold   "to remove every horn of the bull"
+      and Resp   "a lion a fat bull feeding a meadow his mouth he the royal feast he he him he afraid of his sharp horns"
+
+RECALL:    0.429
+PRECISION: 0.176
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING fables-02-16
+
+Comparing Gold   "because every horn of the bull was ugly"
+      and Resp   "a lion watched a fat bull feeding in a meadow , and his mouth watered when he thought of the royal feast he would make , but he did not dare to attack him , for he was afraid of his sharp horns ."
+
+RECALL:    0.500
+PRECISION: 0.114
+F-measure: 0.186
+
+----------------------------------------
+
+SCORING fables-02-17
+
+Comparing Gold   "to attempt to kill the bull"
+      and Resp   "a lion a fat bull feeding a meadow his mouth he the royal feast he he him he afraid of his sharp horns"
+
+RECALL:    0.400
+PRECISION: 0.118
+F-measure: 0.182
+
+----------------------------------------
+
+SCORING fables-02-18
+
+Comparing Gold   "the bull"
+      and Resp   "a lion a fat bull feeding a meadow his mouth he the royal feast he he him he his sharp horns"
+
+RECALL:    1.000
+PRECISION: 0.133
+F-measure: 0.235
+
+----------------------------------------
+
+SCORING fables-02-19
+
+Comparing Gold   "the bull"
+      and Resp   "But, my dear friend, what in the world makes you wear those ugly horns?"
+
+RECALL:    0.500
+PRECISION: 0.062
+F-measure: 0.111
+
+----------------------------------------
+
+SCORING fables-02-20
+
+Comparing Gold   "because the lion feared sharp every horn of the bull."
+      and Resp   "But, my dear friend, what in the world makes you wear those ugly horns?"
+
+RECALL:    0.100
+PRECISION: 0.062
+F-measure: 0.077
+
+----------------------------------------
+
+SCORING fables-02-21
+
+Comparing Gold   "the bull"
+      and Resp   "What a fine head!"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-02-22
+
+Comparing Gold   "the bull"
+      and Resp   "What a fine head!"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-02-23
+
+Comparing Gold   "the lion"
+      and Resp   "But, my dear friend, what in the world makes you wear those ugly horns?"
+
+RECALL:    0.500
+PRECISION: 0.062
+F-measure: 0.111
+
+----------------------------------------
+
+SCORING blogs-01-1
+
+Comparing Gold   " eventful today"
+      and Resp   "Today the start of the G20 summit"
+
+RECALL:    0.500
+PRECISION: 0.167
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING blogs-01-2
+
+Comparing Gold   "g20 summit"
+      and Resp   "A summit meeting named G20 summit eventful today"
+
+RECALL:    1.000
+PRECISION: 0.286
+F-measure: 0.444
+
+----------------------------------------
+
+SCORING blogs-01-3
+
+Comparing Gold   "on a street "
+      and Resp   "of people who have different views on how to run the government they follow so they protest"
+
+RECALL:    0.333
+PRECISION: 0.062
+F-measure: 0.105
+
+----------------------------------------
+
+SCORING blogs-01-4
+
+Comparing Gold   "a police car "
+      and Resp   "there many leaders their a lot of people who have different views on how to run the government they follow so they protest"
+
+RECALL:    0.333
+PRECISION: 0.045
+F-measure: 0.080
+
+----------------------------------------
+
+SCORING blogs-01-5
+
+Comparing Gold   "the people"
+      and Resp   "views"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-01-6
+
+Comparing Gold   "the people"
+      and Resp   "There a protest that happened along the street where I work it a bunch of people a riot"
+
+RECALL:    1.000
+PRECISION: 0.125
+F-measure: 0.222
+
+----------------------------------------
+
+SCORING blogs-01-7
+
+Comparing Gold   "it burned "
+      and Resp   "There a protest that happened along the street where I work it peaceful a bunch of people a riot"
+
+RECALL:    0.500
+PRECISION: 0.059
+F-measure: 0.105
+
+----------------------------------------
+
+SCORING blogs-01-8
+
+Comparing Gold   "the people"
+      and Resp   "The people a police car a thing a police"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING blogs-01-9
+
+Comparing Gold   " police cars"
+      and Resp   "Police cars things cops"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING blogs-01-10
+
+Comparing Gold   "were burned "
+      and Resp   "There a protest that happened along the street where I work it peaceful a bunch of people a riot"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-01-11
+
+Comparing Gold   "bean bag bullets"
+      and Resp   "things worse gas and bean bag bullets the rioters they windows of stores"
+
+RECALL:    1.000
+PRECISION: 0.231
+F-measure: 0.375
+
+----------------------------------------
+
+SCORING blogs-01-12
+
+Comparing Gold   "bean bag bullets"
+      and Resp   "things worse gas and bean bag bullets the rioters they windows of stores"
+
+RECALL:    1.000
+PRECISION: 0.231
+F-measure: 0.375
+
+----------------------------------------
+
+SCORING blogs-01-13
+
+Comparing Gold   "windows of stores"
+      and Resp   "Today a very eventful work day"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-01-14
+
+Comparing Gold   "the police"
+      and Resp   "The police a gas the people a bullet the people the people a window"
+
+RECALL:    1.000
+PRECISION: 0.286
+F-measure: 0.444
+
+----------------------------------------
+
+SCORING blogs-01-15
+
+Comparing Gold   "the rioters"
+      and Resp   "things gas and bean bag bullets the rioters they windows of stores"
+
+RECALL:    1.000
+PRECISION: 0.167
+F-measure: 0.286
+
+----------------------------------------
+
+SCORING blogs-01-16
+
+Comparing Gold   "because they disagreed about a view"
+      and Resp   "since there are so many leaders coming together their are going to be a lot of people who have different views on how to run the government they follow so they protest ."
+
+RECALL:    0.333
+PRECISION: 0.069
+F-measure: 0.114
+
+----------------------------------------
+
+SCORING blogs-01-17
+
+Comparing Gold   "riot"
+      and Resp   "there many leaders their a lot of people who have different views on how to run the government they follow so they protest"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-01-18
+
+Comparing Gold   "to alleviate the violence"
+      and Resp   "police were in full riot gear to alleviate the violence ."
+
+RECALL:    1.000
+PRECISION: 0.364
+F-measure: 0.533
+
+----------------------------------------
+
+SCORING blogs-01-19
+
+Comparing Gold   "the police"
+      and Resp   "As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores."
+
+RECALL:    0.500
+PRECISION: 0.045
+F-measure: 0.083
+
+----------------------------------------
+
+SCORING blogs-01-20
+
+Comparing Gold   "the people"
+      and Resp   "Today was a very eventful work day."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-01-21
+
+Comparing Gold   "the police"
+      and Resp   "As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores."
+
+RECALL:    0.500
+PRECISION: 0.045
+F-measure: 0.083
+
+----------------------------------------
+
+SCORING blogs-01-22
+
+Comparing Gold   "the people"
+      and Resp   "Today was a very eventful work day."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-01-23
+
+Comparing Gold   "a police car"
+      and Resp   "Today was a very eventful work day."
+
+RECALL:    0.333
+PRECISION: 0.125
+F-measure: 0.182
+
+----------------------------------------
+
+SCORING blogs-01-24
+
+Comparing Gold   "the people"
+      and Resp   "As things got worse tear gas and bean bag bullets were fired at the rioters while they smash windows of stores."
+
+RECALL:    0.500
+PRECISION: 0.045
+F-measure: 0.083
+
+----------------------------------------
+
+SCORING fables-04-1
+
+Comparing Gold   "a stork"
+      and Resp   "fox"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-04-2
+
+Comparing Gold   "a large flat dish of soup"
+      and Resp   "A Fox a Stork dinner , at which the only fare provided was a large flat dish of soup"
+
+RECALL:    1.000
+PRECISION: 0.353
+F-measure: 0.522
+
+----------------------------------------
+
+SCORING fables-04-3
+
+Comparing Gold   "in a flat and large dish"
+      and Resp   "to dinner , at which the only fare provided was a large flat dish of soup"
+
+RECALL:    0.667
+PRECISION: 0.250
+F-measure: 0.364
+
+----------------------------------------
+
+SCORING fables-04-4
+
+Comparing Gold   "a fox and a stork"
+      and Resp   "A Fox a Stork dinner , at which the only fare provided was a large flat dish of soup"
+
+RECALL:    0.750
+PRECISION: 0.176
+F-measure: 0.286
+
+----------------------------------------
+
+SCORING fables-04-5
+
+Comparing Gold   "lapped the soup with relish"
+      and Resp   "invited a Stork to dinner , at which the only fare provided was a large flat dish of soup"
+
+RECALL:    0.400
+PRECISION: 0.111
+F-measure: 0.174
+
+----------------------------------------
+
+SCORING fables-04-6
+
+Comparing Gold   "because he wasn't able to reach some food that was in the pitcher"
+      and Resp   "The fox began to be hungry and began to be helpless because he was n't able to reach some food that was in the pitcher ."
+
+RECALL:    1.000
+PRECISION: 0.650
+F-measure: 0.788
+
+----------------------------------------
+
+SCORING fables-04-7
+
+Comparing Gold   "the long and narrow neck of the pitcher"
+      and Resp   "The stork the long bill of the stork the long and narrow neck of the pitcher"
+
+RECALL:    1.000
+PRECISION: 0.778
+F-measure: 0.875
+
+----------------------------------------
+
+SCORING fables-04-8
+
+Comparing Gold   "for it was impossible for him to reach the tempting contents of the vessel"
+      and Resp   "Thus , while she enjoyed her dinner , the Fox sat by hungry and helpless , for it was impossible for him to reach the tempting contents of the vessel ."
+
+RECALL:    1.000
+PRECISION: 0.462
+F-measure: 0.632
+
+----------------------------------------
+
+SCORING fables-04-9
+
+Comparing Gold   "broth"
+      and Resp   "the fox it great relish the stork with her long bill vain the savoury broth"
+
+RECALL:    1.000
+PRECISION: 0.077
+F-measure: 0.143
+
+----------------------------------------
+
+SCORING fables-04-10
+
+Comparing Gold   "the stork"
+      and Resp   "the fox it great relish the stork with her long bill vain the savoury broth"
+
+RECALL:    1.000
+PRECISION: 0.154
+F-measure: 0.267
+
+----------------------------------------
+
+SCORING fables-04-11
+
+Comparing Gold   "long and narrow"
+      and Resp   "the stork him turn him a pitcher with a long and narrow neck , into which she could get her bill with ease"
+
+RECALL:    1.000
+PRECISION: 0.150
+F-measure: 0.261
+
+----------------------------------------
+
+SCORING fables-04-12
+
+Comparing Gold   "the fox"
+      and Resp   "A clever fox a stork to dine"
+
+RECALL:    0.500
+PRECISION: 0.167
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING fables-04-13
+
+Comparing Gold   "a flat and large dish"
+      and Resp   "a fox a stork dinner , at which the only fare provided was a large flat dish of soup"
+
+RECALL:    0.800
+PRECISION: 0.235
+F-measure: 0.364
+
+----------------------------------------
+
+SCORING fables-04-14
+
+Comparing Gold   "the stork"
+      and Resp   "The Fox lapped it up with great relish, but the Stork with her long bill tried in vain to partake of the savoury broth."
+
+RECALL:    1.000
+PRECISION: 0.087
+F-measure: 0.160
+
+----------------------------------------
+
+SCORING fables-04-15
+
+Comparing Gold   "the stork"
+      and Resp   "The Fox lapped it up with great relish, but the Stork with her long bill tried in vain to partake of the savoury broth."
+
+RECALL:    1.000
+PRECISION: 0.087
+F-measure: 0.160
+
+----------------------------------------
+
+SCORING fables-04-16
+
+Comparing Gold   "some soup in a flat and large dish"
+      and Resp   "A Fox invited a Stork to dinner, at which the only fare provided was a large flat dish of soup."
+
+RECALL:    0.625
+PRECISION: 0.250
+F-measure: 0.357
+
+----------------------------------------
+
+SCORING fables-04-17
+
+Comparing Gold   "the stork"
+      and Resp   "A Fox invited a Stork to dinner, at which the only fare provided was a large flat dish of soup."
+
+RECALL:    1.000
+PRECISION: 0.100
+F-measure: 0.182
+
+----------------------------------------
+
+SCORING blogs-05-1
+
+Comparing Gold   " a teacher, owned some white slip and owned a deck"
+      and Resp   "There a group of students and a narrator"
+
+RECALL:    0.222
+PRECISION: 0.286
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING blogs-05-2
+
+Comparing Gold   " presence and stood at the front of a classroom"
+      and Resp   "There a group of students and a narrator"
+
+RECALL:    0.333
+PRECISION: 0.429
+F-measure: 0.375
+
+----------------------------------------
+
+SCORING blogs-05-3
+
+Comparing Gold   "the narrator"
+      and Resp   "round"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-05-4
+
+Comparing Gold   "teaching"
+      and Resp   "There a group of students and a narrator"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-05-5
+
+Comparing Gold   "the narrator"
+      and Resp   "The narrator the group of students"
+
+RECALL:    1.000
+PRECISION: 0.400
+F-measure: 0.571
+
+----------------------------------------
+
+SCORING blogs-05-6
+
+Comparing Gold   " the slip and inserted it into a bottom drawer of the desk"
+      and Resp   "There a group of students and a narrator"
+
+RECALL:    0.273
+PRECISION: 0.429
+F-measure: 0.333
+
+----------------------------------------
+
+SCORING blogs-05-7
+
+Comparing Gold   "i"
+      and Resp   "i"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING blogs-05-8
+
+Comparing Gold   "one of my most embarassing moments as a teacher to date."
+      and Resp   "I you one of my most embarassing moments as a teacher to date"
+
+RECALL:    0.917
+PRECISION: 0.846
+F-measure: 0.880
+
+----------------------------------------
+
+SCORING blogs-05-9
+
+Comparing Gold   "that my underslip had somehow made its way to the floor"
+      and Resp   "the offending white -LRB- not red and black thank the Lord -RRB- slip and casually it in the bottom drawer of my desk"
+
+RECALL:    0.182
+PRECISION: 0.100
+F-measure: 0.129
+
+----------------------------------------
+
+SCORING blogs-05-10
+
+Comparing Gold   "the slip"
+      and Resp   "The narrator the slip"
+
+RECALL:    1.000
+PRECISION: 0.667
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING blogs-05-11
+
+Comparing Gold   "because the not-functional elastic of the slip was dysfunctional"
+      and Resp   "The narrator was a teacher , owned some white slip and owned a desk ."
+
+RECALL:    0.375
+PRECISION: 0.231
+F-measure: 0.286
+
+----------------------------------------
+
+SCORING blogs-05-12
+
+Comparing Gold   "the narrator"
+      and Resp   "The narrator bewilderment"
+
+RECALL:    1.000
+PRECISION: 0.667
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING blogs-05-13
+
+Comparing Gold   " a mixed class of 5th graders esl"
+      and Resp   "ten years i a mixed class of 5th graders esl"
+
+RECALL:    1.000
+PRECISION: 0.700
+F-measure: 0.824
+
+----------------------------------------
+
+SCORING blogs-05-14
+
+Comparing Gold   "how they had described the day to their parents over dinner"
+      and Resp   "i you one of my most embarassing moments as a teacher to date"
+
+RECALL:    0.091
+PRECISION: 0.077
+F-measure: 0.083
+
+----------------------------------------
+
+SCORING blogs-05-15
+
+Comparing Gold   "no one"
+      and Resp   "later that day i they the day their parents over dinner"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-05-16
+
+Comparing Gold   "the narrator"
+      and Resp   "So I looked at my underwear round my ankles, looked at the class, looked back at the garment, carefully stepped out of it, said, "Oh dear look, what on earth can that be?"
+
+RECALL:    0.500
+PRECISION: 0.033
+F-measure: 0.062
+
+----------------------------------------
+
+SCORING blogs-05-17
+
+Comparing Gold   "the slip"
+      and Resp   "Elastic gone What to do?"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-05-18
+
+Comparing Gold   "at the front of the class"
+      and Resp   "I had taken the register and was standing at the front of the class doing some revision..."
+
+RECALL:    1.000
+PRECISION: 0.312
+F-measure: 0.476
+
+----------------------------------------
+
+SCORING blogs-05-19
+
+Comparing Gold   "later that day"
+      and Resp   "The narrator a teacher some white slip a desk"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-05-20
+
+Comparing Gold   "how they had described their day to their parents "
+      and Resp   "Elastic gone What to do?"
+
+RECALL:    0.125
+PRECISION: 0.167
+F-measure: 0.143
+
+----------------------------------------
+
+SCORING fables-05-1
+
+Comparing Gold   "a fox"
+      and Resp   "farmer"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-05-2
+
+Comparing Gold   " the fields"
+      and Resp   "for the fields for cutting"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-05-3
+
+Comparing Gold   "the farmer"
+      and Resp   "It fire the Farmer all his harvest"
+
+RECALL:    1.000
+PRECISION: 0.286
+F-measure: 0.444
+
+----------------------------------------
+
+SCORING fables-05-4
+
+Comparing Gold   "an agriculturist"
+      and Resp   "HALP"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-05-5
+
+Comparing Gold   "the tail of the fox"
+      and Resp   "onto the tail of the fox and in order"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-05-6
+
+Comparing Gold   "the agriculturist"
+      and Resp   "The agriculturist the fiber the fox"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-05-7
+
+Comparing Gold   "the corn"
+      and Resp   "A Farmer greatly annoyed by a Fox , which came prowling about his yard at night and carried off his fowls"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-05-8
+
+Comparing Gold   "the agriculturist"
+      and Resp   "It fire the Farmer all his harvest"
+
+RECALL:    0.500
+PRECISION: 0.143
+F-measure: 0.222
+
+----------------------------------------
+
+SCORING fables-05-9
+
+Comparing Gold   "all his harvest"
+      and Resp   "a farmer greatly annoyed by a fox , which came prowling about his yard at night and carried off his fowls"
+
+RECALL:    0.333
+PRECISION: 0.053
+F-measure: 0.091
+
+----------------------------------------
+
+SCORING fables-05-10
+
+Comparing Gold   "the agriculturist"
+      and Resp   "The agriculturist set a the fox"
+
+RECALL:    1.000
+PRECISION: 0.400
+F-measure: 0.571
+
+----------------------------------------
+
+SCORING fables-05-11
+
+Comparing Gold   "the agriculturist"
+      and Resp   "a farmer a fox , which came prowling about his yard at night and carried off his fowls"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-05-12
+
+Comparing Gold   "because the fox ran into a field"
+      and Resp   "The agriculturist began to be unlucky because the fox ran into a field ."
+
+RECALL:    1.000
+PRECISION: 0.538
+F-measure: 0.700
+
+----------------------------------------
+
+SCORING fables-05-13
+
+Comparing Gold   "the corn"
+      and Resp   "a farmer greatly annoyed by a fox , which came prowling about his yard at night and carried off his fowls"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-05-14
+
+Comparing Gold   "the fox"
+      and Resp   "A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls."
+
+RECALL:    0.500
+PRECISION: 0.048
+F-measure: 0.087
+
+----------------------------------------
+
+SCORING fables-05-15
+
+Comparing Gold   "the fiber"
+      and Resp   "A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-05-16
+
+Comparing Gold   "the fox"
+      and Resp   "A Farmer was greatly annoyed by a Fox, which came prowling about his yard at night and carried off his fowls."
+
+RECALL:    0.500
+PRECISION: 0.048
+F-measure: 0.087
+
+----------------------------------------
+
+SCORING blogs-02-1
+
+Comparing Gold   "a young man "
+      and Resp   "years"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-02-2
+
+Comparing Gold   " on the spot of the yard of the narrator"
+      and Resp   "of the young man on the front yard of a narrator of the young man"
+
+RECALL:    0.833
+PRECISION: 0.556
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING blogs-02-3
+
+Comparing Gold   "i "
+      and Resp   "i"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING blogs-02-4
+
+Comparing Gold   "because it wanted the young man to know the narrator regretting that it had not aided him"
+      and Resp   "The narrator later went back to the spot of the yard of the narrator and decided to talk to the young man because it wanted the young man to know the narrator regretting that it had not aided him ."
+
+RECALL:    1.000
+PRECISION: 0.600
+F-measure: 0.750
+
+----------------------------------------
+
+SCORING blogs-02-5
+
+Comparing Gold   "the house of the narrator"
+      and Resp   "of the young man on the front yard of a narrator of the young man"
+
+RECALL:    0.750
+PRECISION: 0.333
+F-measure: 0.462
+
+----------------------------------------
+
+SCORING blogs-02-6
+
+Comparing Gold   " some bright flash in a group of trees that was above the narrator"
+      and Resp   "A young man the motorbike of the young man the front yard of a narrator the neck of the young man"
+
+RECALL:    0.308
+PRECISION: 0.400
+F-measure: 0.348
+
+----------------------------------------
+
+SCORING blogs-02-7
+
+Comparing Gold   "everyone"
+      and Resp   "my logical mind it my brother playing around with his new flashlight all like it , but the closest thing I could imagine I the house everyone"
+
+RECALL:    1.000
+PRECISION: 0.043
+F-measure: 0.083
+
+----------------------------------------
+
+SCORING blogs-02-8
+
+Comparing Gold   "a young man"
+      and Resp   "years"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-02-9
+
+Comparing Gold   "the narrator"
+      and Resp   "A few years a young man my front lawn he his motorbike"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-02-10
+
+Comparing Gold   "the narrator and a young man"
+      and Resp   "A few years a young man my front lawn he his motorbike"
+
+RECALL:    0.500
+PRECISION: 0.273
+F-measure: 0.353
+
+----------------------------------------
+
+SCORING blogs-02-11
+
+Comparing Gold   "that the flash was an orb"
+      and Resp   "The narrator the flash an orb"
+
+RECALL:    0.667
+PRECISION: 0.800
+F-measure: 0.727
+
+----------------------------------------
+
+SCORING blogs-02-12
+
+Comparing Gold   "some bright flash"
+      and Resp   "The narrator some bright flash a group of trees that was above the narrator"
+
+RECALL:    1.000
+PRECISION: 0.250
+F-measure: 0.400
+
+----------------------------------------
+
+SCORING blogs-02-13
+
+Comparing Gold   "a few years ago "
+      and Resp   "a few years a young man my front lawn he his motorbike"
+
+RECALL:    0.750
+PRECISION: 0.273
+F-measure: 0.400
+
+----------------------------------------
+
+SCORING blogs-02-14
+
+Comparing Gold   "on the front yard of a narrator"
+      and Resp   "of the young man on the front yard of a narrator of the young man"
+
+RECALL:    1.000
+PRECISION: 0.778
+F-measure: 0.875
+
+----------------------------------------
+
+SCORING blogs-02-15
+
+Comparing Gold   "a young man"
+      and Resp   "A young man the motorbike of the young man the front yard of a narrator the neck of the young man"
+
+RECALL:    1.000
+PRECISION: 0.300
+F-measure: 0.462
+
+----------------------------------------
+
+SCORING blogs-02-16
+
+Comparing Gold   "the narrator"
+      and Resp   "The narrator the spot of the yard of the narrator the young man it the young man the narrator regretting that it had not aided him"
+
+RECALL:    1.000
+PRECISION: 0.143
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING blogs-02-17
+
+Comparing Gold   "the house of the narrator"
+      and Resp   "A few years ago, a young man died out on my front lawn when he crashed his motorbike."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-02-18
+
+Comparing Gold   "the family of the narrator"
+      and Resp   "A few years ago, a young man died out on my front lawn when he crashed his motorbike."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-02-19
+
+Comparing Gold   "the narrator"
+      and Resp   "At first, my logical mind thought that it was my brother playing around with his new flashlight (not at all like it, but the closest thing I could imagine)
+And when I went inside the house, everyone was snoring!"
+
+RECALL:    0.500
+PRECISION: 0.027
+F-measure: 0.051
+
+----------------------------------------
+
+SCORING blogs-02-20
+
+Comparing Gold   "some bright flash"
+      and Resp   "A few years ago, a young man died out on my front lawn when he crashed his motorbike."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-04-1
+
+Comparing Gold   "the squirrel"
+      and Resp   "We a large stainless steel bowl of water the back deck for Benjamin to drink out of when he 's playing outside"
+
+RECALL:    0.500
+PRECISION: 0.048
+F-measure: 0.087
+
+----------------------------------------
+
+SCORING blogs-04-2
+
+Comparing Gold   "the squirrel"
+      and Resp   "The squirrel the deck 's railing the squirrel the squirrel"
+
+RECALL:    1.000
+PRECISION: 0.400
+F-measure: 0.571
+
+----------------------------------------
+
+SCORING blogs-04-3
+
+Comparing Gold   "the squirrel's paw"
+      and Resp   "The squirrel 's paw the deck 's railing"
+
+RECALL:    1.000
+PRECISION: 0.667
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING blogs-04-4
+
+Comparing Gold   "the bowl"
+      and Resp   "the day many birds it it"
+
+RECALL:    0.500
+PRECISION: 0.200
+F-measure: 0.286
+
+----------------------------------------
+
+SCORING blogs-04-5
+
+Comparing Gold   "squirrels"
+      and Resp   "squirrels"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING blogs-04-6
+
+Comparing Gold   "i"
+      and Resp   "i"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING blogs-04-7
+
+Comparing Gold   "a digital camera"
+      and Resp   "This one of those times I wish I had a digital camera"
+
+RECALL:    1.000
+PRECISION: 0.273
+F-measure: 0.429
+
+----------------------------------------
+
+SCORING blogs-04-8
+
+Comparing Gold   "many birds"
+      and Resp   "times"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING blogs-04-9
+
+Comparing Gold   "the railing "
+      and Resp   "on the railing"
+
+RECALL:    1.000
+PRECISION: 0.667
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING blogs-04-10
+
+Comparing Gold   "on the deck"
+      and Resp   "of water outside on the back deck for benjamin to drink out of when he 's playing outside"
+
+RECALL:    1.000
+PRECISION: 0.188
+F-measure: 0.316
+
+----------------------------------------
+
+SCORING blogs-04-11
+
+Comparing Gold   "over the deck's railing"
+      and Resp   "by in fright at what i believe was his own reflection in the bowl"
+
+RECALL:    0.200
+PRECISION: 0.077
+F-measure: 0.111
+
+----------------------------------------
+
+SCORING blogs-04-12
+
+Comparing Gold   "in order for the birds to wait"
+      and Resp   "throughout the day , many birds drink out of it and bathe in it ."
+
+RECALL:    0.429
+PRECISION: 0.214
+F-measure: 0.286
+
+----------------------------------------
+
+SCORING blogs-04-13
+
+Comparing Gold   "a large stainless steel bowl of water"
+      and Resp   "we a large stainless steel bowl of water the back deck for benjamin to drink out of when he 's playing outside"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING blogs-04-14
+
+Comparing Gold   "on the deck's railing"
+      and Resp   "Throughout the day, many birds drink out of it and bathe in it."
+
+RECALL:    0.200
+PRECISION: 0.071
+F-measure: 0.105
+
+----------------------------------------
+
+SCORING blogs-04-15
+
+Comparing Gold   "the squirrel's paw"
+      and Resp   "We keep a large stainless steel bowl of water outside on the back deck for Benjamin to drink out of when he's playing outside."
+
+RECALL:    0.500
+PRECISION: 0.083
+F-measure: 0.143
+
+----------------------------------------
+
+SCORING fables-03-1
+
+Comparing Gold   "an eagle, a serpent, and a countryman"
+      and Resp   "countryman"
+
+RECALL:    0.143
+PRECISION: 1.000
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING fables-03-2
+
+Comparing Gold   "an eagle"
+      and Resp   "An Eagle a Serpent it his talons the intention of carrying it off and devouring it"
+
+RECALL:    1.000
+PRECISION: 0.143
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING fables-03-3
+
+Comparing Gold   "his talons"
+      and Resp   "An Eagle a Serpent it his talons the intention of carrying it off and devouring it"
+
+RECALL:    1.000
+PRECISION: 0.143
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING fables-03-4
+
+Comparing Gold   "a countryman"
+      and Resp   "countryman"
+
+RECALL:    0.500
+PRECISION: 1.000
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-03-5
+
+Comparing Gold   " some of his poison"
+      and Resp   "An Eagle a Serpent it his talons the intention of carrying it off and devouring it"
+
+RECALL:    0.500
+PRECISION: 0.143
+F-measure: 0.222
+
+----------------------------------------
+
+SCORING fables-03-6
+
+Comparing Gold   "into the man's drinking-horn "
+      and Resp   "In revenge the Serpent spat some of his poison into the man 's drinking-horn"
+
+RECALL:    1.000
+PRECISION: 0.385
+F-measure: 0.556
+
+----------------------------------------
+
+SCORING fables-03-7
+
+Comparing Gold   "to sip from the drinking vessel"
+      and Resp   "A countryman , who was a witness of the encounter , the assistance of the Eagle him the Serpent him"
+
+RECALL:    0.167
+PRECISION: 0.077
+F-measure: 0.105
+
+----------------------------------------
+
+SCORING fables-03-8
+
+Comparing Gold   "the eagle"
+      and Resp   "The eagle the drinking vessel"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING fables-03-9
+
+Comparing Gold   "the drinking vessel"
+      and Resp   "An eagle a serpent it order for he it"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING fables-03-10
+
+Comparing Gold   "the ground"
+      and Resp   "with his exertions with a draught from the horn , when the Eagle knocked it out of his hand , and spilled its contents upon the ground"
+
+RECALL:    1.000
+PRECISION: 0.091
+F-measure: 0.167
+
+----------------------------------------
+
+SCORING fables-03-11
+
+Comparing Gold   "his exertions"
+      and Resp   "An Eagle a Serpent it his talons the intention of carrying it off and devouring it"
+
+RECALL:    0.500
+PRECISION: 0.071
+F-measure: 0.125
+
+----------------------------------------
+
+SCORING fables-03-12
+
+Comparing Gold   "spat some of his poison into the man's drinking-horn"
+      and Resp   "the Serpent spat some of his poison into the man 's drinking-horn"
+
+RECALL:    1.000
+PRECISION: 0.909
+F-measure: 0.952
+
+----------------------------------------
+
+SCORING fables-03-13
+
+Comparing Gold   "an eagle"
+      and Resp   "an eagle a serpent it his talons the intention of carrying it off and devouring it"
+
+RECALL:    1.000
+PRECISION: 0.143
+F-measure: 0.250
+
+----------------------------------------
+
+SCORING fables-03-14
+
+Comparing Gold   "the serpent"
+      and Resp   "the serpent him its coils him a moment there a life-and-death struggle between the two"
+
+RECALL:    1.000
+PRECISION: 0.167
+F-measure: 0.286
+
+----------------------------------------
+
+SCORING fables-03-15
+
+Comparing Gold   "a countryman"
+      and Resp   "a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him"
+
+RECALL:    1.000
+PRECISION: 0.154
+F-measure: 0.267
+
+----------------------------------------
+
+SCORING fables-03-16
+
+Comparing Gold   "a countryman"
+      and Resp   "a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him"
+
+RECALL:    1.000
+PRECISION: 0.154
+F-measure: 0.267
+
+----------------------------------------
+
+SCORING fables-03-17
+
+Comparing Gold   "a drinking vessel"
+      and Resp   "a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him"
+
+RECALL:    0.333
+PRECISION: 0.077
+F-measure: 0.125
+
+----------------------------------------
+
+SCORING fables-03-18
+
+Comparing Gold   "a countryman"
+      and Resp   "a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him"
+
+RECALL:    1.000
+PRECISION: 0.154
+F-measure: 0.267
+
+----------------------------------------
+
+SCORING fables-03-19
+
+Comparing Gold   "the serpent"
+      and Resp   "a countryman , who was a witness of the encounter , the assistance of the eagle him the serpent him"
+
+RECALL:    1.000
+PRECISION: 0.154
+F-measure: 0.267
+
+----------------------------------------
+
+SCORING fables-03-20
+
+Comparing Gold   " some of his poison"
+      and Resp   "revenge the serpent spat some of his poison into the man 's drinking-horn"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING fables-03-21
+
+Comparing Gold   "the eagle"
+      and Resp   "his exertions the man his thirst a draught the horn , when the eagle knocked it out of his hand , and spilled its contents upon the ground"
+
+RECALL:    1.000
+PRECISION: 0.091
+F-measure: 0.167
+
+----------------------------------------
+
+SCORING fables-03-22
+
+Comparing Gold   "an eagle"
+      and Resp   "An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it."
+
+RECALL:    1.000
+PRECISION: 0.095
+F-measure: 0.174
+
+----------------------------------------
+
+SCORING fables-03-23
+
+Comparing Gold   "an eagle"
+      and Resp   "An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it."
+
+RECALL:    1.000
+PRECISION: 0.095
+F-measure: 0.174
+
+----------------------------------------
+
+SCORING fables-03-24
+
+Comparing Gold   "a serpent"
+      and Resp   "An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it."
+
+RECALL:    1.000
+PRECISION: 0.095
+F-measure: 0.174
+
+----------------------------------------
+
+SCORING fables-03-25
+
+Comparing Gold   "the eagle"
+      and Resp   "An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it."
+
+RECALL:    1.000
+PRECISION: 0.095
+F-measure: 0.174
+
+----------------------------------------
+
+SCORING fables-03-26
+
+Comparing Gold   "the countryman"
+      and Resp   "An Eagle swooped down upon a Serpent and seized it in his talons with the intention of carrying it off and devouring it."
+
+RECALL:    0.500
+PRECISION: 0.048
+F-measure: 0.087
+
+----------------------------------------
+
+SCORING fables-03-27
+
+Comparing Gold   "the drinking vessel"
+      and Resp   "In revenge the Serpent spat some of his poison into the man's drinking-horn."
+
+RECALL:    0.333
+PRECISION: 0.071
+F-measure: 0.118
+
+----------------------------------------
+
+SCORING mc500.train.0.1
+
+Comparing Gold   "visit friends"
+      and Resp   "She 's now in Miami ."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.2
+
+Comparing Gold   "a salad"
+      and Resp   "swimming she her friend Ellen 's house"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.3
+
+Comparing Gold   "kristin"
+      and Resp   "kristin"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING mc500.train.0.4
+
+Comparing Gold   "atlanta"
+      and Resp   "to the beach after a long trip"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.5
+
+Comparing Gold   "spend time with her friends"
+      and Resp   "It a happy time for everyone"
+
+RECALL:    0.200
+PRECISION: 0.167
+F-measure: 0.182
+
+----------------------------------------
+
+SCORING mc500.train.0.6
+
+Comparing Gold   "they were tired."
+      and Resp   "They stayed the night because they were tired ."
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING mc500.train.0.7
+
+Comparing Gold   "the girls"
+      and Resp   "girls"
+
+RECALL:    0.500
+PRECISION: 1.000
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING mc500.train.0.8
+
+Comparing Gold   "alyssa"
+      and Resp   "alyssa"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING mc500.train.0.9
+
+Comparing Gold   "catfish"
+      and Resp   "Alyssa the restaurant 's special"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.10
+
+Comparing Gold   "soup"
+      and Resp   "Alyssa her friends Kristin and Rachel Ellen 's house"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.11
+
+Comparing Gold   "a restaurant"
+      and Resp   "to a restaurant for dinner"
+
+RECALL:    1.000
+PRECISION: 0.400
+F-measure: 0.571
+
+----------------------------------------
+
+SCORING mc500.train.0.12
+
+Comparing Gold   "ellen's house"
+      and Resp   "at Ellen 's house"
+
+RECALL:    1.000
+PRECISION: 0.750
+F-measure: 0.857
+
+----------------------------------------
+
+SCORING mc500.train.0.13
+
+Comparing Gold   "some lemonade"
+      and Resp   "ellen alyssa and they some lemonade to drink"
+
+RECALL:    1.000
+PRECISION: 0.250
+F-measure: 0.400
+
+----------------------------------------
+
+SCORING mc500.train.0.14
+
+Comparing Gold   "go back to ellen's house "
+      and Resp   "went to a restaurant for dinner"
+
+RECALL:    0.167
+PRECISION: 0.167
+F-measure: 0.167
+
+----------------------------------------
+
+SCORING mc500.train.0.15
+
+Comparing Gold   "yes"
+      and Resp   "yes"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING mc500.train.0.16
+
+Comparing Gold   "yes"
+      and Resp   "yes"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING mc500.train.0.17
+
+Comparing Gold   "swimming and laying out"
+      and Resp   "Alyssa got to the beach after a long trip."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.18
+
+Comparing Gold   "yes"
+      and Resp   "Alyssa got to the beach after a long trip."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.19
+
+Comparing Gold   "miami"
+      and Resp   "Alyssa got to the beach after a long trip."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.20
+
+Comparing Gold   "catfish"
+      and Resp   "Alyssa enjoyed the restaurant's special."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.21
+
+Comparing Gold   "her friends kristin and rachel "
+      and Resp   "alyssa the beach a long trip"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.0.22
+
+Comparing Gold   "to have fun"
+      and Resp   "after eating , the ladies went back to ellen 's house to have fun ."
+
+RECALL:    1.000
+PRECISION: 0.214
+F-measure: 0.353
+
+----------------------------------------
+
+SCORING mc500.train.0.23
+
+Comparing Gold   "the beach"
+      and Resp   "But she wanted some time to herself at the beach, so she went there first."
+
+RECALL:    1.000
+PRECISION: 0.125
+F-measure: 0.222
+
+----------------------------------------
+
+SCORING mc500.train.0.24
+
+Comparing Gold   "her friend ellen's house "
+      and Resp   "Alyssa got to the beach after a long trip."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.23.1
+
+Comparing Gold   "saturday afternoon"
+      and Resp   "It Saturday afternoon Andrew"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING mc500.train.23.2
+
+Comparing Gold   "saturday"
+      and Resp   "He TV all day"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.23.3
+
+Comparing Gold   "outside the window"
+      and Resp   "outside the window by the door"
+
+RECALL:    1.000
+PRECISION: 0.600
+F-measure: 0.750
+
+----------------------------------------
+
+SCORING mc500.train.23.4
+
+Comparing Gold   "the newspaper"
+      and Resp   "Andrew the window the newspaper the door"
+
+RECALL:    1.000
+PRECISION: 0.400
+F-measure: 0.571
+
+----------------------------------------
+
+SCORING mc500.train.23.5
+
+Comparing Gold   "on the front"
+      and Resp   "On the front of an elephant"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING mc500.train.23.6
+
+Comparing Gold   "all day"
+      and Resp   "TV day"
+
+RECALL:    0.500
+PRECISION: 0.500
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING mc500.train.23.7
+
+Comparing Gold   "the story"
+      and Resp   "Andrew and his dad the story"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING mc500.train.23.8
+
+Comparing Gold   "in town"
+      and Resp   "in town"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING mc500.train.23.9
+
+Comparing Gold   "no"
+      and Resp   "no"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING mc500.train.23.10
+
+Comparing Gold   "goldfish food "
+      and Resp   "we Andrew 's dad you your goldfish"
+
+RECALL:    0.500
+PRECISION: 0.143
+F-measure: 0.222
+
+----------------------------------------
+
+SCORING mc500.train.23.11
+
+Comparing Gold   " the people and animals"
+      and Resp   "people"
+
+RECALL:    0.250
+PRECISION: 1.000
+F-measure: 0.400
+
+----------------------------------------
+
+SCORING mc500.train.23.12
+
+Comparing Gold   "lots of peanuts "
+      and Resp   "Andrew 's dad I the newspaper"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.23.13
+
+Comparing Gold   "at the circus "
+      and Resp   "of fun at the circus"
+
+RECALL:    1.000
+PRECISION: 0.600
+F-measure: 0.750
+
+----------------------------------------
+
+SCORING mc500.train.23.14
+
+Comparing Gold   "the circus "
+      and Resp   "to the circus"
+
+RECALL:    1.000
+PRECISION: 0.667
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING mc500.train.23.15
+
+Comparing Gold   "the elephant"
+      and Resp   "The elephant a slide"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING mc500.train.23.16
+
+Comparing Gold   "“i think the newspaper is here. maybe we can find an idea in the newspaper”"
+      and Resp   "andrew 's dad i the newspaper"
+
+RECALL:    0.188
+PRECISION: 0.500
+F-measure: 0.273
+
+----------------------------------------
+
+SCORING mc500.train.23.17
+
+Comparing Gold   "by the door"
+      and Resp   "in the newspaper"
+
+RECALL:    0.333
+PRECISION: 0.333
+F-measure: 0.333
+
+----------------------------------------
+
+SCORING mc500.train.23.18
+
+Comparing Gold   "the elephant"
+      and Resp   "the elephant a slide"
+
+RECALL:    1.000
+PRECISION: 0.500
+F-measure: 0.667
+
+----------------------------------------
+
+SCORING mc500.train.23.19
+
+Comparing Gold   "tricks"
+      and Resp   "the people and animals at the circus lots of tricks"
+
+RECALL:    1.000
+PRECISION: 0.111
+F-measure: 0.200
+
+----------------------------------------
+
+SCORING mc500.train.23.20
+
+Comparing Gold   "the newspaper"
+      and Resp   "he it some peanuts the circus for later"
+
+RECALL:    0.500
+PRECISION: 0.125
+F-measure: 0.200
+
+----------------------------------------
+
+SCORING mc500.train.23.21
+
+Comparing Gold   "feed his goldfish"
+      and Resp   "can said first need to feed your goldfish"
+
+RECALL:    0.667
+PRECISION: 0.250
+F-measure: 0.364
+
+----------------------------------------
+
+SCORING mc500.train.23.22
+
+Comparing Gold   "andrew and his dad"
+      and Resp   "andrew and his dad lots of peanuts"
+
+RECALL:    1.000
+PRECISION: 0.571
+F-measure: 0.727
+
+----------------------------------------
+
+SCORING mc500.train.23.23
+
+Comparing Gold   "a picture of an elephant"
+      and Resp   "Andrew's dad said, "I think the newspaper is here."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.23.24
+
+Comparing Gold   "andrew and his dad ate them"
+      and Resp   "There weren't any peanuts left to bring home to the goldfish."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.18.1
+
+Comparing Gold   "outside to her back yard"
+      and Resp   "to her back yard"
+
+RECALL:    0.800
+PRECISION: 1.000
+F-measure: 0.889
+
+----------------------------------------
+
+SCORING mc500.train.18.2
+
+Comparing Gold   "one morning"
+      and Resp   "Kelly one morning her back yard"
+
+RECALL:    1.000
+PRECISION: 0.333
+F-measure: 0.500
+
+----------------------------------------
+
+SCORING mc500.train.18.3
+
+Comparing Gold   "went outside to her back yard"
+      and Resp   "woke up one morning and went outside to her back yard"
+
+RECALL:    1.000
+PRECISION: 0.545
+F-measure: 0.706
+
+----------------------------------------
+
+SCORING mc500.train.18.4
+
+Comparing Gold   "bunch of flowers"
+      and Resp   "She her mom the biggest , most beautiful bunch of flowers her mother had ever seen"
+
+RECALL:    1.000
+PRECISION: 0.200
+F-measure: 0.333
+
+----------------------------------------
+
+SCORING mc500.train.18.5
+
+Comparing Gold   "a lot of different sized flowers"
+      and Resp   "Kelly one morning her back yard"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.18.6
+
+Comparing Gold   " the flowers"
+      and Resp   "She a hurry it Mother 's Day she flowers her mom her a present"
+
+RECALL:    0.500
+PRECISION: 0.091
+F-measure: 0.154
+
+----------------------------------------
+
+SCORING mc500.train.18.7
+
+Comparing Gold   "in her yard"
+      and Resp   "in her yard"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING mc500.train.18.8
+
+Comparing Gold   "in a secret spot "
+      and Resp   "After that in a secret spot"
+
+RECALL:    1.000
+PRECISION: 0.667
+F-measure: 0.800
+
+----------------------------------------
+
+SCORING mc500.train.18.9
+
+Comparing Gold   " because it was mother's day and she had to collect flowers before her mom woke up to give to her as a present"
+      and Resp   "she was in a hurry because it was mother 's day and she had to collect flowers before her mom woke up to give to her as a present ."
+
+RECALL:    1.000
+PRECISION: 0.875
+F-measure: 0.933
+
+----------------------------------------
+
+SCORING mc500.train.18.10
+
+Comparing Gold   "flowers"
+      and Resp   "She a hurry it Mother 's Day she flowers her mom her a present"
+
+RECALL:    1.000
+PRECISION: 0.091
+F-measure: 0.167
+
+----------------------------------------
+
+SCORING mc500.train.18.11
+
+Comparing Gold   "excited"
+      and Resp   "excited"
+
+RECALL:    1.000
+PRECISION: 1.000
+F-measure: 1.000
+
+----------------------------------------
+
+SCORING mc500.train.18.12
+
+Comparing Gold   "she had to collect flowers before her mom woke up"
+      and Resp   "She was in a hurry because it was Mother 's Day and she had to collect flowers before her mom woke up to give to her as a present ."
+
+RECALL:    1.000
+PRECISION: 0.417
+F-measure: 0.588
+
+----------------------------------------
+
+SCORING mc500.train.18.13
+
+Comparing Gold   "small"
+      and Resp   "The red ones big the orange ones small the green ones the middle"
+
+RECALL:    1.000
+PRECISION: 0.125
+F-measure: 0.222
+
+----------------------------------------
+
+SCORING mc500.train.18.14
+
+Comparing Gold   "the flowers"
+      and Resp   "that she the flowers a secret spot"
+
+RECALL:    1.000
+PRECISION: 0.286
+F-measure: 0.444
+
+----------------------------------------
+
+SCORING mc500.train.18.15
+
+Comparing Gold   "the red one"
+      and Resp   "Her mother 's favorite the red one"
+
+RECALL:    1.000
+PRECISION: 0.429
+F-measure: 0.600
+
+----------------------------------------
+
+SCORING mc500.train.18.16
+
+Comparing Gold   "“8:30 am”"
+      and Resp   "Her mother 's favorite the red one"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.18.17
+
+Comparing Gold   "string"
+      and Resp   "kelly all of the flowers she them string"
+
+RECALL:    1.000
+PRECISION: 0.125
+F-measure: 0.222
+
+----------------------------------------
+
+SCORING mc500.train.18.18
+
+Comparing Gold   "flowers"
+      and Resp   "she a hurry it mother 's day she flowers her mom her a present"
+
+RECALL:    1.000
+PRECISION: 0.091
+F-measure: 0.167
+
+----------------------------------------
+
+SCORING mc500.train.18.19
+
+Comparing Gold   "morgan"
+      and Resp   "she her baby sister morgan , who was still in diapers , the flowers them"
+
+RECALL:    1.000
+PRECISION: 0.071
+F-measure: 0.133
+
+----------------------------------------
+
+SCORING mc500.train.18.20
+
+Comparing Gold   "so morgan wouldn't find the flowers and eat them"
+      and Resp   "after that , she had to hide the flowers in a secret spot ."
+
+RECALL:    0.200
+PRECISION: 0.143
+F-measure: 0.167
+
+----------------------------------------
+
+SCORING mc500.train.18.21
+
+Comparing Gold   "she was going to give her mother the flowers"
+      and Resp   "she was in a hurry because it was mother 's day and she had to collect flowers before her mom woke up to give to her as a present ."
+
+RECALL:    0.778
+PRECISION: 0.292
+F-measure: 0.424
+
+----------------------------------------
+
+SCORING mc500.train.18.22
+
+Comparing Gold   "the flowers"
+      and Resp   "After Kelly collected all of the flowers, she went inside and tied them together with string."
+
+RECALL:    1.000
+PRECISION: 0.111
+F-measure: 0.200
+
+----------------------------------------
+
+SCORING mc500.train.18.23
+
+Comparing Gold   "her back yard"
+      and Resp   "She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present."
+
+RECALL:    0.333
+PRECISION: 0.042
+F-measure: 0.074
+
+----------------------------------------
+
+SCORING mc500.train.18.24
+
+Comparing Gold   "the red ones"
+      and Resp   "She was in a hurry because it was Mother's Day and she had to collect flowers before her mom woke up to give to her as a present."
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.18.25
+
+Comparing Gold   " to her back yard"
+      and Resp   "Finally, her mother woke up at 8:30 AM, and Kelly was excited!"
+
+RECALL:    0.250
+PRECISION: 0.071
+F-measure: 0.111
+
+----------------------------------------
+
+SCORING mc500.train.18.26
+
+Comparing Gold   " she went inside and tied them together with a string"
+      and Resp   "After Kelly collected all of the flowers, she went inside and tied them together with string."
+
+RECALL:    0.900
+PRECISION: 0.500
+F-measure: 0.643
+
+----------------------------------------
+
+SCORING mc500.train.25.0
+
+Comparing Gold   "by the river"
+      and Resp   "in a beautiful pond by the river"
+
+RECALL:    1.000
+PRECISION: 0.429
+F-measure: 0.600
+
+----------------------------------------
+
+SCORING mc500.train.25.1
+
+Comparing Gold   "in a beautiful pond "
+      and Resp   "in a beautiful pond by the river"
+
+RECALL:    1.000
+PRECISION: 0.571
+F-measure: 0.727
+
+----------------------------------------
+
+SCORING mc500.train.25.2
+
+Comparing Gold   "rocks"
+      and Resp   "After that Cindy didn't throw any rocks, and Maxine and Thomas could swim together and take lots of baths."
+
+RECALL:    1.000
+PRECISION: 0.050
+F-measure: 0.095
+
+----------------------------------------
+
+SCORING mc500.train.25.3
+
+Comparing Gold   "a new friend"
+      and Resp   "Maxine was a happy frog that lived in a beautiful pond by the river."
+
+RECALL:    0.333
+PRECISION: 0.071
+F-measure: 0.118
+
+----------------------------------------
+
+SCORING mc500.train.111.0
+
+Comparing Gold   "will"
+      and Resp   "HALP"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.111.1
+
+Comparing Gold   "a very silly looking dog"
+      and Resp   "the store Will a good laugh at a very silly looking dog"
+
+RECALL:    1.000
+PRECISION: 0.455
+F-measure: 0.625
+
+----------------------------------------
+
+SCORING mc500.train.111.2
+
+Comparing Gold   "thunder"
+      and Resp   "his favorite song"
+
+RECALL:    0.000
+PRECISION: 0.000
+F-measure: 0.000
+
+----------------------------------------
+
+SCORING mc500.train.111.3
+
