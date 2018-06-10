@@ -10,12 +10,12 @@ import csv
 from collections import defaultdict
 from nltk.corpus import wordnet as wn
 import string
+from nltk.tree import Tree
 
 should_normalize = True
 DATA_DIR = "./wordnet"  # From wordnet_demo.py
 
 def diagnose_goal(question_text,dep_q,par_q):
-    #print(par_q)
     # Get question type (who, what, where, when, or why)                                                              
     question_type_who = re.match(r'[wW]ho (.*)',   question_text)
     question_type_what = re.match(r'[wW]hat (.*)',  question_text)
@@ -37,7 +37,6 @@ def diagnose_goal(question_text,dep_q,par_q):
             return ["VP"]
         #if quesition ends in preposition, it wants a PP answer
         if dep_q.nodes[len(question_text.split(" "))]["tag"] == "IN":
-            print("WHAT PP QUESTION")
             return ["PP","NP"]
         return ["NP","ADJP"]
     elif question_type_why:
@@ -70,7 +69,6 @@ def rec_print_vps(vp_structs):
             if "(VP" in str(item):
                 for child in item:
                     if "(VP" in str(child):
-                        print("item-child: "+str(len(child))+" "+str(child))
                         str_child = re.sub(r'\([A-Z]+','',str(child))
                         str_child = re.sub(r'\)','',str_child)
                         str_child = re.sub(r'\s',' ',str_child)
@@ -90,39 +88,17 @@ def create_discourse_model(par_s):
     for sentence in par_s:
         pronoun_map = {}
         nouns_in_sentence = mod_rec_check_for_pos(sentence,["NP"])
-        #remove stopwords
-        #determiner = ""
-        #for noun in nouns_in_sentence:
-        #    if noun.lower() in stopwords.words():
-        #        nouns_in_sentence.remove(noun)
-        #        determiner = noun
-        #    else:
-        #        if determiner != "":
-        #            nouns_in_sentence.remove(noun)
-        #            noun = determiner+" "+noun
-        #            nouns_in_sentence.append(noun)
-        #        determiner = ""
-        print("NOUNS IN SENT: "+str(nouns_in_sentence))
+
         vps_in_sentence = rec_check_for_pos(sentence,["VP"])
         
-        print("vps_in_sentence: "+str(vps_in_sentence))
-        #while(r'\w' in str(check_for_top_pos)
-        print(check_for_top_pos(sentence,["VP"]))
         vps,vp_structs = check_for_top_pos(sentence,["VP"])
         verb_phrases = rec_print_vps(vp_structs)
-        print(verb_phrases)
-        #for struct in vp_structs:
-        #    for item in struct:
-        #        if "VP" in str(item):
-        #            for child in item:
-        #                print("item-child: "+str(len(child))+" "+str(child))
-        #                print(check_for_top_pos(child,["VP"]))
-            #print(check_for_top_pos(struct,["VP"]))
+     
         actions_so_far[par_s.index(sentence)] = verb_phrases #vps_in_sentence
-        #print("nouns_in_sentence: "+str(nouns_in_sentence))
+
         #check for pronouns in sentence
         pronouns = rec_check_for_pos(sentence,["PRP"])
-        #print("pronouns: "+str(pronouns))
+
         for pronoun in pronouns:
             if pronoun=="it":
                 candidates = []
@@ -145,13 +121,10 @@ def create_discourse_model(par_s):
         discourse_model.append(pronoun_map)
         #add locations to locations_so_far
         pps = rec_check_for_pos(sentence,["PP"])
-        print("pps: "+str(pps))
-        #for pp in pps:
         if len(pps)>0 and ((pps[0] == "in" and pps[1]!="order") or pps[0] == "at" or pps[0] == "into" or pps[0] == "on"):
             locations_so_far[par_s.index(sentence)] = (" ".join(pps))
         if len(pps)>0 and pps[0] == "by":
             locations_so_far[par_s.index(sentence)] = (" ".join(pps))
-    print("LOCATILNS: "+str(locations_so_far))
     return discourse_model, locations_so_far, actions_so_far
 
 def normalize_verb(keywords,dep_q):
@@ -257,7 +230,7 @@ def get_keyword(question,dep_q):
         keyword = permute_and_join(keywords)
     else:
         keyword = get_noun(question["text"],dep_q)
-        #keyword = " ".join(rec_check_for_pos(question["par"],["NP"]))
+        print("get noun: {}".format(keyword))
     return keyword
 
 # Get noun from question
@@ -275,7 +248,6 @@ def get_noun(question,dep_q):
 # Get verb from question                                                                                       
 def get_verb(question,dep_q):
     keywords = nltk.word_tokenize(question)
-    print("get_verb: "+str(keywords))
     keywords = question.split(" ")
     for node in dep_q.nodes:
         if node-1 in range(len(keywords)):
@@ -285,8 +257,6 @@ def get_verb(question,dep_q):
                 keyword = "none"
     keyword = re.sub('[?,.!]', '', keyword)
     return keyword
-
-#def get_verb_con(question,par_q):
     
 
 # Get all words with parts of speech in the pos_list from answer sentence
@@ -351,7 +321,6 @@ def yes_no_q(question_text, story, goal_constituents, discourse_model):
     should_negate = False
     for word in question_words:
         if word == ("not", "didn't", "hadn't"):
-            print(word)
             should_negate = True
     
     answer = "yes"
@@ -402,7 +371,6 @@ def get_story_nouns_verbs(story, sentence):
         stories = items['stories']
         if len(stories) >= 1 and s_id+".vgl" in stories:
             verbs.append(verb)
-    # print(nouns + verbs)
     return nouns + verbs
 
 # Uses code from wordnet_demo.py
@@ -424,81 +392,15 @@ def get_story_wn_ids(story, sentence):
         stories = items['stories']
         if len(stories) >= 1 and s_id+".vgl" in stories:
             verbs.append(verb_id)
-    print(nouns + verbs)
     return nouns + verbs
 
 def get_full_synset(story, sentence):
-    # noun_verb_ids = get_story_nouns_verbs(story, sentence)
     noun_verb_ids = get_story_wn_ids(story, sentence)
     all_synonyms = []
 
     for an_id in noun_verb_ids:
-        # print(wn.synset(an_id))
-        # for i in get_synsets(an_id):
         all_synonyms.append(wn.synset(an_id))
     return all_synonyms
-
-# Old version
-# def get_wn_overlap(question, story):
-#     q_id = question["qid"]
-#     q_text = question["text"]
-#     s_id = question["sid"]
-#     s_text = story["text"]
-#     q_words = nltk.word_tokenize(q_text)
-
-#     # Remove stopwords from question
-#     q_synonyms = []
-#     first = True
-#     for word in q_words:
-        
-#         if first and word not in stopwords.words('English'):
-#             q_words.remove(word)
-#             first = False
-        
-#         if word in stopwords.words('English') or word == '?':
-#             q_words.remove(word)
-#         # else:
-#             # syns = get_synonyms(word)
-#             # print("WORD TO GET: {}".format(word))
-#             # if len(syns) >= 1:
-#             #     for s in syns:
-#             #         q_synonyms.append(s)
-    
-#     # for word in q_words:
-#     #     syns = get_synonyms(word)
-#     #     # print("WORD TO GET: {}".format(word))
-#     #     if len(syns) >= 1:
-#     #         for s in syns:
-#     #             q_synonyms.append(s)
-    
-#     # print("        qwords: {}".format(q_words))
-#     # q_words_all = q_words + q_synonyms
-#     # s_all_synonyms = get_full_synset(story)
-#     text_freq = {}
-#     sent_index = 0
-
-#     # print("  qwordsall: {}\n".format(q_words_all))
-#     for s_sent in nltk.sent_tokenize(s_text):
-#         # s_all_synonyms = get_full_synset(story, s_sent)
-#         for s_word in s_sent:
-#             s_all_synonyms = get_hypo_hyper(s_word)
-#         text_freq[s_sent] = 0
-#         # print("q_words {}".format(q_words))
-#         for q_word in q_words:
-#             # print("q word: {}".format(q_word))
-#             if q_word in s_all_synonyms:
-#                 # print("dict item: {}".format(s_sent))
-#                 text_freq[s_sent] += 1
-#         sent_index += 1
-#         # print("next sent")
-#         # print(s_all_synonyms)
-#     # print("        sallsynonyms: {}\n".format(s_all_synonyms))
-#     best_sentence = max(text_freq, key=text_freq.get)
-#     best_index = nltk.sent_tokenize(s_text).index(best_sentence)
-#     # print("best sentence: {}".format(best_sentence))
-#     # print(text_freq)
-
-#     return best_sentence, best_index
 
 # Updated version
 def get_wn_sent_overlap(question, story):
@@ -526,7 +428,6 @@ def get_wn_sent_overlap(question, story):
     s_sentences = {}
     s_index = 0
     for s_sent in s_sents:
-        # print("sentence: {}".format(s_sent))
         s_index += 1
         s_sentences[s_sent] = 0
         s_sent_synonyms = []
@@ -541,11 +442,7 @@ def get_wn_sent_overlap(question, story):
                             s_sent_synonyms.append(s.name())
                         if s_word not in s_sent_synonyms:
                             s_sent_synonyms.append(s_word)   # also append the word itself as a backup
-                        # print(s.name())
                         if s.name() in q_words:
-                            # print("...sentence: {}".format(s_words))
-                            # print("...sMATCH: {}, {}.".format(s.name(), q_words))
-                            # print("...synonyms: {}\n".format(s_sent_synonyms))
                             s_sentences[s_sent] += 1
                         else:   # if you can't find a match, try lemmatizing words in question
                             lmtzr = WordNetLemmatizer()
@@ -554,11 +451,7 @@ def get_wn_sent_overlap(question, story):
                                 lem = lmtzr.lemmatize(w, 'v')
                                 lems.append(lem)
                             if s.name() in lems:
-                                # print("...sentence: {}".format(s_words))
-                                # print("...lMATCH: {}, {}.".format(s.name(), q_words))
-                                # print("...synonyms: {}\n".format(s_sent_synonyms))
                                 s_sentences[s_sent] += 1
-                            # print(s.name())
                 else:
                     continue
         
@@ -589,16 +482,12 @@ def get_wn_sent_overlap(question, story):
                                 for l in lemmas:
                                     s_sent_hyper.append(l.name())
                                     if l.name() in q_words:
-                                        # print("...sentence: {}".format(s_words))
-                                        # print("...heMATCH: {}, {}.".format(s.name(), q_words))
                                         text_freq[s_sent] += 1
                             for h in s.hyponyms():
                                 lemmas = h.lemmas()
                                 for l in lemmas:
                                     s_sent_hypo.append(l.name())
                                     if l.name() in q_words:
-                                        # print("...sentence: {}".format(s_words))
-                                        # print("...hoMATCH: {}, {}.".format(s.name(), q_words))
                                         text_freq[s_sent] += 1
         m = max(text_freq, key=text_freq.get)
         max_val = text_freq[m]
@@ -642,13 +531,9 @@ def get_hyponyms(word):
     all_hyponyms = []
     for synset in get_synsets(word):
         hyponyms = synset.hyponyms()
-        # print("%s: %s" % (synset, hyponyms))
         for hypo in hyponyms:
-            # print(hypo.name()[0:hypo.name().index(".")])
             if hypo.name() in noun_ids or hypo.name() in verb_ids: 
                 all_hyponyms.append(hypo.name()[0:hypo.name().index(".")])
-                # print(hypo.name())
-    # print("all hypo: \n{}\n".format(all_hyponyms))
     return all_hyponyms
 
 # Uses code from wordnet_demo.py
@@ -661,7 +546,6 @@ def get_hypernyms(word):
         for hyper in hypernyms:
             if hyper.name() in noun_ids or hyper.name() in verb_ids:
                 all_hypernyms.append(hyper.name()[0:hyper.name().index(".")])
-    # print("all hyper: \n{}\n".format(all_hypernyms))
     return all_hypernyms
 
 # Match the question with the sentence with the most overlapping words
@@ -672,7 +556,6 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
     sch_text = story["sch"]
     sch_par = story["sch_par"]
     question_words = nltk.word_tokenize(question_text)
-    #print("QUESTIOJ WOKRD: "+str(question_words))
     text_sentences = nltk.sent_tokenize(story_text)
     text_freq = {}
     lmtzr = WordNetLemmatizer()
@@ -684,33 +567,24 @@ def question_answer_similarity(question_text, story, goal_constituents,discourse
         lemma_text_words = []
         for word in text_words:
             lemma_text_words.append(lmtzr.lemmatize(word,'v'))
-#        lemma_text_words = [lmtzr.lemmatize(word) for word in text_words]
-        #print("LEMMA TEXT WORDS: "+str(lemma_text_words))
         text_freq[sentence] = 0
         for word in question_words:
             if word in text_words and word not in stopwords.words('english'):
-                #print("Word: "+word+" in textwrods")
                 text_freq[sentence] += 1
                 #weight it more heavily if it's a verb
                 for node in story_dep[sent_index].nodes:
                     if story_dep[sent_index].nodes[node]["word"]==word and "VB" in story_dep[sent_index].nodes[node]["tag"]:
                         text_freq[sentence]+=1
             if lmtzr.lemmatize(word,'v') in lemma_text_words and word not in stopwords.words('english'):
-                #print("Word: "+word+"'s lemma "+lmtzr.lemmatize(word)+" in textwrods")
                 text_freq[sentence] += 1
                 for node in story_dep[sent_index].nodes:
 
                     story_lemma = lmtzr.lemmatize(str(story_dep[sent_index].nodes[node]["word"]))
                     if story_lemma ==lmtzr.lemmatize(word) and "VB" in story_dep[sent_index].nodes[node]["tag"]:
                         text_freq[sentence]+=2
-            #else:
-                #print("Word: "+word+"'s lemma "+lmtzr.lemmatize(word)+" not in textwrods")
-#        print("text_sentences.index(sentence): "+str(text_sentences.index(sentence)%(len(story_par)-1))+" and len(tory_par): "+str(len(story_par)))
-
         if not any(pos in str(story_par[text_sentences.index(sentence)%(len(story_par)-1)]) for pos in goal_constituents):
             text_freq[sentence] -= 10
         sent_index += 1
-    print(text_freq)
     best_sentence = max(text_freq, key=text_freq.get)
     best_index = text_sentences.index(best_sentence)
 
@@ -743,7 +617,6 @@ def normalize_question(question_text,dep_q,constituency_parse):
     how = re.match(r'[Hh]ow (.*)', question_text)
     if who:
         question_text = who.group(1)
-        # print("normalizing WHO: "+question_text)
     elif what:
         question_text = what.group(1)
     elif where:
@@ -807,19 +680,11 @@ def get_answer(question, story):
     dep_s = story["story_dep"]
     par_s = story["story_par"]
 
-    print("get_verb: "+get_verb(text_q,dep_q))
-    print(check_for_top_pos(par_q,["VP"]))
-    print("reccheckforpos vpb"+str(rec_check_for_pos(par_q,["VB"])))
-
     discourse_model, location_model, action_model  = create_discourse_model(par_s)
 
     answer = None
 
-
     sch_discourse_model, sch_location_model, sch_action_model  = create_discourse_model(story["sch_par"])
-    print("\n"+question["qid"])
-
-    #print("discourse model: "+str(discourse_model))
 
     #diagnose what kind of constituent the question wants
     goal_constituents = diagnose_goal(text_q,dep_q,par_q)
@@ -841,7 +706,7 @@ def get_answer(question, story):
         keyword = "[^\.]*"+"[^\.]*".join(poss_adj)+"[^\.]"
 
     verb = rec_check_for_pos(par_q,["V"])
-    #keyword = "[^\.]*"+"[^\.]*".join(verb)+"[^\.]"
+
 
     question_text = question.get("text")  # gets the raw text of the question
     question_difficulty = question.get("difficulty")
@@ -858,15 +723,17 @@ def get_answer(question, story):
     question_type_had = re.match(r'[hH]ad (.*)', question_text)
     question_type_how = re.match(r'[hH]ow (.*)',question_text)
 
+    print("\n{} | {}---------------------------".format(question["qid"], question_difficulty))
+    print(" QUESTION: {}".format(question_text))
+
     if question_difficulty == "Easy":
         if question_type_who:
-            keyword = get_keyword(question,dep_q) #question_type_who.group(),dep_q)
-            #print("WHO keyword: "+keyword)
+            keyword = get_keyword(question,dep_q)        
         if question_type_what:
             keyword = get_noun(question_type_what.group(), dep_q)
             keyword += get_verb(question_type_what.group(), dep_q)
         if question_type_where:
-            keyword = get_keyword(question,dep_q) #question_type_where.group(),dep_q)
+            keyword = get_keyword(question,dep_q) 
         if question_type_when:
             keyword = get_noun(question_type_when.group(), dep_q)
         if question_type_why:
@@ -876,7 +743,7 @@ def get_answer(question, story):
         if question_type_did:
             yes_no_question = True
         if question_type_how:
-            keyword = get_keyword(question,dep_q) #question_type_how.group(),dep_q)
+            keyword = get_keyword(question,dep_q) 
 
         global should_normalize
         should_normalize = True
@@ -916,13 +783,13 @@ def get_answer(question, story):
                         clean.append(pair[0])
                     previous_pair = pair
                 if len(clean)>0:
-                    return " ".join(clean[:2])  # returning the first noun produced the best result
+                    return " ".join(clean[:2]) 
                 else:
-                    return "HALP"
+                    answer = question_answer_similarity(question_text, story, goal_constituents, discourse_model)
+                    return answer
             elif question_type_where:
                 # Only use the best match
                 best = best_match(question_text, matches)
-                # print("     best match: {}".format(best))
                 match_obj = re.match(r"[Ww]here (do|did|is|was) (.*)", question_text)
                 found = False
                 if match_obj:
@@ -945,8 +812,6 @@ def get_answer(question, story):
 
                             q_stmt = ' '.join(word for word in lem_words_q)
                             a_stmt = ' '.join(word for word in lem_words_a)
-                            # print("     Q Stmt: {}".format(q_stmt))
-                            # print("     A Stmt: {}".format(a_stmt))
                             lem_match = re.sub(q_stmt, '', a_stmt)
                             if lem_match:
                                 answer = lem_match
@@ -960,23 +825,13 @@ def get_answer(question, story):
         answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
         sche_answer = ""
         if type(story["sch"]) is str:
-
-            #print(nltk.sent_tokenize(story["sch"])[sentence_index])
-            #print("STORY: "+answer+" VERSUS SCHERAAZAHD: "+nltk.sent_tokenize(story["sch"])[sentence_index])  
             sche_answer,sche_index = question_answer_similarity(question_text,story,goal_constituents,sch_discourse_model)
-            # print("SCHEANSWER: "+sche_answer)
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
-        #answer = get_answer_pos(sentence_index, dep_s, ["NN","JJ"]) #noun(sentence_index, dep_s)
-        #answer = " ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents))
 
     elif question_difficulty == "Medium":
         question_text = normalize_question(question_text,dep_q,par_q)
-        #answer = question_answer_similarity(question_text, story)
         answer,sentence_index = question_answer_similarity(question_text, story,goal_constituents,discourse_model)#[0]
-        # print("answer: "+answer)
-        #sentence_index = question_answer_similarity(question_text, story)[1] #what is sentence_index?
-        # answer = get_answer_noun(sentence_index, dep_s)   
         answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
 
         if question_type_did:
@@ -984,37 +839,25 @@ def get_answer(question, story):
 
         sche_answer = ""
         if type(story["sch"]) is str:
-     
             sche_answer,sche_index = question_answer_similarity(question_text,story,goal_constituents,sch_discourse_model)
-
-            # print("SCHEANSWER: "+sche_answer)
             sche_answer = " ".join(rec_check_for_pos(story["sch_par"][sche_index],goal_constituents))
         answer = best_match(question_text,[answer,sche_answer])
 
     elif question_difficulty == "Hard":
+        if question_type_did:
+            answer = yes_no_q(question_text, story, goal_constituents, discourse_model)
+        else:
+            answer = get_wn_sent_overlap(question, story)[0]
 
-        print("\n{} | {}".format(question["qid"], question_difficulty))
-        print("-----QUESTION: {}".format(question_text))
-        # answer = get_wn_overlap(question,story)[0]
-        answer, sentence_index = question_answer_similarity(
-                    question_text, story, goal_constituents, discourse_model)
-        answer = " ".join(rec_check_for_pos(
-            par_s[sentence_index], goal_constituents)).lower()
-        answer = get_wn_sent_overlap(question, story)[0]   #Katie
-        print("-----ANSWER: {}".format(answer))
-        # answer = question_answer_similarity(
-        #     question_text, story, goal_constituents, discourse_model)[0]
 
     elif question_difficulty == "Discourse":
         answer = question_answer_similarity(
             question_text, story, goal_constituents, discourse_model)[0]
 
-    
-        print(question_difficulty)
         answer, sentence_index  = question_answer_similarity(
             question_text, story, goal_constituents, discourse_model)
         answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
-        if "where" in question_text or "Where" in question_text:
+        if question_type_where:
             i = 0
             if "after" in question_text:
                 while sentence_index+i not in location_model:
@@ -1029,12 +872,11 @@ def get_answer(question, story):
                     i+=1
                 answer =location_model[i]
             return answer
-        if "why" in question_text or "Why" in question_text:
+        if question_type_why:
             answer=" ".join(rec_check_for_pos(par_s[sentence_index-1],goal_constituents)).lower()
-        if "who" in question_text or "Who" in question_text:
+        if question_type_who:
             i = 0
             for sent in discourse_model:
-                print(str(i)+" "+str(sent))
                 i += 1
             answer = []
             for pronoun in rec_check_for_pos(par_s[sentence_index],goal_constituents):
@@ -1042,33 +884,29 @@ def get_answer(question, story):
                     #prioritize capitalized rather than 0th
                     for antecedent in pronoun:
                         if antecedent[0].isupper() and antecedent[0] not in stopwords.words:
-                            print(antecedent[0]+" not in "+str(stopwords.words))
                             answer.append(antecedent)
-                            #break
                 if answer == []:
                     answer.append(discourse_model[sentence_index][pronoun][0])
             if len(answer)>0:
                 answer = " ".join(list(set(answer)))
             else:
                 answer=" ".join(rec_check_for_pos(par_s[sentence_index],goal_constituents)).lower()
-        if "what" in question_text or "What" in question_text:
+        if question_type_what:
             #return next in discourse_model list of actions
             #find the question's verb in the action_model
             question_verb = rec_check_for_pos(par_q,["VB"])#get_verb(question_text,dep_q) #rec_check_for_pos(question_text,["VB"])
             question_verb = question_verb[len(question_verb)-1]
-            #print("qeustiontext: "+question_text+" and dep_q: "+str(dep_q))
-            print("Searching for question_verb: "+str(question_verb)+" in action model: "+str(action_model[sentence_index]))
+
             question_verb = question_verb #[len(question_verb)-1]
             vp_index = 0
             for vp in action_model[sentence_index]:
-                print("vp in action model:  "+vp)
                 if question_verb in vp:
                     break
                 else:
                     vp_index+=1
-#            print("quesiton vp: "+str(action_model[sentence_index][vp_index]))
+
             if len(action_model[sentence_index])>vp_index+1:
-                print("quesiton vp: "+str(action_model[sentence_index][vp_index]))
+
                 answer = action_model[sentence_index][vp_index+1]
             else:
                 j = 1
@@ -1077,26 +915,22 @@ def get_answer(question, story):
                 if j >= len(action_model):
                     while len(action_model[sentence_index+j])==0:
                         j-=1
-                print("choosing first of "+str(action_model[sentence_index+j]))
+
                 answer = action_model[sentence_index+j][-1]
             if "after" in question_text or "After" in question_text:
                 vp_index = len(action_model[sentence_index])-1
                 for i in range(len(action_model[sentence_index])-1,0,-1):
-                #for vp in action_model[sentence_index]:
                     vp = action_model[sentence_index][i]
-                    print("after vp in action model:  "+vp)
                     lemma_vp = ""
                     for word in nltk.word_tokenize(vp):
                         lemma_vp+=lmtzr.lemmatize(word,'v')
                         lemma_vp+=" "
                     if lmtzr.lemmatize(question_verb,'v') in lemma_vp:
-                        print(lmtzr.lemmatize(question_verb,'v')+" in "+lemma_vp)
                         break
                     else:
-                        print(lmtzr.lemmatize(question_verb,'v')+" not in "+lemma_vp)
                         vp_index-=1
                 if len(action_model[sentence_index])>vp_index+1:
-                    print("quesiton vp: "+str(action_model[sentence_index][vp_index]))
+
                     answer = action_model[sentence_index][vp_index+1]
                 else:
                     j = 1
@@ -1105,18 +939,18 @@ def get_answer(question, story):
                     if j >=len(action_model):
                         while len(action_model[sentence_index+j])==0:
                             j-=1
-                    print("choosing first of "+str(action_model[sentence_index+j]))
+
                     answer = action_model[sentence_index+j][0]
             elif "before" in question_text or "Before" in question_text:
                 vp_index = 0
                 for vp in action_model[sentence_index]:
-                    print("before vp in action model:  "+vp)
+
                     if question_verb in vp:
                         break
                     else:
                         vp_index+=1
                 if len(action_model[sentence_index])>vp_index:
-                    print("quesiton vp: "+str(action_model[sentence_index][vp_index]))
+
                     answer = action_model[sentence_index][vp_index-1]
                 else:
                     j = 1
@@ -1125,8 +959,10 @@ def get_answer(question, story):
                     if j >=len(action_model):
                         while len(action_model[sentence_index-j])==0:
                             j-=1
-                    print("choosing last of "+str(action_model[sentence_index-j]))
+
                     answer = action_model[sentence_index-j][-1]
+        if question_type_did:
+            answer = yes_no_q(question_text, story, goal_constituents, discourse_model)
     else:
         answer = question_answer_similarity(question_text, story,goal_constituents,discourse_model)[0]
     if yes_no_question:
@@ -1137,7 +973,9 @@ def get_answer(question, story):
     if answer == None:
         answer = ' '.join(rec_check_for_pos(story["story_par"][0],["NP"]))
     
-    answer = re.sub(r'[.,?!]', '', answer)  # keep colons for time answers
+    # Strip punctuation from final answer (except colons for time answers)
+    answer = re.sub(r'[.,?!]', '', answer)  
+    print(" ANSWER: {}\n---------------------------------------------".format(answer))
     return answer
 
 
