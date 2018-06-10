@@ -12,9 +12,6 @@ def score_all_answers(gold, pred):
         golds = row.answer.lower().split("|")
         scores = {"p": [], "r": [], "f": []}
         for i, gold_answer in enumerate(golds):
-            #if row.Index == "mc500.train.18.16":
-            #    gold_answer = gold_answer.strip('”').rstrip('”')
-
             gold_words = set(nltk.word_tokenize(gold_answer))
             pred_answer = pred.loc[row.Index]
             pred_words = set(nltk.word_tokenize(pred_answer.answer.lower()))
